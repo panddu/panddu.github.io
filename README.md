@@ -115,8 +115,25 @@ frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도
 | 홈 hero 카피·프사 | `_layouts/home.html` |
 | 사이트 전체 색·여백·폰트 | `assets/css/main.scss` |
 | 댓글(giscus) 설정 | `_config.yml` → `giscus:` |
-| 채널 프사 교체 | `assets/img/avatar.png` 덮어쓰기 (정사각형, 400px 이상 권장) |
+| 채널 프사 교체 | `assets/img/avatar.png` 덮어쓰기 (정사각형, 400px 이상 권장) → 파비콘 재생성 필요 (아래 참조) |
+| 파비콘 | `assets/img/{favicon-16x16,favicon-32x32,apple-touch-icon,android-chrome-192x192}.png` — `avatar.png`에서 자동 생성 (아래 참조) |
 | 댓글 로딩 GIF 교체 | `assets/img/party-parrot.gif` 덮어쓰기, 또는 `_includes/giscus.html`의 `src` 변경 |
+| 푸터 (저작권·소셜 아이콘) | `_includes/footer.html` |
+| 헤더 (좌측 프사·사이트 타이틀) | `_includes/header.html` |
+
+### 채널 프사 / 파비콘 재생성
+
+채널 프사 바꿨으면 다음 4개 사이즈도 같이 재생성 (macOS 내장 `sips` 사용 — ImageMagick 불필요):
+
+```bash
+cd assets/img/
+sips -z 16 16   avatar.png --out favicon-16x16.png
+sips -z 32 32   avatar.png --out favicon-32x32.png
+sips -z 180 180 avatar.png --out apple-touch-icon.png
+sips -z 192 192 avatar.png --out android-chrome-192x192.png
+```
+
+파비콘 link 태그 자체는 `_includes/head.html`에 박혀 있어서 파일만 교체하면 끝. ICO 파일은 안 만듦 — 모던 브라우저 전부 PNG favicon 지원.
 | 푸터 (저작권·링크) | `_includes/footer.html` |
 
 ## mingus-agent에서 QnA 모음 글 자동 생성
