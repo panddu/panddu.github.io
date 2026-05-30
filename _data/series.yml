@@ -1,37 +1,25 @@
-# 채널 시리즈 메타.
+# 블로그 카테고리 메타.
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
-# color는 시리즈 배지에 적용되는 accent — 하나의 톤 안에서 5색 분기.
-ddu:
-  display: 뚜데
-  bracket: "[뚜데]"
-  desc: 메인 토크. 회사·AI·개발자 진로·직장 생활.
+# color는 시리즈 배지에 적용되는 accent.
+#
+# 영상 시리즈와 블로그 카테고리는 분리: 블로그는 3개로 단순화.
+qna:
+  display: 뚜쪽상담소
+  bracket: "[뚜쪽상담소]"
+  desc: 시청자 질문 묶음 정리. mingus-agent panddu.qna로 자동 생성된 모음 포함.
+  color: "#d97706"
+  bg: "#fef3c7"
+
+qa:
+  display: Q&A
+  bracket: "[Q&A]"
+  desc: 한 질문에 대한 단발 응답형 글.
   color: "#5b6cff"
   bg: "#eef1ff"
 
-keyboard:
-  display: 개색key
-  bracket: "[개색key]"
-  desc: 키보드 리뷰.
-  color: "#0ea5e9"
-  bg: "#e0f2fe"
-
-gear:
-  display: 뚜gear
-  bracket: "[뚜gear]"
-  desc: 키보드 외 장비 리뷰·테무깡·알리깡.
-  color: "#10b981"
-  bg: "#d1fae5"
-
-vlog:
-  display: vlog
-  bracket: "[vlog]"
-  desc: 일상 기록. 뚜기 재우고 책상 앞, 동네, 출퇴근.
-  color: "#f43f5e"
-  bg: "#ffe4e6"
-
-qna:
-  display: 뚜쪽 상담소
-  bracket: "[뚜쪽 상담소]"
-  desc: 시청자 질문 묶음 정리.
-  color: "#d97706"
-  bg: "#fef3c7"
+etc:
+  display: 그냥 글
+  bracket: "[그냥 글]"
+  desc: 시리즈 안 묶이는 자유 글.
+  color: "#6b7280"
+  bg: "#f3f4f6"

@@ -2,7 +2,7 @@
 layout: post
 title: "블로그를 시작합니다 (감히)"
 date: 2026-05-30 22:00:00 +0900
-category: vlog
+category: etc
 ---
 
 영상 채널 하나도 영세하게 굴리고 있는데 감히 블로그까지 만들어버렸습니다.
