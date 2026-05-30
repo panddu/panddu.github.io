@@ -1,7 +1,12 @@
 {%- assign s = site.data.series[include.post.category] -%}
+{%- assign linked = include.linked | default: false -%}
 <div class="post-meta">
   {%- if s -%}
-    <a class="series-badge" style="color: {{ s.color }}; background: {{ s.bg }};" href="{{ '/series/' | append: include.post.category | append: '/' | relative_url }}">{{ s.bracket }}{% if include.post.series_no %} #{{ include.post.series_no }}{% endif %}</a>
+    {%- if linked -%}
+      <a class="series-badge" style="color: {{ s.color }}; background: {{ s.bg }};" href="{{ '/series/' | append: include.post.category | append: '/' | relative_url }}">{{ s.bracket }}{% if include.post.series_no %} #{{ include.post.series_no }}{% endif %}</a>
+    {%- else -%}
+      <span class="series-badge" style="color: {{ s.color }}; background: {{ s.bg }};">{{ s.bracket }}{% if include.post.series_no %} #{{ include.post.series_no }}{% endif %}</span>
+    {%- endif -%}
   {%- endif -%}
   <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y.%m.%d" }}</time>
 </div>
