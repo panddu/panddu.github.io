@@ -33,6 +33,11 @@ bundle exec jekyll serve --livereload
 
 → http://127.0.0.1:4000/ 에서 확인. 파일 수정하면 자동 새로고침.
 
+**draft까지 같이 보려면:**
+```bash
+bundle exec jekyll serve --livereload --drafts
+```
+
 > ⚠️ `_config.yml` 만 예외 — 변경하면 서버를 다시 띄워야 반영됨 (Ctrl-C → 다시 실행).
 
 서버 끄기: 터미널에서 Ctrl-C. 다른 터미널에서 강제로 끄려면 `pkill -f "jekyll serve"`.
@@ -69,6 +74,23 @@ youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박
 ### 3. 본문
 
 frontmatter 아래에 마크다운으로 쓰면 됨. 마크다운 안에 HTML도 박을 수 있고, Jekyll Liquid 태그도 됨.
+
+### Draft (작성 중인 글)
+
+발행 안 하고 굴리고 싶은 초안은 `_drafts/` 디렉토리에 박는다. 파일명에 **날짜가 들어가지 않는다** — 그냥 `_drafts/slug.md`.
+
+```
+_drafts/
+└── keyboard-review-vanguard.md   # 날짜 없음
+```
+
+frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도 무시됨).
+
+- **기본 빌드에선 안 잡힘** — GitHub Pages 배포해도 사이트에 안 뜸.
+- **로컬에서만 미리보기**: `bundle exec jekyll serve --drafts --livereload`. draft 글의 날짜는 "현재 시각"으로 잡힘.
+- 완성되면 `_posts/YYYY-MM-DD-slug.md` 로 이동하면서 파일명에 날짜 박는다. 끝.
+
+> ⚠️ draft 파일도 git에 push되긴 한다(이 레포가 public이라 누가 봐도 보임). 진짜 비공개로 굴릴 게 있으면 `.gitignore`에 `_drafts/` 추가하거나 다른 곳에 둘 것.
 
 ## 자주 바꾸는 것들 — 어디에서
 
@@ -147,7 +169,8 @@ panddu.github.io/
 │   ├── footer.html          # 푸터
 │   ├── post_meta.html       # 시리즈 배지 + 날짜
 │   └── giscus.html          # 댓글 위젯
-├── _posts/                  # 글 파일들 (YYYY-MM-DD-slug.md)
+├── _posts/                  # 발행된 글 (YYYY-MM-DD-slug.md)
+├── _drafts/                 # 작성 중 (날짜 없음, --drafts 플래그로만 빌드)
 ├── series/                  # 시리즈 페이지들 (각자 series_key로 _data 참조)
 │   ├── index.html           # /series/ — 전체 시리즈 카드
 │   ├── qna.html             # /series/qna/
