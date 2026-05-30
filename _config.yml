@@ -1,12 +1,12 @@
-title: 판교뚜벅쵸
+title: 판뚜|panddu
 tagline: 영상으로 못 푼 얘기를 글로 적어둡니다
 description: >-
-  유튜브 채널 "판교뚜벅쵸"의 글짓기 공간. AI·개발자 진로, 키보드, 육아, 동네 얘기 등.
+  유튜브 채널 "판교 뚜벅쵸|판뚜|panddu"의 글짓기 공간. AI·개발자 진로, 키보드, 육아, 동네 얘기 등.
 author: 판뚜
 url: "https://panddu.github.io"
 baseurl: ""
 
-permalink: /:year/:month/:slug/
+permalink: /posts/:year/:month/:slug/
 
 # Site nav
 nav:

@@ -65,9 +65,9 @@ youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박
 
 - **`layout: post`** — 필수
 - **`category`** — 시리즈 분류. 아래 셋 중 하나:
+  - `etc` → `[끄적]` 배지 (그 외 모두; 시리즈 안 묶이는 자유 글·메모·여담)
   - `qna` → `[뚜쪽상담소]` 배지 (시청자 질문 묶음)
   - `qa` → `[Q&A]` 배지 (단발 응답형 글)
-  - `etc` → `[그냥 글]` 배지 (그 외 모두)
 - **`series_no`** — `#3` 같은 번호 (배지 옆에 박힘). 안 박으려면 생략.
 - **`youtube_id`** — `https://youtu.be/abc123` 의 `abc123` 부분만. 영상 옆에 곁들이는 글일 때 사용.
 
@@ -188,7 +188,7 @@ panddu.github.io/
 
 ## 그 외 메모
 
-- **포스트 URL 패턴**: `/:year/:month/:slug/` (예: `/2026/05/blog-start/`). `_config.yml`의 `permalink:` 에서 바꿀 수 있음.
+- **포스트 URL 패턴**: `/posts/:year/:month/:slug/` (예: `/posts/2026/05/blog-start/`). `_config.yml`의 `permalink:` 에서 바꿀 수 있음.
 - **giscus 댓글**은 GitHub Discussions 기반. 댓글 달려면 GitHub 계정 필요. 시청자층(개발자 아닌 분들) 진입 장벽 있으니 메인은 유튜브 댓글, 블로그는 보조라 보면 됨.
 - **다크모드 미지원** — 현재 라이트 모드만. giscus 위젯도 라이트로 고정.
 - **GitHub Pages 빌드 환경**과 로컬 환경이 같은 Jekyll 3.10 (`github-pages` gem) — "로컬은 되는데 prod에선 안 됨" 류 회피.

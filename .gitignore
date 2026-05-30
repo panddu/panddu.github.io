@@ -7,3 +7,7 @@ vendor/
 
 # OS
 .DS_Store
+
+# IntelliJ — runConfigurations만 공유, 나머지 로컬 설정은 제외
+.idea/*
+!.idea/runConfigurations/

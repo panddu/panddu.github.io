@@ -1,8 +1,13 @@
 # 블로그 카테고리 메타.
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
-# color는 시리즈 배지에 적용되는 accent.
-#
-# 영상 시리즈와 블로그 카테고리는 분리: 블로그는 3개로 단순화.
+# 표시 순서는 이 파일 순서를 따라감.
+etc:
+  display: 끄적
+  bracket: "[끄적]"
+  desc: 시리즈 안 묶이는 자유 글·메모·여담.
+  color: "#6b7280"
+  bg: "#f3f4f6"
+
 qna:
   display: 뚜쪽상담소
   bracket: "[뚜쪽상담소]"
@@ -16,10 +21,3 @@ qa:
   desc: 한 질문에 대한 단발 응답형 글.
   color: "#5b6cff"
   bg: "#eef1ff"
-
-etc:
-  display: 그냥 글
-  bracket: "[그냥 글]"
-  desc: 시리즈 안 묶이는 자유 글.
-  color: "#6b7280"
-  bg: "#f3f4f6"
