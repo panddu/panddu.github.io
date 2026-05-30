@@ -1,0 +1,314 @@
+---
+# Front matter required for Jekyll to process SCSS.
+---
+
+// Palette는 mingus-agent의 HtmlReport와 같은 톤으로 — 향후 QnA 리포트 임베드 시 결 자연스럽게.
+:root {
+  --bg: #ffffff;
+  --ink: #1f2430;
+  --muted: #6b7280;
+  --accent: #5b6cff;
+  --chip: #eef1ff;
+  --line: #eef0f4;
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.muted { color: var(--muted); }
+
+// ===== Header =====
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+.site-header__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+.site-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  &:hover { text-decoration: none; color: var(--accent); }
+}
+.site-nav {
+  display: flex;
+  gap: 18px;
+  font-size: 15px;
+  a {
+    color: var(--muted);
+    &.is-current { color: var(--ink); font-weight: 600; }
+    &:hover { color: var(--accent); text-decoration: none; }
+  }
+}
+
+// ===== Main / footer =====
+.site-main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 80px;
+}
+.site-footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px 24px;
+  font-size: 14px;
+  a { color: var(--muted); }
+}
+
+// ===== Home hero =====
+.home-hero {
+  margin-bottom: 56px;
+}
+.home-hero__title {
+  font-size: 36px;
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+}
+.home-hero__tagline {
+  font-size: 18px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.home-hero__sub {
+  margin: 0;
+  font-size: 15px;
+}
+
+// ===== Section title =====
+.section-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+// ===== Post list =====
+.post-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-list__item {
+  border-top: 1px solid var(--line);
+  &:last-child { border-bottom: 1px solid var(--line); }
+}
+.post-list__link {
+  display: block;
+  padding: 22px 0;
+  color: var(--ink);
+  &:hover {
+    text-decoration: none;
+    .post-list__heading { color: var(--accent); }
+  }
+}
+.post-list__heading {
+  font-size: 19px;
+  margin: 6px 0 6px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.post-list__excerpt {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+// ===== Post meta (badge + date) =====
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.series-badge {
+  background: var(--chip);
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  &:hover { text-decoration: none; }
+}
+
+// ===== Post page =====
+.post-header {
+  margin-bottom: 32px;
+}
+.post-title {
+  font-size: 32px;
+  margin: 10px 0 0;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+.post-youtube {
+  margin-top: 24px;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+.post-content {
+  font-size: 17px;
+  line-height: 1.8;
+
+  h2 { font-size: 22px; margin: 40px 0 14px; letter-spacing: -0.015em; }
+  h3 { font-size: 19px; margin: 32px 0 12px; }
+  p { margin: 0 0 1em; }
+  ul, ol { margin: 0 0 1em; padding-left: 1.4em; }
+  li { margin-bottom: 0.3em; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 1.2em 0;
+    padding: 0.2em 1em;
+    color: var(--muted);
+    background: #fafbff;
+  }
+  code {
+    background: #f4f6fb;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.92em;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+  }
+  pre {
+    background: #1f2430;
+    color: #f4f6fb;
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    code { background: transparent; padding: 0; color: inherit; }
+  }
+  img { max-width: 100%; border-radius: 8px; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 2.5em 0;
+  }
+}
+
+// ===== Series page =====
+.series-hero {
+  margin-bottom: 40px;
+}
+.series-hero__bracket {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+}
+.series-hero__title {
+  margin: 0 0 6px;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+.series-hero__desc { margin: 0; font-size: 15px; }
+
+// ===== Series index (전체) =====
+.series-index {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+.series-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: block;
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+  &:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    .series-card__bracket { color: var(--accent); }
+  }
+}
+.series-card__bracket {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.series-card__title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.series-card__desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+// ===== Comments =====
+.comments {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.comments__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+// ===== Mobile =====
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .site-main { padding: 40px 20px 64px; }
+  .home-hero__title { font-size: 30px; }
+  .post-title { font-size: 26px; }
+  .series-hero__title { font-size: 26px; }
+  .site-header__inner { padding: 14px 20px; }
+  .site-nav { gap: 14px; font-size: 14px; }
+}

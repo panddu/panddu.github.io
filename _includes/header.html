@@ -1,0 +1,10 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav">
+      {% for item in site.nav %}
+        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-current"{% endif %}>{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

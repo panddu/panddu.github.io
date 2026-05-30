@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section class="home-hero">
+  <h1 class="home-hero__title">{{ site.title }}</h1>
+  <p class="home-hero__tagline">{{ site.tagline }}</p>
+  <p class="home-hero__sub muted">파워 영세 유튜버가 영상에선 다 못 풀어둔 얘기를 가끔 적습니다.</p>
+</section>
+
+{{ content }}
+
+<section class="post-list">
+  <h2 class="section-title">최근 글</h2>
+  <ul class="post-list__items">
+    {% for post in site.posts limit: 20 %}
+      <li class="post-list__item">
+        <a href="{{ post.url | relative_url }}" class="post-list__link">
+          {% include post_meta.html post=post %}
+          <h3 class="post-list__heading">{{ post.title | escape }}</h3>
+          {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

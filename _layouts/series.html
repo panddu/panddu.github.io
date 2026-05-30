@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{%- assign s = site.data.series[page.series_key] -%}
+<section class="series-hero">
+  <p class="series-hero__bracket">{{ s.bracket }}</p>
+  <h1 class="series-hero__title">{{ s.display }}</h1>
+  <p class="series-hero__desc muted">{{ s.desc }}</p>
+</section>
+
+<section class="post-list">
+  <ul class="post-list__items">
+    {% assign series_posts = site.posts | where: "category", page.series_key %}
+    {% for post in series_posts %}
+      <li class="post-list__item">
+        <a href="{{ post.url | relative_url }}" class="post-list__link">
+          {% include post_meta.html post=post %}
+          <h3 class="post-list__heading">{{ post.title | escape }}</h3>
+          {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
+        </a>
+      </li>
+    {% else %}
+      <li class="muted">아직 글이 없어요.</li>
+    {% endfor %}
+  </ul>
+</section>

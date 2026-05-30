@@ -1,0 +1,22 @@
+---
+layout: default
+title: 시리즈
+permalink: /series/
+---
+
+<section class="series-hero">
+  <h1 class="series-hero__title">시리즈</h1>
+  <p class="series-hero__desc muted">영상 시리즈를 글로도 정리합니다.</p>
+</section>
+
+<div class="series-index">
+  {% for s in site.data.series %}
+    {% assign key = s[0] %}
+    {% assign meta = s[1] %}
+    <a class="series-card" href="{{ '/series/' | append: key | append: '/' | relative_url }}">
+      <div class="series-card__bracket">{{ meta.bracket }}</div>
+      <div class="series-card__title">{{ meta.display }}</div>
+      <p class="series-card__desc">{{ meta.desc }}</p>
+    </a>
+  {% endfor %}
+</div>

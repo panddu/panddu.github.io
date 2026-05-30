@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    {% include post_meta.html post=page %}
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% if page.youtube_id %}
+      <div class="post-youtube">
+        <iframe src="https://www.youtube.com/embed/{{ page.youtube_id }}"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"></iframe>
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
+
+{% include giscus.html %}

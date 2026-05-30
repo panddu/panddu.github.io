@@ -1,0 +1,54 @@
+title: 판교뚜벅쵸
+tagline: 영상으로 못 푼 얘기를 글로 적어둡니다
+description: >-
+  유튜브 채널 "판교뚜벅쵸"의 글짓기 공간. AI·개발자 진로, 키보드, 육아, 동네 얘기 등.
+author: 판뚜
+url: "https://panddu.github.io"
+baseurl: ""
+
+permalink: /:year/:month/:slug/
+
+# Site nav
+nav:
+  - { name: 글, url: "/" }
+  - { name: 시리즈, url: "/series/" }
+  - { name: 소개, url: "/about/" }
+
+# Series 메타데이터 — 시리즈 페이지·포스트 헤더에서 참조
+# 자세한 값은 _data/series.yml
+
+# Giscus 댓글 — GitHub Discussions 기반.
+# 실제 값은 giscus.app에서 받아 채워야 함. 빈 값이면 댓글 위젯 렌더링 스킵.
+giscus:
+  repo: ""           # "panddu/panddu.github.io"
+  repo_id: ""        # giscus.app에서 발급
+  category: ""       # 보통 "General" 또는 "Comments"
+  category_id: ""    # giscus.app에서 발급
+  mapping: "pathname"
+  strict: "0"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: "top"
+  theme: "light"
+  lang: "ko"
+
+# GitHub Pages 빌드 환경과 동일하게 유지
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Build
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - README.md
+  - .bundle/

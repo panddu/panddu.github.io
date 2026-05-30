@@ -1,0 +1,26 @@
+# 채널 시리즈 메타.
+# 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
+ddu:
+  display: 뚜데
+  bracket: "[뚜데]"
+  desc: 메인 토크. 회사·AI·개발자 진로·직장 생활.
+
+keyboard:
+  display: 개색key
+  bracket: "[개색key]"
+  desc: 키보드 리뷰.
+
+gear:
+  display: 뚜gear
+  bracket: "[뚜gear]"
+  desc: 키보드 외 장비 리뷰·테무깡·알리깡.
+
+vlog:
+  display: vlog
+  bracket: "[vlog]"
+  desc: 일상 기록. 뚜기 재우고 책상 앞, 동네, 출퇴근.
+
+qna:
+  display: 뚜쪽 상담소
+  bracket: "[뚜쪽 상담소]"
+  desc: 시청자 질문 묶음 정리.
