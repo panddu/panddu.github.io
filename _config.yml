@@ -18,18 +18,17 @@ nav:
 # 자세한 값은 _data/series.yml
 
 # Giscus 댓글 — GitHub Discussions 기반.
-# 실제 값은 giscus.app에서 받아 채워야 함. 빈 값이면 댓글 위젯 렌더링 스킵.
 giscus:
-  repo: ""           # "panddu/panddu.github.io"
-  repo_id: ""        # giscus.app에서 발급
-  category: ""       # 보통 "General" 또는 "Comments"
-  category_id: ""    # giscus.app에서 발급
+  repo: "panddu/panddu.github.io"
+  repo_id: "R_kgDOSsPSNg"
+  category: "General"
+  category_id: "DIC_kwDOSsPSNs4C-J2s"
   mapping: "pathname"
   strict: "0"
   reactions_enabled: "1"
   emit_metadata: "0"
-  input_position: "top"
-  theme: "light"
+  input_position: "bottom"
+  theme: "preferred_color_scheme"
   lang: "ko"
 
 # GitHub Pages 빌드 환경과 동일하게 유지
