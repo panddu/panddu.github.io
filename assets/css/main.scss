@@ -2,14 +2,15 @@
 # Front matter required for Jekyll to process SCSS.
 ---
 
-// Palette는 mingus-agent의 HtmlReport와 같은 톤으로 — 향후 QnA 리포트 임베드 시 결 자연스럽게.
+// Palette는 mingus-agent의 HtmlReport와 같은 톤으로 — QnA 리포트 임베드 시 결 자연스럽게.
 :root {
-  --bg: #ffffff;
+  --bg: #f7f8fc;
+  --card: #ffffff;
   --ink: #1f2430;
   --muted: #6b7280;
   --accent: #5b6cff;
   --chip: #eef1ff;
-  --line: #eef0f4;
+  --line: #e8eaf0;
   --maxw: 720px;
 }
 
@@ -40,22 +41,28 @@ a {
 
 // ===== Header =====
 .site-header {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .site-header__inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: 16px 24px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 18px;
 }
 .site-title {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 800;
+  font-size: 17px;
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   &:hover { text-decoration: none; color: var(--accent); }
 }
 .site-nav {
@@ -64,7 +71,7 @@ a {
   font-size: 15px;
   a {
     color: var(--muted);
-    &.is-current { color: var(--ink); font-weight: 600; }
+    &.is-current { color: var(--ink); font-weight: 700; }
     &:hover { color: var(--accent); text-decoration: none; }
   }
 }
@@ -78,6 +85,7 @@ a {
 .site-footer {
   border-top: 1px solid var(--line);
   margin-top: 80px;
+  background: rgba(255, 255, 255, 0.5);
 }
 .site-footer__inner {
   max-width: var(--maxw);
@@ -89,46 +97,99 @@ a {
 
 // ===== Home hero =====
 .home-hero {
-  margin-bottom: 56px;
+  text-align: center;
+  margin-bottom: 64px;
+  padding-top: 16px;
+}
+.home-hero__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 24px rgba(91, 108, 255, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
 }
 .home-hero__title {
-  font-size: 36px;
-  margin: 0 0 8px;
-  letter-spacing: -0.025em;
+  font-size: 44px;
+  margin: 0 0 10px;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  line-height: 1.15;
 }
 .home-hero__tagline {
-  font-size: 18px;
-  margin: 0 0 4px;
+  font-size: 19px;
+  margin: 0 0 6px;
   color: var(--ink);
+  font-weight: 500;
 }
 .home-hero__sub {
   margin: 0;
   font-size: 15px;
 }
 
-// ===== Section title =====
-.section-title {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin: 0 0 16px;
-  font-weight: 700;
+// ===== About hero =====
+.about-hero {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 8px;
+}
+.about-hero__avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 24px;
+  box-shadow: 0 6px 32px rgba(91, 108, 255, 0.2), 0 0 0 8px rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+}
+.about-hero__title {
+  font-size: 32px;
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+.about-hero__tagline {
+  margin: 0;
+  font-size: 15px;
 }
 
-// ===== Post list =====
+// ===== Section title =====
+.section-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 20px;
+  font-weight: 800;
+}
+
+// ===== Post list (card style) =====
 .post-list__items {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .post-list__item {
-  border-top: 1px solid var(--line);
-  &:last-child { border-bottom: 1px solid var(--line); }
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    border-color: rgba(91, 108, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+  }
 }
 .post-list__link {
   display: block;
-  padding: 22px 0;
+  padding: 22px 24px;
   color: var(--ink);
   &:hover {
     text-decoration: none;
@@ -136,10 +197,11 @@ a {
   }
 }
 .post-list__heading {
-  font-size: 19px;
-  margin: 6px 0 6px;
+  font-size: 20px;
+  margin: 10px 0 6px;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 .post-list__excerpt {
   margin: 0;
@@ -157,24 +219,30 @@ a {
   color: var(--muted);
 }
 .series-badge {
-  background: var(--chip);
-  color: var(--accent);
-  padding: 3px 10px;
+  padding: 4px 11px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 12px;
-  &:hover { text-decoration: none; }
+  letter-spacing: -0.01em;
+  &:hover { text-decoration: none; filter: brightness(0.95); }
 }
 
 // ===== Post page =====
+.post {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 40px 36px;
+}
 .post-header {
   margin-bottom: 32px;
 }
 .post-title {
-  font-size: 32px;
-  margin: 10px 0 0;
-  letter-spacing: -0.025em;
-  line-height: 1.3;
+  font-size: 34px;
+  margin: 12px 0 0;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  font-weight: 800;
 }
 .post-youtube {
   margin-top: 24px;
@@ -194,22 +262,23 @@ a {
 }
 .post-content {
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.85;
 
-  h2 { font-size: 22px; margin: 40px 0 14px; letter-spacing: -0.015em; }
-  h3 { font-size: 19px; margin: 32px 0 12px; }
+  h2 { font-size: 22px; margin: 40px 0 14px; letter-spacing: -0.02em; font-weight: 800; }
+  h3 { font-size: 19px; margin: 32px 0 12px; font-weight: 700; }
   p { margin: 0 0 1em; }
   ul, ol { margin: 0 0 1em; padding-left: 1.4em; }
-  li { margin-bottom: 0.3em; }
+  li { margin-bottom: 0.4em; }
   blockquote {
     border-left: 3px solid var(--accent);
     margin: 1.2em 0;
     padding: 0.2em 1em;
     color: var(--muted);
     background: #fafbff;
+    border-radius: 0 8px 8px 0;
   }
   code {
-    background: #f4f6fb;
+    background: #f0f2f8;
     padding: 2px 6px;
     border-radius: 5px;
     font-size: 0.92em;
@@ -225,61 +294,75 @@ a {
     line-height: 1.5;
     code { background: transparent; padding: 0; color: inherit; }
   }
-  img { max-width: 100%; border-radius: 8px; }
+  img { max-width: 100%; border-radius: 10px; }
   hr {
     border: none;
     border-top: 1px solid var(--line);
     margin: 2.5em 0;
+  }
+  // About 페이지의 시리즈 목록 — 배지 + 설명 한 줄짜리 list 결 가다듬기
+  ul li .series-badge {
+    margin-right: 4px;
+    vertical-align: middle;
   }
 }
 
 // ===== Series page =====
 .series-hero {
   margin-bottom: 40px;
+  padding: 32px 32px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 .series-hero__bracket {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   margin: 0 0 4px;
   letter-spacing: 0.02em;
 }
 .series-hero__title {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: 32px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  font-weight: 800;
 }
 .series-hero__desc { margin: 0; font-size: 15px; }
 
-// ===== Series index (전체) =====
+// ===== Series index (전체 시리즈 카드) =====
 .series-index {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   margin-top: 8px;
 }
 .series-card {
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 20px 22px;
+  padding: 22px 24px;
   display: block;
   color: var(--ink);
-  transition: border-color 0.15s ease;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   &:hover {
     text-decoration: none;
-    border-color: var(--accent);
-    .series-card__bracket { color: var(--accent); }
+    border-color: rgba(91, 108, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
   }
 }
 .series-card__bracket {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 4px;
+  color: var(--accent);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
 .series-card__title {
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   margin: 0 0 6px;
+  letter-spacing: -0.02em;
 }
 .series-card__desc {
   margin: 0;
@@ -294,21 +377,47 @@ a {
   border-top: 1px solid var(--line);
 }
 .comments__title {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--muted);
   margin: 0 0 16px;
-  font-weight: 700;
+  font-weight: 800;
 }
+.comments__wrap {
+  position: relative;
+  min-height: 100px;
+}
+.comments__loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  img { display: block; }
+}
+// giscus iframe이 삽입되면 로딩 표시 숨김 (modern browsers 지원)
+.comments__wrap:has(iframe.giscus-frame) .comments__loading { display: none; }
 
 // ===== Mobile =====
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  .site-main { padding: 40px 20px 64px; }
-  .home-hero__title { font-size: 30px; }
-  .post-title { font-size: 26px; }
-  .series-hero__title { font-size: 26px; }
-  .site-header__inner { padding: 14px 20px; }
+  .site-main { padding: 36px 16px 56px; }
+  .site-header__inner { padding: 12px 16px; }
   .site-nav { gap: 14px; font-size: 14px; }
+  .home-hero { margin-bottom: 48px; }
+  .home-hero__avatar { width: 100px; height: 100px; }
+  .home-hero__title { font-size: 32px; }
+  .home-hero__tagline { font-size: 17px; }
+  .about-hero__avatar { width: 130px; height: 130px; }
+  .about-hero__title { font-size: 26px; }
+  .post { padding: 28px 22px; border-radius: 14px; }
+  .post-title { font-size: 26px; }
+  .post-list__link { padding: 18px 18px; }
+  .series-hero { padding: 24px 22px; border-radius: 14px; }
+  .series-hero__title { font-size: 26px; }
 }

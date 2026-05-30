@@ -28,7 +28,7 @@ giscus:
   reactions_enabled: "1"
   emit_metadata: "0"
   input_position: "bottom"
-  theme: "preferred_color_scheme"
+  theme: "light"
   lang: "ko"
 
 # GitHub Pages 빌드 환경과 동일하게 유지

@@ -1,7 +1,12 @@
 {%- if site.giscus.repo_id != "" and site.giscus.category_id != "" -%}
 <section class="comments">
   <h2 class="comments__title">댓글</h2>
-  <script src="https://giscus.app/client.js"
+  <div class="comments__wrap">
+    <div class="comments__loading">
+      <img src="{{ '/assets/img/party-parrot.gif' | relative_url }}" alt="댓글 불러오는 중..." width="48" height="48">
+      <span>댓글 불러오는 중...</span>
+    </div>
+    <script src="https://giscus.app/client.js"
         data-repo="{{ site.giscus.repo }}"
         data-repo-id="{{ site.giscus.repo_id }}"
         data-category="{{ site.giscus.category }}"
@@ -16,6 +21,7 @@
         data-loading="lazy"
         crossorigin="anonymous"
         async>
-  </script>
+    </script>
+  </div>
 </section>
 {%- endif -%}
