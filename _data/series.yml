@@ -4,20 +4,21 @@
 etc:
   display: 끄적
   bracket: "[끄적]"
-  desc: 시리즈 안 묶이는 자유 글·메모·여담.
+  desc: 시리즈 안 묶이는 자유 글·메모·여담
   color: "#6b7280"
   bg: "#f3f4f6"
-
-qna:
-  display: 뚜쪽상담소
-  bracket: "[뚜쪽상담소]"
-  desc: 시청자 질문 묶음 정리. mingus-agent panddu.qna로 자동 생성된 모음 포함.
-  color: "#d97706"
-  bg: "#fef3c7"
 
 qa:
   display: Q&A
   bracket: "[Q&A]"
-  desc: 한 질문에 대한 단발 응답형 글.
+  desc: 묻고 답하기
   color: "#5b6cff"
   bg: "#eef1ff"
+
+qna:
+  display: 뚜쪽상담소
+  bracket: "[뚜쪽상담소]"
+  desc: 뚜쪽상담소 시리즈 답변 정리
+  color: "#d97706"
+  bg: "#fef3c7"
+

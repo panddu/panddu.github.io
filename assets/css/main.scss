@@ -59,11 +59,21 @@ a {
   gap: 18px;
 }
 .site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 800;
   font-size: 17px;
   color: var(--ink);
   letter-spacing: -0.015em;
   &:hover { text-decoration: none; color: var(--accent); }
+}
+.site-title__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
 }
 .site-nav {
   display: flex;
@@ -92,7 +102,43 @@ a {
   margin: 0 auto;
   padding: 28px 24px;
   font-size: 14px;
-  a { color: var(--muted); }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.site-footer__copy { margin: 0; }
+.footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  li { margin: 0; }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    color: var(--muted);
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: var(--chip);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
 }
 
 // ===== Home hero =====
@@ -306,6 +352,43 @@ a {
     vertical-align: middle;
   }
 }
+
+// ===== About 페이지 연락 리스트 =====
+.contact-list {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  li { margin: 0; }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: var(--ink);
+    font-weight: 600;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: var(--chip);
+      color: var(--accent);
+      text-decoration: none;
+    }
+  }
+}
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+.contact-list a:hover .contact-icon { color: var(--accent); }
 
 // ===== QnA report (mingus-agent panddu.qna가 떨어뜨리는 포스트 내부 마크업) =====
 // 블로그 본문(`.post-content`) 안에 임베드되는 자체 네임스페이스.

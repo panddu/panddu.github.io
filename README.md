@@ -42,6 +42,15 @@ bundle exec jekyll serve --livereload --drafts
 
 서버 끄기: 터미널에서 Ctrl-C. 다른 터미널에서 강제로 끄려면 `pkill -f "jekyll serve"`.
 
+### IntelliJ에서 미리보기
+
+레포에 `.idea/runConfigurations/` 가 같이 들어있어서 IntelliJ에서 프로젝트 열면 우상단 Run dropdown에 두 config가 자동 등록됨:
+
+- **Jekyll Preview** — 일반 모드
+- **Jekyll Preview (drafts)** — `--drafts` 포함
+
+PATH 환경변수가 박혀 있어 IntelliJ 안에서 Ruby 3.3 + bundle 잘 찾음. 다른 머신·다른 Ruby 경로 쓰면 Run → Edit Configurations → Environment variables의 PATH 수정.
+
 ## 글 쓰는 법
 
 ### 1. 파일 만들기
