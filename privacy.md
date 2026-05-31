@@ -2,6 +2,7 @@
 layout: default
 title: 개인정보처리방침
 permalink: /privacy/
+description: panddu.github.io가 사용하는 외부 서비스(GA4·Giscus·GitHub Pages)와 수집 정보 안내.
 ---
 
 # 개인정보처리방침

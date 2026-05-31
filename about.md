@@ -2,6 +2,7 @@
 layout: default
 title: 소개
 permalink: /about/
+description: 판뚜는 누구이고 이 블로그는 어떤 공간인지 — 채널·연락·운영 안내.
 ---
 
 <section class="about-hero">
