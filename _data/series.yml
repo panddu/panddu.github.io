@@ -2,16 +2,30 @@
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
 # 표시 순서는 이 파일 순서를 따라감.
 # (파일명은 series.yml 그대로 유지 — 내부 코드 영향 최소화)
-notes:
-  display: 노트
-  bracket: "[노트]"
-  desc: 시리즈 안 묶이는 자유 글·메모·여담
+daily:
+  display: 일상
+  bracket: "[일상]"
+  desc: 판교 언저리 일상과 생각, 그리고 여담.
   color: "#6b7280"
   bg: "#f3f4f6"
 
+tech:
+  display: 테크
+  bracket: "[테크]"
+  desc: 개발·기술·툴에 대한 이야기.
+  color: "#2563eb"
+  bg: "#dbeafe"
+
+review:
+  display: 리뷰
+  bracket: "[리뷰]"
+  desc: 직접 써보고 남기는 장비·서비스 리뷰.
+  color: "#059669"
+  bg: "#d1fae5"
+
 comms:
-  display: 소통 아카이브
-  bracket: "[소통 아카이브]"
-  desc: 시청자가 보내준 질문·사연에 답한 글 모음
+  display: 문답
+  bracket: "[문답]"
+  desc: 시청자가 보내준 질문·사연에 답한 글 모음.
   color: "#d97706"
   bg: "#fef3c7"

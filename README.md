@@ -66,16 +66,18 @@ PATH 환경변수가 박혀 있어 IntelliJ 안에서 Ruby 3.3 + bundle 잘 찾�
 layout: post
 title: "글 제목"
 date: 2026-06-01 22:00:00 +0900
-category: notes      # notes | comms 중 하나
+category: daily      # daily | tech | review | comms 중 하나
 series_no: 3         # (선택) 카테고리 안에서 번호
 youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박힘
 ---
 ```
 
 - **`layout: post`** — 필수
-- **`category`** — 카테고리 분류. 아래 둘 중 하나:
-  - `notes` → `[노트]` 배지 (그 외 모두; 카테고리 안 묶이는 자유 글·메모·여담)
-  - `comms` → `[소통 아카이브]` 배지 (시청자 질문·사연에 답한 글 모음)
+- **`category`** — 카테고리 분류. 아래 넷 중 하나:
+  - `daily` → `[일상]` 배지 (판교 언저리 일상·생각·여담)
+  - `tech` → `[테크]` 배지 (개발·기술·툴 이야기)
+  - `review` → `[리뷰]` 배지 (장비·서비스 리뷰)
+  - `comms` → `[문답]` 배지 (시청자 질문·사연에 답한 글 모음)
 - **`series_no`** — `#3` 같은 번호 (배지 옆에 박힘). 안 박으려면 생략.
 - **`youtube_id`** — `https://youtu.be/abc123` 의 `abc123` 부분만. 영상 옆에 곁들이는 글일 때 사용.
 
@@ -153,7 +155,7 @@ cd /Users/mingus/Workspace/mingus-agent
 QNA_DRAFTS=10 ./gradlew runPandduQna --args="<시트URL> --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 ```
 
-→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([소통 아카이브] 배지).
+→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([문답] 배지).
 
 > ⚠️ mingus-agent 쪽 코드가 옛 키(`qna`)로 박을 수 있음. 옛 키로 떨어지면 수동으로 `category: comms`로 바꿔야 함. (TODO: 에이전트 측에서 새 키로 업데이트)
 
@@ -205,8 +207,10 @@ panddu.github.io/
 ├── _drafts/                 # 작성 중 (날짜 없음, --drafts 플래그로만 빌드)
 ├── series/                  # 카테고리 페이지 (URL은 /series/* 유지)
 │   ├── index.html           # /series/ — 전체 카테고리 카드 (제목은 "카테고리")
-│   ├── notes.html           # /series/notes/ → 노트
-│   └── comms.html           # /series/comms/ → 소통 아카이브
+│   ├── daily.html           # /series/daily/ → 일상
+│   ├── tech.html            # /series/tech/ → 테크
+│   ├── review.html          # /series/review/ → 리뷰
+│   └── comms.html           # /series/comms/ → 문답
 ├── assets/
 │   ├── css/main.scss        # 사이트 전체 스타일 (사이드바·드로어·카테고리·게시판 등 다 포함)
 │   └── img/
