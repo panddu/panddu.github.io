@@ -8,17 +8,16 @@ etc:
   color: "#6b7280"
   bg: "#f3f4f6"
 
-qa:
-  display: Q&A
-  bracket: "[Q&A]"
-  desc: 묻고 답하기
-  color: "#5b6cff"
-  bg: "#eef1ff"
-
-qna:
-  display: 뚜쪽상담소
-  bracket: "[뚜쪽상담소]"
-  desc: 뚜쪽상담소 시리즈 답변 정리
+consult:
+  display: 상담소
+  bracket: "[상담소]"
+  desc: 시청자가 보내준 사연·고민에 대한 답변 묶음
   color: "#d97706"
   bg: "#fef3c7"
 
+feedback:
+  display: 피드백
+  bracket: "[피드백]"
+  desc: 영상·글에 달린 의견·제안에 대한 응답
+  color: "#db2777"
+  bg: "#fce7f3"

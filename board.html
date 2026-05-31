@@ -1,0 +1,38 @@
+---
+layout: default
+title: 뚜벅뚜벅
+permalink: /board/
+---
+
+<section class="board-hero">
+  <h1 class="board-hero__title">뚜벅뚜벅</h1>
+  <p class="board-hero__desc">한마디·질문·후기 뭐든 환영. 작성·답글에는 GitHub 로그인이 필요해요.</p>
+  <p class="board-hero__note">
+    💌 비공개 사연·문의는 인스타 DM
+    <a href="https://instagram.com/panddubeok" rel="noopener" target="_blank">@panddubeok</a>
+    으로 보내주세요.
+  </p>
+</section>
+
+<div class="board-thread comments__wrap">
+  <div class="comments__loading">
+    <img src="{{ '/assets/img/party-parrot.gif' | relative_url }}" alt="" width="48" height="48">
+    <span>불러오는 중...</span>
+  </div>
+  <script src="https://giscus.app/client.js"
+      data-repo="{{ site.giscus.repo }}"
+      data-repo-id="{{ site.giscus.repo_id }}"
+      data-category="{{ site.giscus.category }}"
+      data-category-id="{{ site.giscus.category_id }}"
+      data-mapping="{{ site.giscus.mapping }}"
+      data-strict="{{ site.giscus.strict }}"
+      data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+      data-emit-metadata="{{ site.giscus.emit_metadata }}"
+      data-input-position="top"
+      data-theme="{{ site.giscus.theme }}"
+      data-lang="{{ site.giscus.lang }}"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+  </script>
+</div>

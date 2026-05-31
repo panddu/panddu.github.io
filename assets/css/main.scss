@@ -20,6 +20,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
+body { overflow-x: hidden; } // 사이드바 off-canvas 등 횡스크롤 방지 안전망
 
 body {
   background: var(--bg);
@@ -747,6 +748,46 @@ body.is-sidebar-open { overflow: hidden; }
   font-weight: 700;
 }
 
+.sidebar__cta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  row-gap: 2px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--chip);
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: rgba(91, 108, 255, 0.18);
+    text-decoration: none;
+    color: var(--accent);
+  }
+  &.is-current {
+    background: var(--accent);
+    color: #fff;
+    .sidebar__cta-sub { color: rgba(255, 255, 255, 0.85); }
+  }
+}
+.sidebar__cta-emoji {
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: 22px;
+  line-height: 1;
+}
+.sidebar__cta-label {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+.sidebar__cta-sub {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 // 데스크탑: 본문 880px 좌측 외부에 fixed로 노출.
 // 사이드바 200px + 외곽 24px gap을 확보하려면 viewport ≥ 880 + 2*(200+24) = 1328 필요.
 // 그 미만 viewport에서는 햄버거 드로어만 사용.
@@ -836,6 +877,47 @@ body.is-sidebar-open { overflow: hidden; }
   color: var(--muted);
 }
 
+// ===== Board (뚜벅뚜벅) =====
+.board-hero {
+  margin-bottom: 28px;
+  padding: 28px 30px 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.board-hero__title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+.board-hero__desc {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.board-hero__note {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--chip);
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+
+  a {
+    color: var(--accent);
+    font-weight: 700;
+  }
+}
+.board-thread {
+  position: relative;
+  min-height: 200px;
+}
+// giscus iframe이 board-thread에 삽입되면 로딩 표시 숨김
+.board-thread:has(iframe.giscus-frame) .comments__loading { display: none; }
+
 // ===== Comments =====
 .comments {
   margin-top: 56px;
@@ -873,8 +955,11 @@ body.is-sidebar-open { overflow: hidden; }
 @media (max-width: 600px) {
   body { font-size: 16px; }
   .site-main { padding: 36px 16px 56px; }
-  .site-header__inner { padding: 12px 16px; }
-  .site-nav { gap: 14px; font-size: 14px; }
+  .site-header__inner { padding: 12px 12px; gap: 10px; }
+  .site-header__left { gap: 8px; }
+  .site-title { font-size: 15px; }
+  .site-title__avatar { width: 24px; height: 24px; }
+  .site-nav { gap: 12px; font-size: 13px; }
   .home-hero { margin-bottom: 48px; }
   .home-hero__avatar { width: 100px; height: 100px; }
   .home-hero__title { font-size: 32px; }
@@ -886,4 +971,6 @@ body.is-sidebar-open { overflow: hidden; }
   .post-list__link { padding: 18px 18px; }
   .series-hero { padding: 24px 22px; border-radius: 14px; }
   .series-hero__title { font-size: 26px; }
+  .board-hero { padding: 22px 20px 20px; border-radius: 14px; }
+  .board-hero__title { font-size: 26px; }
 }

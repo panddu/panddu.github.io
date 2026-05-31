@@ -29,6 +29,14 @@
         {% endfor %}
       </ul>
     </nav>
+
+    <nav class="sidebar__section" aria-label="공간">
+      <a class="sidebar__cta{% if page.url == '/board/' %} is-current{% endif %}" href="{{ '/board/' | relative_url }}">
+        <span class="sidebar__cta-emoji" aria-hidden="true">👣</span>
+        <span class="sidebar__cta-label">뚜벅뚜벅</span>
+        <span class="sidebar__cta-sub">한마디 남기고 가요</span>
+      </a>
+    </nav>
   </div>
 </aside>
 <div class="sidebar-backdrop" data-sidebar-backdrop hidden></div>
