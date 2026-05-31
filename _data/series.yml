@@ -2,7 +2,7 @@
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
 # 표시 순서는 이 파일 순서를 따라감.
 # (파일명은 series.yml 그대로 유지 — 내부 코드 영향 최소화)
-etc:
+notes:
   display: 노트
   bracket: "[노트]"
   desc: 시리즈 안 묶이는 자유 글·메모·여담

@@ -917,6 +917,8 @@ body.is-sidebar-open { overflow: hidden; }
   color: #374151;
   line-height: 1.6;
 
+  & + & { margin-top: 8px; }
+
   a {
     color: var(--accent);
     font-weight: 700;

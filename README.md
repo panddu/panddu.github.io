@@ -66,15 +66,15 @@ PATH 환경변수가 박혀 있어 IntelliJ 안에서 Ruby 3.3 + bundle 잘 찾�
 layout: post
 title: "글 제목"
 date: 2026-06-01 22:00:00 +0900
-category: etc        # qna | qa | etc 중 하나
-series_no: 3         # (선택) 시리즈 안에서 번호
+category: notes      # notes | comms 중 하나
+series_no: 3         # (선택) 카테고리 안에서 번호
 youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박힘
 ---
 ```
 
 - **`layout: post`** — 필수
 - **`category`** — 카테고리 분류. 아래 둘 중 하나:
-  - `etc` → `[노트]` 배지 (그 외 모두; 카테고리 안 묶이는 자유 글·메모·여담)
+  - `notes` → `[노트]` 배지 (그 외 모두; 카테고리 안 묶이는 자유 글·메모·여담)
   - `comms` → `[소통 아카이브]` 배지 (시청자 질문·사연에 답한 글 모음)
 - **`series_no`** — `#3` 같은 번호 (배지 옆에 박힘). 안 박으려면 생략.
 - **`youtube_id`** — `https://youtu.be/abc123` 의 `abc123` 부분만. 영상 옆에 곁들이는 글일 때 사용.
@@ -108,9 +108,13 @@ frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도
 | 사이트 설명 / SEO 메타 | `_config.yml` → `description:` |
 | 태그라인 (홈 hero 부제) | `_config.yml` → `tagline:` |
 | 상단 nav 메뉴 | `_config.yml` → `nav:` |
-| 시리즈(카테고리) 이름·색·설명 | `_data/series.yml` |
-| 새 시리즈 추가 | `_data/series.yml`에 키 추가 + `series/<키>.html` 만들기 |
+| OG 이미지 (카톡·페북 공유 썸네일) | `_config.yml` → `image:` + `defaults` 블록 |
+| GA4 측정 ID | `_config.yml` → `google_analytics:` (production 빌드에만 출력) |
+| 카테고리 이름·색·설명 | `_data/series.yml` (파일명은 series.yml 그대로) |
+| 새 카테고리 추가 | `_data/series.yml`에 키 추가 + `series/<키>.html` 만들기 |
 | About 페이지 내용 | `about.md` |
+| 뚜벅뚜벅(자유게시판) 안내문 | `board.html` |
+| 개인정보처리방침 | `privacy.md` |
 | 홈 hero 카피·프사 | `_layouts/home.html` |
 | 사이트 전체 색·여백·폰트 | `assets/css/main.scss` |
 | 댓글(giscus) 설정 | `_config.yml` → `giscus:` |
@@ -118,7 +122,8 @@ frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도
 | 파비콘 | `assets/img/{favicon-16x16,favicon-32x32,apple-touch-icon,android-chrome-192x192}.png` — `avatar.png`에서 자동 생성 (아래 참조) |
 | 댓글 로딩 GIF 교체 | `assets/img/party-parrot.gif` 덮어쓰기, 또는 `_includes/giscus.html`의 `src` 변경 |
 | 푸터 (저작권·소셜 아이콘) | `_includes/footer.html` |
-| 헤더 (좌측 프사·사이트 타이틀) | `_includes/header.html` |
+| 헤더 (좌측 프사·사이트 타이틀·햄버거) | `_includes/header.html` |
+| 사이드바 (검색·카테고리·뚜벅뚜벅 CTA) | `_includes/sidebar.html` |
 
 ### 채널 프사 / 파비콘 재생성
 
@@ -133,7 +138,6 @@ sips -z 192 192 avatar.png --out android-chrome-192x192.png
 ```
 
 파비콘 link 태그 자체는 `_includes/head.html`에 박혀 있어서 파일만 교체하면 끝. ICO 파일은 안 만듦 — 모던 브라우저 전부 PNG favicon 지원.
-| 푸터 (저작권·링크) | `_includes/footer.html` |
 
 ## mingus-agent에서 QnA 모음 글 자동 생성
 
@@ -149,7 +153,9 @@ cd /Users/mingus/Workspace/mingus-agent
 QNA_DRAFTS=10 ./gradlew runPandduQna --args="<시트URL> --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 ```
 
-→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: qna` 로 자동 박힘.
+→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([소통 아카이브] 배지).
+
+> ⚠️ mingus-agent 쪽 코드가 옛 키(`qna`)로 박을 수 있음. 옛 키로 떨어지면 수동으로 `category: comms`로 바꿔야 함. (TODO: 에이전트 측에서 새 키로 업데이트)
 
 **제목·날짜·파일 슬러그 오버라이드 환경변수:**
 
@@ -179,35 +185,40 @@ git push                # 끝. 1~2분 후 https://panddu.github.io 반영
 
 ```
 panddu.github.io/
-├── _config.yml              # 사이트 메타 + giscus 설정 (편집 후 서버 재시작 필요)
+├── _config.yml              # 사이트 메타 + giscus + GA4 + OG image (편집 후 서버 재시작 필요)
 ├── Gemfile                  # github-pages gem (GitHub Pages와 같은 Jekyll 3.10)
 ├── _data/
-│   └── series.yml           # 시리즈(카테고리) 메타: 표시명·색·설명
+│   └── series.yml           # 카테고리 메타: 표시명·색·설명 (파일명 series.yml 유지)
 ├── _layouts/
-│   ├── default.html         # 모든 페이지의 베이스
+│   ├── default.html         # 모든 페이지의 베이스 + 사이드바 토글 / 검색 / 카운터 JS
 │   ├── home.html            # 홈
 │   ├── post.html            # 개별 글
-│   └── series.html          # 시리즈 페이지 (글 목록)
+│   └── series.html          # 카테고리 페이지 (글 목록)
 ├── _includes/
-│   ├── head.html            # <head> 메타
-│   ├── header.html          # 사이트 헤더 + nav
-│   ├── footer.html          # 푸터
-│   ├── post_meta.html       # 시리즈 배지 + 날짜
-│   └── giscus.html          # 댓글 위젯
+│   ├── head.html            # <head> 메타 + GA4 + GoatCounter 트래커 + 네이버 인증
+│   ├── header.html          # 사이트 헤더 + nav + 햄버거
+│   ├── sidebar.html         # 좌측 사이드바 (검색·카테고리·뚜벅뚜벅 CTA)
+│   ├── footer.html          # 푸터 (저작권·소셜·개인정보·방문 카운터)
+│   ├── post_meta.html       # 카테고리 배지 + 날짜
+│   └── giscus.html          # 글 댓글 위젯 (board.html은 자체 임베드)
 ├── _posts/                  # 발행된 글 (YYYY-MM-DD-slug.md)
 ├── _drafts/                 # 작성 중 (날짜 없음, --drafts 플래그로만 빌드)
-├── series/                  # 시리즈 페이지들 (각자 series_key로 _data 참조)
-│   ├── index.html           # /series/ — 전체 시리즈 카드
-│   ├── qna.html             # /series/qna/
-│   ├── qa.html              # /series/qa/
-│   └── etc.html             # /series/etc/
+├── series/                  # 카테고리 페이지 (URL은 /series/* 유지)
+│   ├── index.html           # /series/ — 전체 카테고리 카드 (제목은 "카테고리")
+│   ├── notes.html           # /series/notes/ → 노트
+│   └── comms.html           # /series/comms/ → 소통 아카이브
 ├── assets/
-│   ├── css/main.scss        # 사이트 전체 스타일
+│   ├── css/main.scss        # 사이트 전체 스타일 (사이드바·드로어·카테고리·게시판 등 다 포함)
 │   └── img/
-│       ├── avatar.png       # 채널 프사 (홈·about hero)
+│       ├── avatar.png       # 채널 프사 (홈·about hero·OG 이미지 fallback)
+│       ├── favicon-*.png    # 16/32/180/192 파비콘
 │       └── party-parrot.gif # 댓글 로딩 표시
+├── board.html               # /board/ — 뚜벅뚜벅 자유게시판 (Giscus 임베드)
+├── privacy.md               # /privacy/ — 개인정보처리방침
 ├── about.md                 # /about/
 ├── index.html               # /, layout: home
+├── search.json              # 사이드바 글 검색 인덱스 (Jekyll이 site.posts 기반 자동 생성)
+├── robots.txt               # 크롤러 안내 + sitemap 위치
 └── README.md                # 이 파일
 ```
 
@@ -215,5 +226,11 @@ panddu.github.io/
 
 - **포스트 URL 패턴**: `/posts/:year/:month/:slug/` (예: `/posts/2026/05/blog-start/`). `_config.yml`의 `permalink:` 에서 바꿀 수 있음.
 - **giscus 댓글**은 GitHub Discussions 기반. 댓글 달려면 GitHub 계정 필요. 시청자층(개발자 아닌 분들) 진입 장벽 있으니 메인은 유튜브 댓글, 블로그는 보조라 보면 됨.
+- **giscus 위젯 UI는 미니멀** — 작성·답글·반응만 가능. **수정·삭제·이미지 첨부는** [GitHub Discussions](https://github.com/panddu/panddu.github.io/discussions)에서 직접. 이거 뚜벅뚜벅 페이지 안내문에 박혀있음.
+- **사이드바** — 데스크탑(≥1340px)은 좌측 외부 fixed, 그 미만은 햄버거 off-canvas 드로어.
+- **검색** — `/search.json` 인덱스에서 substring 매칭 후 드롭다운. simple-jekyll-search 없이 자체 구현 (default.html 인라인 JS).
+- **방문 카운터** — GoatCounter (`panddu.goatcounter.com`). 푸터에서 JSON 받아와 "방문 N" 텍스트 렌더. 위젯 노출은 GoatCounter Settings → Visitor counter에서 활성화 필요.
+- **SEO** — 페이지별 description은 frontmatter `description:`. og:image는 `_config.yml`의 `defaults` 블록에서 전역 (jekyll-seo-tag가 site.image 안 잡는 이슈 우회).
+- **Search Console** — Google은 GA4로 자동 인증 (별도 메타 X). Naver는 `head.html`에 `naver-site-verification` 메타 박혀있음.
 - **다크모드 미지원** — 현재 라이트 모드만. giscus 위젯도 라이트로 고정.
 - **GitHub Pages 빌드 환경**과 로컬 환경이 같은 Jekyll 3.10 (`github-pages` gem) — "로컬은 되는데 prod에선 안 됨" 류 회피.
