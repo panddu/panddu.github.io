@@ -723,6 +723,14 @@ body.is-sidebar-open { overflow: hidden; }
   margin: 0;
   font-weight: 800;
 }
+.sidebar__link {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  &.is-current { color: var(--accent); }
+  &:hover { color: var(--accent); text-decoration: none; }
+}
 
 .sidebar__search {
   position: relative;
