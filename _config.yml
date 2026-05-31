@@ -6,6 +6,9 @@ author: 판뚜
 url: "https://panddu.github.io"
 baseurl: ""
 
+# Google Analytics 4 — production 빌드에만 출력
+google_analytics: G-BBPMF5TZ6B
+
 permalink: /posts/:year/:month/:slug/
 
 # Site nav
