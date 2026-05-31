@@ -74,10 +74,12 @@ youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박
 
 - **`layout: post`** — 필수
 - **`category`** — 카테고리 분류. 아래 넷 중 하나:
-  - `daily` → `[일상]` 배지 (판교 언저리 일상·생각·여담)
+  - `daily` → `[일상]` 배지 (업계/회사 이야기·육아·관심사 등 아무 글)
   - `tech` → `[테크]` 배지 (개발·기술·툴 이야기)
-  - `review` → `[리뷰]` 배지 (장비·서비스 리뷰)
-  - `comms` → `[문답]` 배지 (시청자 질문·사연에 답한 글 모음)
+  - `review` → `[리뷰]` 배지 (직접 써보고 남기는 장비·서비스 리뷰)
+  - `comms` → `[문답]` 배지 (구독자 Q&A·뚜쪽 상담소 답글 모음)
+
+  > 카테고리 표시명·설명·색은 `_data/series.yml`이 원본. 위는 요약이라 거기서 바꾸면 README도 같이 맞춰주면 됨.
 - **`series_no`** — `#3` 같은 번호 (배지 옆에 박힘). 안 박으려면 생략.
 - **`youtube_id`** — `https://youtu.be/abc123` 의 `abc123` 부분만. 영상 옆에 곁들이는 글일 때 사용.
 
@@ -236,5 +238,5 @@ panddu.github.io/
 - **방문 카운터** — GoatCounter (`panddu.goatcounter.com`). 푸터에서 JSON 받아와 "방문 N" 텍스트 렌더. 위젯 노출은 GoatCounter Settings → Visitor counter에서 활성화 필요.
 - **SEO** — 페이지별 description은 frontmatter `description:`. og:image는 `_config.yml`의 `defaults` 블록에서 전역 (jekyll-seo-tag가 site.image 안 잡는 이슈 우회).
 - **Search Console** — Google은 GA4로 자동 인증 (별도 메타 X). Naver는 `head.html`에 `naver-site-verification` 메타 박혀있음.
-- **다크모드 미지원** — 현재 라이트 모드만. giscus 위젯도 라이트로 고정.
+- **다크모드** — 시스템 설정(`prefers-color-scheme`)을 기본으로 따르고, 헤더 우상단 🌙/☀️ 토글로 명시 전환(선택은 `localStorage`에 저장). 색은 전부 `assets/css/main.scss` 상단의 CSS 변수(`:root` 라이트 / `@mixin theme-dark` 다크)로 관리 — 새 색 추가 시 양쪽 토큰만 맞추면 됨. FOUC 방지용 인라인 스크립트는 `_includes/head.html` 최상단, 토글·giscus 테마 동기화 JS는 `_layouts/default.html`. giscus 위젯도 토글에 맞춰 `postMessage`로 라이트/다크 전환됨.
 - **GitHub Pages 빌드 환경**과 로컬 환경이 같은 Jekyll 3.10 (`github-pages` gem) — "로컬은 되는데 prod에선 안 됨" 류 회피.

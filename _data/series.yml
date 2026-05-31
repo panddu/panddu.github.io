@@ -5,27 +5,27 @@
 daily:
   display: 일상
   bracket: "[일상]"
-  desc: 판교 언저리 일상과 생각, 그리고 여담.
+  desc: 업계/회사 이야기 및 육아, 관심사 등.. 그냥 아무 글
   color: "#6b7280"
   bg: "#f3f4f6"
 
 tech:
   display: 테크
   bracket: "[테크]"
-  desc: 개발·기술·툴에 대한 이야기.
+  desc: 개발·기술·툴에 대한 이야기
   color: "#2563eb"
   bg: "#dbeafe"
 
 review:
   display: 리뷰
   bracket: "[리뷰]"
-  desc: 직접 써보고 남기는 장비·서비스 리뷰.
+  desc: 직접 써보고 남기는 장비·서비스 리뷰
   color: "#059669"
   bg: "#d1fae5"
 
 comms:
   display: 문답
   bracket: "[문답]"
-  desc: 시청자가 보내준 질문·사연에 답한 글 모음.
+  desc: 구독자 대상 Q&A 및 뚜쪽상담소 답변
   color: "#d97706"
   bg: "#fef3c7"

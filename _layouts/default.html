@@ -129,6 +129,55 @@
         }
       });
     })();
+
+    // ----- 다크모드 토글 (시스템 기본 + 명시 오버라이드 + giscus 동기화) -----
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('[data-theme-toggle]');
+      var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+      function effective() {
+        var t = root.getAttribute('data-theme');
+        if (t === 'dark' || t === 'light') return t;
+        return mq && mq.matches ? 'dark' : 'light';
+      }
+
+      // giscus iframe 테마를 현재 테마에 맞춤
+      function syncGiscus() {
+        var frame = document.querySelector('iframe.giscus-frame');
+        if (!frame || !frame.contentWindow) return;
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: effective() } } },
+          'https://giscus.app'
+        );
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var next = effective() === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          syncGiscus();
+        });
+      }
+
+      // 명시 선택이 없으면 시스템 변화 실시간 반영 (CSS는 자동, giscus만 nudge)
+      if (mq) {
+        var onChange = function () {
+          var saved = null;
+          try { saved = localStorage.getItem('theme'); } catch (e) {}
+          if (saved !== 'dark' && saved !== 'light') syncGiscus();
+        };
+        if (mq.addEventListener) mq.addEventListener('change', onChange);
+        else if (mq.addListener) mq.addListener(onChange);
+      }
+
+      // giscus가 로드 완료 메시지를 보낼 때 초기 테마 적용
+      window.addEventListener('message', function (e) {
+        if (e.origin !== 'https://giscus.app') return;
+        if (e.data && e.data.giscus) syncGiscus();
+      });
+    })();
   </script>
 </body>
 </html>
