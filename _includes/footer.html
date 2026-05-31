@@ -1,6 +1,10 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__copy muted">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    <p class="site-footer__copy muted">
+      © {{ site.time | date: '%Y' }} {{ site.title }}
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a href="{{ '/privacy/' | relative_url }}">개인정보처리방침</a>
+    </p>
     <ul class="footer-social">
       <li>
         <a href="https://www.youtube.com/@pan-ddu" rel="noopener" target="_blank" aria-label="YouTube">
