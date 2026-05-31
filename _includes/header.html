@@ -1,9 +1,14 @@
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-title" href="{{ '/' | relative_url }}">
-      <img class="site-title__avatar" src="{{ '/assets/img/avatar.png' | relative_url }}" alt="" width="28" height="28">
-      <span>{{ site.title }}</span>
-    </a>
+    <div class="site-header__left">
+      <button class="nav-hamburger" data-sidebar-toggle type="button" aria-label="사이드바 열기" aria-controls="sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+      </button>
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        <img class="site-title__avatar" src="{{ '/assets/img/avatar.png' | relative_url }}" alt="" width="28" height="28">
+        <span>{{ site.title }}</span>
+      </a>
+    </div>
     <nav class="site-nav">
       {% for item in site.nav %}
         <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-current"{% endif %}>{{ item.name }}</a>

@@ -58,6 +58,34 @@ a {
   justify-content: space-between;
   gap: 18px;
 }
+.site-header__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: -4px 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+
+  svg { width: 18px; height: 18px; }
+
+  &:hover {
+    background: var(--chip);
+    color: var(--accent);
+    border-color: rgba(91, 108, 255, 0.4);
+  }
+}
 .site-title {
   display: inline-flex;
   align-items: center;
@@ -523,6 +551,226 @@ a {
   .qna-report .qna-card { padding: 20px 18px; border-radius: 14px; }
   .qna-report .qna-card__theme { font-size: 19px; }
   .qna-report .qna-q__text { font-size: 15px; }
+}
+
+// ===== Sidebar =====
+// 기본(<1280px): 좌측 off-canvas 드로어. 햄버거로 토글.
+// 데스크탑(≥1280px): 본문 880px 좌측 외부에 fixed로 노출, 햄버거 숨김.
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  max-width: 84vw;
+  height: 100vh;
+  background: var(--card);
+  border-right: 1px solid var(--line);
+  box-shadow: 4px 0 24px rgba(16, 24, 40, 0.06);
+  transform: translateX(-100%);
+  transition: transform 0.24s ease;
+  z-index: 30;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 64px 22px 28px;
+
+  &.is-open { transform: translateX(0); }
+}
+.sidebar__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  svg { width: 18px; height: 18px; }
+  &:hover { background: var(--chip); color: var(--accent); }
+}
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 35, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+  z-index: 20;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+body.is-sidebar-open { overflow: hidden; }
+
+.sidebar__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sidebar__heading {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 800;
+}
+
+.sidebar__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    appearance: none;
+
+    &::placeholder { color: var(--muted); }
+    &:focus {
+      outline: none;
+      border-color: rgba(91, 108, 255, 0.55);
+      box-shadow: 0 0 0 3px rgba(91, 108, 255, 0.15);
+    }
+  }
+}
+.sidebar__search-icon {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.sidebar__search-results {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  max-height: 360px;
+  overflow-y: auto;
+  font-size: 14px;
+
+  &[hidden] { display: none; }
+
+  ul { list-style: none; margin: 0; padding: 4px; }
+  li { margin: 0; }
+
+  a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: var(--ink);
+    line-height: 1.4;
+
+    &:hover {
+      background: var(--chip);
+      color: var(--accent);
+      text-decoration: none;
+    }
+  }
+  .sidebar__search-title {
+    font-weight: 700;
+    display: block;
+  }
+  .sidebar__search-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .sidebar__search-empty {
+    padding: 14px 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+}
+
+.sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar__series-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--chip);
+    text-decoration: none;
+  }
+  &.is-current {
+    background: var(--chip);
+    .sidebar__series-count { color: var(--accent); }
+  }
+}
+.sidebar__series-chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+}
+.sidebar__series-count {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+// 데스크탑: 본문 880px 좌측 외부에 fixed로 노출.
+// 사이드바 200px + 외곽 24px gap을 확보하려면 viewport ≥ 880 + 2*(200+24) = 1328 필요.
+// 그 미만 viewport에서는 햄버거 드로어만 사용.
+@media (min-width: 1340px) {
+  .nav-hamburger { display: none; }
+  .sidebar__close { display: none; }
+  .sidebar-backdrop { display: none; }
+
+  .sidebar {
+    top: 80px;
+    left: max(24px, calc(50% - 440px - 24px - 200px));
+    width: 200px;
+    max-width: 200px;
+    height: auto;
+    max-height: calc(100vh - 100px);
+    background: transparent;
+    border-right: none;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+    padding: 0;
+    z-index: 5;
+  }
+  body.is-sidebar-open { overflow: auto; }
 }
 
 // ===== Series page =====

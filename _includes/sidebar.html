@@ -1,0 +1,34 @@
+<aside class="sidebar" data-sidebar aria-label="사이드바">
+  <button class="sidebar__close" data-sidebar-close type="button" aria-label="사이드바 닫기">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+
+  <div class="sidebar__inner">
+    <div class="sidebar__section sidebar__section--search">
+      <div class="sidebar__search">
+        <svg class="sidebar__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="sidebar-search" type="search" placeholder="글 검색…" autocomplete="off" aria-label="글 검색">
+      </div>
+      <div class="sidebar__search-results" id="sidebar-search-results" hidden></div>
+    </div>
+
+    <nav class="sidebar__section" aria-label="시리즈">
+      <h2 class="sidebar__heading">시리즈</h2>
+      <ul class="sidebar__list">
+        {% for s in site.data.series %}
+          {%- assign key = s[0] -%}
+          {%- assign meta = s[1] -%}
+          {%- assign count = site.posts | where: "category", key | size -%}
+          <li>
+            <a class="sidebar__series-link{% if page.series_key == key %} is-current{% endif %}"
+               href="{{ '/series/' | append: key | append: '/' | relative_url }}">
+              <span class="sidebar__series-chip" style="color: {{ meta.color }}; background: {{ meta.bg }};">{{ meta.display }}</span>
+              <span class="sidebar__series-count">{{ count }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</aside>
+<div class="sidebar-backdrop" data-sidebar-backdrop hidden></div>

@@ -5,9 +5,117 @@
 </head>
 <body>
   {% include header.html %}
+  {% include sidebar.html %}
   <main class="site-main">
     {{ content }}
   </main>
   {% include footer.html %}
+
+  <script>
+    // ----- 사이드바 드로어 토글 (모바일/태블릿) -----
+    (function () {
+      var ham = document.querySelector('[data-sidebar-toggle]');
+      var sidebar = document.querySelector('[data-sidebar]');
+      var backdrop = document.querySelector('[data-sidebar-backdrop]');
+      var closeBtn = document.querySelector('[data-sidebar-close]');
+      if (!ham || !sidebar || !backdrop) return;
+
+      function setOpen(open) {
+        sidebar.classList.toggle('is-open', open);
+        backdrop.hidden = !open;
+        backdrop.classList.toggle('is-visible', open);
+        ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('is-sidebar-open', open);
+      }
+      ham.addEventListener('click', function () {
+        setOpen(!sidebar.classList.contains('is-open'));
+      });
+      backdrop.addEventListener('click', function () { setOpen(false); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+
+    // ----- 사이드바 글 검색 (substring 매칭 + 점수 정렬, 드롭다운) -----
+    (function () {
+      var input = document.getElementById('sidebar-search');
+      var results = document.getElementById('sidebar-search-results');
+      if (!input || !results) return;
+
+      var index = null;
+      var loading = null;
+
+      function loadIndex() {
+        if (index) return Promise.resolve(index);
+        if (loading) return loading;
+        loading = fetch({{ '/search.json' | relative_url | jsonify }})
+          .then(function (r) { return r.json(); })
+          .then(function (data) { index = data; return data; });
+        return loading;
+      }
+
+      function score(post, q) {
+        var t = (post.title || '').toLowerCase();
+        var c = (post.category || '').toLowerCase();
+        var e = (post.excerpt || '').toLowerCase();
+        if (t.indexOf(q) === 0) return 4;
+        if (t.indexOf(q) >= 0) return 3;
+        if (c.indexOf(q) >= 0) return 2;
+        if (e.indexOf(q) >= 0) return 1;
+        return 0;
+      }
+
+      function escapeHtml(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      function render(hits) {
+        if (!hits) { results.hidden = true; results.innerHTML = ''; return; }
+        if (!hits.length) {
+          results.innerHTML = '<div class="sidebar__search-empty">결과 없음</div>';
+          results.hidden = false;
+          return;
+        }
+        results.innerHTML = '<ul>' + hits.map(function (p) {
+          var meta = escapeHtml(p.date) + (p.category ? ' · ' + escapeHtml(p.category) : '');
+          return '<li><a href="' + escapeHtml(p.url) + '">' +
+            '<span class="sidebar__search-title">' + escapeHtml(p.title) + '</span>' +
+            '<span class="sidebar__search-meta">' + meta + '</span>' +
+          '</a></li>';
+        }).join('') + '</ul>';
+        results.hidden = false;
+      }
+
+      var timer = null;
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          if (!q) { render(null); return; }
+          loadIndex().then(function (data) {
+            var hits = data.map(function (p) { return { p: p, s: score(p, q) }; })
+              .filter(function (h) { return h.s > 0; })
+              .sort(function (a, b) { return b.s - a.s; })
+              .slice(0, 8)
+              .map(function (h) { return h.p; });
+            render(hits);
+          });
+        }, 80);
+      });
+
+      input.addEventListener('focus', function () {
+        if (input.value.trim() && index) input.dispatchEvent(new Event('input'));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.sidebar__section--search')) {
+          results.hidden = true;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

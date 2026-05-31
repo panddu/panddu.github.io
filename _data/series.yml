@@ -2,8 +2,8 @@
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
 # 표시 순서는 이 파일 순서를 따라감.
 etc:
-  display: 끄적
-  bracket: "[끄적]"
+  display: 노트
+  bracket: "[노트]"
   desc: 시리즈 안 묶이는 자유 글·메모·여담
   color: "#6b7280"
   bg: "#f3f4f6"
