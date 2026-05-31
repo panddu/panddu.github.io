@@ -37,6 +37,19 @@
       });
     })();
 
+    // ----- 푸터 누적 방문수 (GoatCounter JSON) -----
+    (function () {
+      var el = document.querySelector('[data-goat-counter]');
+      if (!el) return;
+      fetch('https://panddu.goatcounter.com/counter/TOTAL.json')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (d) {
+          var n = d.count_unique != null ? d.count_unique : (d.count || 0);
+          el.textContent = Number(String(n).replace(/,/g, '')).toLocaleString('ko-KR');
+        })
+        .catch(function () { /* silent — '—' 유지 */ });
+    })();
+
     // ----- 사이드바 글 검색 (substring 매칭 + 점수 정렬, 드롭다운) -----
     (function () {
       var input = document.getElementById('sidebar-search');
