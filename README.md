@@ -157,9 +157,7 @@ cd /Users/mingus/Workspace/mingus-agent
 QNA_DRAFTS=10 ./gradlew runPandduQna --args="<시트URL> --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 ```
 
-→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([문답] 배지).
-
-> ⚠️ mingus-agent 쪽 코드가 옛 키(`qna`)로 박을 수 있음. 옛 키로 떨어지면 수동으로 `category: comms`로 바꿔야 함. (TODO: 에이전트 측에서 새 키로 업데이트)
+→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([문답] 배지). 다른 카테고리로 떨구려면 `QNA_POST_CATEGORY=<키>`.
 
 **제목·날짜·파일 슬러그 오버라이드 환경변수:**
 
