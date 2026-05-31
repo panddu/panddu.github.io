@@ -2,7 +2,7 @@
 layout: post
 title: "뚜쪽 상담소 모음 (2026.05.30)"
 date: 2026-05-30 23:07:18 +0900
-category: consult
+category: comms
 ---
 
 뚜쪽 상담소에 들어온 질문들을 비슷한 결로 묶어 정리했습니다. 1묶음 · 질문 40건.

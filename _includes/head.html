@@ -26,3 +26,9 @@
   gtag('config', '{{ site.google_analytics }}');
 </script>
 {% endif %}
+
+{% if jekyll.environment == "production" %}
+<!-- GoatCounter (공개 카운터·세션 ~8h 단위, 쿠키 X) -->
+<script data-goatcounter="https://panddu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{% endif %}

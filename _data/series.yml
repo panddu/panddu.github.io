@@ -1,6 +1,7 @@
 # 블로그 카테고리 메타.
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
 # 표시 순서는 이 파일 순서를 따라감.
+# (파일명은 series.yml 그대로 유지 — 내부 코드 영향 최소화)
 etc:
   display: 노트
   bracket: "[노트]"
@@ -8,16 +9,9 @@ etc:
   color: "#6b7280"
   bg: "#f3f4f6"
 
-consult:
-  display: 상담소
-  bracket: "[상담소]"
-  desc: 시청자가 보내준 사연·고민에 대한 답변 묶음
+comms:
+  display: 소통 아카이브
+  bracket: "[소통 아카이브]"
+  desc: 시청자가 보내준 질문·사연에 답한 글 모음 (즉시 Q&A + 뚜쪽상담소 통합)
   color: "#d97706"
   bg: "#fef3c7"
-
-feedback:
-  display: 피드백
-  bracket: "[피드백]"
-  desc: 영상·글에 달린 의견·제안에 대한 응답
-  color: "#db2777"
-  bg: "#fce7f3"

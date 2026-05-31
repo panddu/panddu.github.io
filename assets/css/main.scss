@@ -144,6 +144,16 @@ a {
   }
 }
 .site-footer__sep { margin: 0 4px; opacity: 0.6; }
+.site-footer__counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  img {
+    vertical-align: middle;
+    height: 13px;
+    width: auto;
+  }
+}
 .footer-social {
   list-style: none;
   margin: 0;
