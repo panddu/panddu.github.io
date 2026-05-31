@@ -723,14 +723,6 @@ body.is-sidebar-open { overflow: hidden; }
   margin: 0;
   font-weight: 800;
 }
-.sidebar__link {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  &.is-current { color: var(--accent); }
-  &:hover { color: var(--accent); text-decoration: none; }
-}
 
 .sidebar__search {
   position: relative;
@@ -1065,7 +1057,10 @@ body.is-sidebar-open { overflow: hidden; }
   .site-header__left { gap: 8px; }
   .site-title { font-size: 15px; }
   .site-title__avatar { width: 24px; height: 24px; }
-  .site-nav { display: none; } // 모바일에선 햄버거 사이드바로 일원화 (헤더 1줄 유지)
+  // 모바일 헤더 1줄 유지: 네비는 '소개'만 남기고 나머지는 햄버거 사이드바로 일원화
+  .site-nav { gap: 12px; font-size: 14px; }
+  .site-nav a { display: none; }
+  .site-nav a[href$="/about/"] { display: inline; }
   .site-header__right { gap: 10px; }
   .theme-toggle { width: 32px; height: 32px; }
   .home-hero { margin-bottom: 48px; }
