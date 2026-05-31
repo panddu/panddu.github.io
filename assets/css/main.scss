@@ -1057,7 +1057,7 @@ body.is-sidebar-open { overflow: hidden; }
   .site-header__left { gap: 8px; }
   .site-title { font-size: 15px; }
   .site-title__avatar { width: 24px; height: 24px; }
-  .site-nav { gap: 12px; font-size: 13px; }
+  .site-nav { display: none; } // 모바일에선 햄버거 사이드바로 일원화 (헤더 1줄 유지)
   .site-header__right { gap: 10px; }
   .theme-toggle { width: 32px; height: 32px; }
   .home-hero { margin-bottom: 48px; }

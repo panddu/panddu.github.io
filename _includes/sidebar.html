@@ -36,6 +36,11 @@
         <span class="sidebar__cta-label">뚜벅뚜벅</span>
         <span class="sidebar__cta-sub">한마디 남기고 가요</span>
       </a>
+      <a class="sidebar__cta{% if page.url == '/about/' %} is-current{% endif %}" href="{{ '/about/' | relative_url }}">
+        <span class="sidebar__cta-emoji" aria-hidden="true">🌱</span>
+        <span class="sidebar__cta-label">소개</span>
+        <span class="sidebar__cta-sub">판교 뚜벅초 이야기</span>
+      </a>
     </nav>
   </div>
 </aside>
