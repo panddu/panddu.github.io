@@ -278,6 +278,23 @@ a {
   margin: 0 auto 20px;
   box-shadow: 0 4px 24px rgba(91, 108, 255, 0.18), 0 0 0 6px var(--ring);
   border: 1px solid var(--line);
+  animation: home-hero-tremor 0.45s infinite;
+  will-change: transform;
+}
+@keyframes home-hero-tremor {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10%      { transform: translate(-1px, -1px) rotate(-0.3deg); }
+  20%      { transform: translate(1px, -1px) rotate(0.3deg); }
+  30%      { transform: translate(-1px, 1px) rotate(-0.2deg); }
+  40%      { transform: translate(1px, 1px) rotate(0.4deg); }
+  50%      { transform: translate(-1px, -1px) rotate(-0.4deg); }
+  60%      { transform: translate(1px, -1px) rotate(0.2deg); }
+  70%      { transform: translate(-1px, 1px) rotate(-0.3deg); }
+  80%      { transform: translate(1px, 1px) rotate(0.3deg); }
+  90%      { transform: translate(-1px, -1px) rotate(-0.2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__avatar { animation: none; }
 }
 .home-hero__title {
   font-size: 44px;
