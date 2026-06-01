@@ -35,8 +35,8 @@ nav:
 giscus:
   repo: "panddu/panddu.github.io"
   repo_id: "R_kgDOSsPSNg"
-  category: "General"
-  category_id: "DIC_kwDOSsPSNs4C-J2s"
+  category: "Announcements"
+  category_id: "DIC_kwDOSsPSNs4C-J2r"
   mapping: "pathname"
   strict: "0"
   reactions_enabled: "1"
