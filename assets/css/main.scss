@@ -594,7 +594,12 @@ a {
     font-weight: 700;
     padding: 5px 12px;
     border-radius: 999px;
+    text-decoration: none;
+    transition: filter 0.12s ease;
+    &:hover { filter: brightness(0.92); }
   }
+  // 앵커 점프 시 sticky 헤더 가리지 않게 여유
+  .qna-q { scroll-margin-top: 84px; }
 
   .qna-q {
     padding: 14px 0;
@@ -643,7 +648,7 @@ a {
     border: 1px solid var(--answer-border);
   }
   .qna-q__alabel {
-    display: block;
+    display: inline-block;
     font-size: 12px;
     font-weight: 800;
     color: var(--accent);
@@ -655,6 +660,105 @@ a {
     line-height: 1.7;
     color: var(--ink-soft);
   }
+  // 질문/답변 옆에 붙는 날짜 — 회색, 살짝 작게
+  .qna-q__date {
+    margin-left: 8px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  // 닉 옆 카테고리 칩 — 작은 라벨, 카테고리별 색 구분
+  .qna-q__cat {
+    margin-left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    &--dev { background: #dbeafe; color: #1e40af; }
+    &--job { background: #dcfce7; color: #166534; }
+    &--etc { background: #f1f5f9; color: #475569; }
+  }
+  // 카드 상단 카테고리 요약 bar
+  .qna-card__catbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -4px 0 16px;
+  }
+  .qna-card__cat {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: filter 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+    b { font-weight: 800; margin-left: 2px; }
+    &--dev { background: #dbeafe; color: #1e40af; }
+    &--job { background: #dcfce7; color: #166534; }
+    &--etc { background: #f1f5f9; color: #475569; }
+    &:hover { filter: brightness(0.95); }
+    &.is-active {
+      box-shadow: 0 0 0 2px currentColor inset;
+      filter: brightness(0.92);
+    }
+  }
+  // 필터로 숨겨진 질문
+  .qna-q.is-hidden { display: none; }
+}
+
+// ===== 다크모드 카테고리 chip — 배경/글자 색 + active 가시성 보정 =====
+@mixin qna-cat-dark {
+  .qna-card__cat--dev, .qna-q__cat--dev { background: #1e3a5f; color: #93c5fd; }
+  .qna-card__cat--job, .qna-q__cat--job { background: #14532d; color: #86efac; }
+  .qna-card__cat--etc, .qna-q__cat--etc { background: #334155; color: #cbd5e1; }
+  // 다크에서는 brightness(0.93) 효과가 묻혀서 ring 두께·밝기로 강조
+  .qna-card__cat.is-active {
+    box-shadow: 0 0 0 2px currentColor inset, 0 0 0 1px var(--card);
+    filter: brightness(1.2);
+  }
+}
+:root[data-theme="dark"] { @include qna-cat-dark; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include qna-cat-dark; }
+}
+
+// ===== 맨 위로 가기 버튼 (PC만) =====
+.scroll-top {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear;
+  }
+  &:hover { filter: brightness(1.1); }
+}
+@media (max-width: 767px) {
+  .scroll-top { display: none; }
 }
 
 // 모바일 패딩 조절

@@ -150,14 +150,19 @@ mingus-agent의 `panddu.qna`가 시청자 QnA 시트를 클러스터링해서 �
 ```bash
 cd /Users/mingus/Workspace/mingus-agent
 
-# 가장 단순 — 기본 예시 시트 + 이 블로그에 포스트 생성
+# 가장 단순 — 기본 예시 시트 + 이 블로그에 포스트 생성 (drafts 모드: AI 예상 답변)
 ./gradlew runPandduQna --args="--jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 
 # 다른 시트 + 예상 답변 10개까지 포함
 QNA_DRAFTS=10 ./gradlew runPandduQna --args="<시트URL> --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
+
+# answers 모드 — 시트 N열에 사용자가 직접 적은 답변을 영상 편수별로 _drafts/에 떨굼.
+# 회사·실명·이메일 등 민감정보는 regex+LLM 하이브리드로 마스킹.
+# 검토하고 다듬은 뒤 _posts/로 옮겨 발행.
+./gradlew runPandduQna --args="--mode=answers --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 ```
 
-→ `_posts/YYYY-MM-DD-qna.md` 생성. `category: comms` 로 자동 박힘 ([문답] 배지). 다른 카테고리로 떨구려면 `QNA_POST_CATEGORY=<키>`.
+→ drafts 모드는 `_posts/YYYY-MM-DD-qna.md` 1개, answers 모드는 `_drafts/YYYY-MM-DD-counsel-ep0N.md` 영상편수별 다수. 둘 다 `category: comms` 자동 ([문답] 배지). 다른 카테고리로 떨구려면 `QNA_POST_CATEGORY=<키>`.
 
 **제목·날짜·파일 슬러그 오버라이드 환경변수:**
 
@@ -213,6 +218,7 @@ panddu.github.io/
 │   └── comms.html           # /series/comms/ → 문답
 ├── assets/
 │   ├── css/main.scss        # 사이트 전체 스타일 (사이드바·드로어·카테고리·게시판 등 다 포함)
+│   ├── js/qna.js            # QnA 페이지 인터랙션 (카테고리 필터 토글 · PC 전용 맨 위로 가기 버튼)
 │   └── img/
 │       ├── avatar.png       # 채널 프사 (홈·about hero·OG 이미지 fallback)
 │       ├── favicon-*.png    # 16/32/180/192 파비콘
@@ -237,4 +243,5 @@ panddu.github.io/
 - **SEO** — 페이지별 description은 frontmatter `description:`. og:image는 `_config.yml`의 `defaults` 블록에서 전역 (jekyll-seo-tag가 site.image 안 잡는 이슈 우회).
 - **Search Console** — Google은 GA4로 자동 인증 (별도 메타 X). Naver는 `head.html`에 `naver-site-verification` 메타 박혀있음.
 - **다크모드** — 시스템 설정(`prefers-color-scheme`)을 기본으로 따르고, 헤더 우상단 🌙/☀️ 토글로 명시 전환(선택은 `localStorage`에 저장). 색은 전부 `assets/css/main.scss` 상단의 CSS 변수(`:root` 라이트 / `@mixin theme-dark` 다크)로 관리 — 새 색 추가 시 양쪽 토큰만 맞추면 됨. FOUC 방지용 인라인 스크립트는 `_includes/head.html` 최상단, 토글·giscus 테마 동기화 JS는 `_layouts/default.html`. giscus 위젯도 토글에 맞춰 `postMessage`로 라이트/다크 전환됨.
+- **QnA 포스트 인터랙션** (`assets/js/qna.js`) — `.qna-report` 있는 페이지에서만 동작. 카드 상단 카테고리 chip(개발/취업/일상)을 누르면 그 카테고리 질문만 표시, 다시 누르면 전체 복귀. PC(≥768px)에서만 우하단에 "맨 위로 가기" 플로팅 버튼(스크롤 200px 이상 시 페이드인). 닉네임 chip은 앵커(`#qna-<slug>`)라 클릭 시 해당 질문으로 점프.
 - **GitHub Pages 빌드 환경**과 로컬 환경이 같은 Jekyll 3.10 (`github-pages` gem) — "로컬은 되는데 prod에선 안 됨" 류 회피.
