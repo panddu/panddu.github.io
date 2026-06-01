@@ -679,6 +679,7 @@ a {
     line-height: 1.4;
     &--dev { background: #dbeafe; color: #1e40af; }
     &--job { background: #dcfce7; color: #166534; }
+    &--kid { background: #ffedd5; color: #9a3412; }
     &--etc { background: #f1f5f9; color: #475569; }
   }
   // 카드 상단 카테고리 요약 bar
@@ -700,6 +701,7 @@ a {
     b { font-weight: 800; margin-left: 2px; }
     &--dev { background: #dbeafe; color: #1e40af; }
     &--job { background: #dcfce7; color: #166534; }
+    &--kid { background: #ffedd5; color: #9a3412; }
     &--etc { background: #f1f5f9; color: #475569; }
     &:hover { filter: brightness(0.95); }
     &.is-active {
@@ -715,6 +717,7 @@ a {
 @mixin qna-cat-dark {
   .qna-card__cat--dev, .qna-q__cat--dev { background: #1e3a5f; color: #93c5fd; }
   .qna-card__cat--job, .qna-q__cat--job { background: #14532d; color: #86efac; }
+  .qna-card__cat--kid, .qna-q__cat--kid { background: #4a2f10; color: #fdba74; }
   .qna-card__cat--etc, .qna-q__cat--etc { background: #334155; color: #cbd5e1; }
   // 다크에서는 brightness(0.93) 효과가 묻혀서 ring 두께·밝기로 강조
   .qna-card__cat.is-active {

@@ -5,6 +5,9 @@ _site/
 vendor/
 .bundle/
 
+# 일회성 스크립트·리뷰 덤프·스크린샷 등 작업용
+tmp/
+
 # OS
 .DS_Store
 
