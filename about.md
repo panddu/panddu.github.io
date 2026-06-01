@@ -47,3 +47,5 @@ description: 판뚜는 누구이고 이 블로그는 어떤 공간인지 — 채
     </a>
   </li>
 </ul>
+
+{% include giscus.html %}
