@@ -6,7 +6,7 @@ description: 판뚜는 누구이고 이 블로그는 어떤 공간인지 — 채
 ---
 
 <section class="about-hero">
-  <img class="about-hero__avatar" src="{{ '/assets/img/avatar.png' | relative_url }}" alt="판뚜|panddu 채널 프사" width="160" height="160">
+  <img class="about-hero__avatar" src="{{ '/assets/img/party-parrot.gif' | relative_url }}" alt="판뚜|panddu 채널 프사" width="160" height="160">
   <h1 class="about-hero__title">안녕하세요. 판교 뚜벅쵸입니다.</h1>
 </section>
 
