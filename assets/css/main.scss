@@ -349,6 +349,15 @@ a {
   margin: 0 auto 24px;
   box-shadow: 0 6px 32px rgba(91, 108, 255, 0.2), 0 0 0 8px var(--ring);
   border: 1px solid var(--line);
+  transition: scale 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  &:hover {
+    scale: 1.15;
+    box-shadow: 0 10px 40px rgba(91, 108, 255, 0.3), 0 0 0 10px var(--ring);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-hero__avatar:hover { scale: 1.05; }
 }
 .about-hero__title {
   font-size: 32px;
