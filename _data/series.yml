@@ -6,8 +6,8 @@ daily:
   display: 일상
   bracket: "[일상]"
   desc: 업계·회사·육아·관심사·일상 등의 아무 글
-  color: "#6b7280"
-  bg: "#f3f4f6"
+  color: "#7c3aed"
+  bg: "#ede9fe"
 
 tech:
   display: 테크
@@ -27,5 +27,5 @@ comms:
   display: 문답
   bracket: "[문답]"
   desc: 구독자 대상 Q&A 및 뚜쪽상담소 답변
-  color: "#d97706"
-  bg: "#fef3c7"
+  color: "#e11d48"
+  bg: "#ffe4e6"

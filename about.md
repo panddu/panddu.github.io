@@ -46,6 +46,14 @@ description: 판뚜는 누구이고 이 블로그는 어떤 공간인지 — 채
       <span>mg.studio.kr@gmail.com</span>
     </a>
   </li>
+  <li>
+    <a href="https://open.kakao.com/me/panddu" rel="noopener" target="_blank">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.778 1.808 5.224 4.526 6.625-.183.66-.66 2.394-.756 2.766-.118.462.169.456.357.331.147-.097 2.337-1.587 3.282-2.231.85.124 1.726.189 2.591.189 5.523 0 10-3.477 10-7.77S17.523 3 12 3z"/>
+      </svg>
+      <span>open.kakao.com/me/panddu</span>
+    </a>
+  </li>
 </ul>
 
 {% include giscus.html %}

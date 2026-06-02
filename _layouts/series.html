@@ -14,7 +14,7 @@ layout: default
     {% for post in series_posts %}
       <li class="post-list__item">
         <a href="{{ post.url | relative_url }}" class="post-list__link">
-          {% include post_meta.html post=post %}
+          {% include post_meta.html post=post hide_series=true %}
           <h3 class="post-list__heading">{{ post.title | escape }}</h3>
           {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
         </a>

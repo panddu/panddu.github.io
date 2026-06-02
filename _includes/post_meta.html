@@ -1,7 +1,8 @@
 {%- assign s = site.data.series[include.post.category] -%}
 {%- assign linked = include.linked | default: false -%}
+{%- assign hide_series = include.hide_series | default: false -%}
 <div class="post-meta">
-  {%- if s -%}
+  {%- if s and hide_series == false -%}
     {%- if linked -%}
       <a class="series-badge" style="color: {{ s.color }}; background: {{ s.bg }};" href="{{ '/series/' | append: include.post.category | append: '/' | relative_url }}">{{ s.bracket }}{% if include.post.series_no %} #{{ include.post.series_no }}{% endif %}</a>
     {%- else -%}

@@ -633,6 +633,15 @@ a {
     font-weight: 800;
     padding: 3px 10px;
     border-radius: 999px;
+    white-space: nowrap;
+  }
+  // 닉 옆 MBTI — 작은 회색 라벨, chip 바깥
+  .qna-q__mbti {
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.02em;
   }
   .qna-q__text {
     font-size: 16px;
@@ -1172,6 +1181,45 @@ body.is-sidebar-open { overflow: hidden; }
 }
 // giscus iframe이 삽입되면 로딩 표시 숨김 (modern browsers 지원)
 .comments__wrap:has(iframe.giscus-frame) .comments__loading { display: none; }
+
+// ===== 청첩장 등 외부 페이지 임베드 카드 =====
+.wedding-card-embed {
+  max-width: 420px;
+  margin: 24px auto 8px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  background: var(--card);
+  iframe {
+    display: block;
+    width: 100%;
+    height: 720px;
+    border: 0;
+  }
+}
+
+// ===== Google Forms 임베드 =====
+.gform-embed {
+  margin: 24px 0;
+  iframe {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: 2466px;
+    border: 0;
+    margin: 0 auto;
+  }
+}
+.gform-open-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover { filter: brightness(0.95); text-decoration: none; }
+}
 
 // ===== Mobile =====
 @media (max-width: 600px) {
