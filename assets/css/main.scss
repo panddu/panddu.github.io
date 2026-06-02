@@ -606,12 +606,42 @@ a {
     border-top: 1px solid var(--line);
     &:first-child { border-top: none; padding-top: 0; }
   }
+  // 기본(PC ≥601px): 한 줄 — num + 닉 + 카테고리 chip + MBTI·날짜 메타
   .qna-q__head {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 8px;
   }
+  .qna-q__head-main {
+    display: contents;  // PC에선 자식들이 head의 flex flow에 직접 참여
+  }
+  .qna-q__head-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    .qna-q__date { margin-left: 0; }
+  }
+  .qna-q__sep { opacity: 0.5; }
+  // 모바일(≤600px): 2줄 — 1행 num+닉+카테고리, 2행 들여쓰기된 MBTI·날짜
+  @media (max-width: 600px) {
+    .qna-q__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .qna-q__head-main {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+
   .qna-q__num {
     flex: none;
     min-width: 26px;
@@ -633,14 +663,13 @@ a {
     font-weight: 800;
     padding: 3px 10px;
     border-radius: 999px;
-    white-space: nowrap;
+    // 긴 닉은 chip 안에서 줄바꿈 — 띄어쓰기 없는 한국어도 강제 줄바꿈
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
-  // 닉 옆 MBTI — 작은 회색 라벨, chip 바깥
+  // 2행으로 옮긴 MBTI — 작은 회색
   .qna-q__mbti {
-    margin-left: 4px;
-    font-size: 11px;
     font-weight: 600;
-    color: var(--muted);
     letter-spacing: 0.02em;
   }
   .qna-q__text {
@@ -1048,13 +1077,6 @@ body.is-sidebar-open { overflow: hidden; }
   border: 1px solid var(--line);
   border-radius: 18px;
 }
-.series-hero__bracket {
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 14px;
-  margin: 0 0 4px;
-  letter-spacing: 0.02em;
-}
 .series-hero__title {
   margin: 0 0 8px;
   font-size: 32px;
@@ -1248,4 +1270,7 @@ body.is-sidebar-open { overflow: hidden; }
   .series-hero__title { font-size: 26px; }
   .board-hero { padding: 22px 20px 20px; border-radius: 14px; }
   .board-hero__title { font-size: 26px; }
+  // 푸터 한 줄 유지: 모바일에선 저작권 + 그 옆 separator 숨김 (헤더에 이미 사이트명 노출됨)
+  .site-footer__copyright,
+  .site-footer__sep--copy { display: none; }
 }
