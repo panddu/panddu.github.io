@@ -45,6 +45,13 @@ giscus:
   theme: "light"
   lang: "ko"
 
+# 뚜벅뚜벅 채팅 — 공개 수다방(Discord) + 1:1 비밀방(카카오 오픈채팅)
+# discord_*는 WidgetBot(e.widgetbot.io) 임베드용. 서버에 WidgetBot 봇 초대 후 ID 입력하면 섹션이 켜짐.
+board_chat:
+  discord_server_id: "1512428013629997148"   # WidgetBot 서버 ID — 채워지면 수다방 섹션 노출
+  discord_channel_id: "1512428015814967328"  # '오픈톡' 채널 — 기본으로 열림
+  kakao_openchat_url: "https://open.kakao.com/me/panddu"
+
 # GitHub Pages 빌드 환경과 동일하게 유지
 plugins:
   - jekyll-feed

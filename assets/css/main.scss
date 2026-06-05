@@ -1054,12 +1054,20 @@ body.is-sidebar-open { overflow: hidden; }
     color: var(--accent-ink);
     .sidebar__cta-sub { color: var(--accent-ink); opacity: 0.82; }
   }
+
+  & + .sidebar__cta { margin-top: 8px; }
 }
 .sidebar__cta-emoji {
   grid-row: 1 / span 2;
   align-self: center;
   font-size: 22px;
   line-height: 1;
+
+  svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
 }
 .sidebar__cta-label {
   font-weight: 800;
@@ -1200,6 +1208,45 @@ body.is-sidebar-open { overflow: hidden; }
 // giscus iframe이 board-thread에 삽입되면 로딩 표시 숨김
 .board-thread:has(iframe.giscus-frame) .comments__loading { display: none; }
 
+// ===== 뚜벅뚜벅 채팅 (공개 수다방 + 1:1 비밀방) =====
+.board-chat {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+// 전용 페이지에서 히어로 바로 아래 첫 섹션은 구분선 없이
+.board-chat--first {
+  margin-top: 28px;
+  padding-top: 0;
+  border-top: 0;
+}
+.board-chat__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.board-chat__desc {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.board-chat__discord {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--card);
+
+  widgetbot,
+  iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: 0;
+  }
+}
+
 // ===== Comments =====
 .comments {
   margin-top: 56px;
@@ -1299,6 +1346,8 @@ body.is-sidebar-open { overflow: hidden; }
   .series-hero__title { font-size: 26px; }
   .board-hero { padding: 22px 20px 20px; border-radius: 14px; }
   .board-hero__title { font-size: 26px; }
+  .board-chat__discord widgetbot,
+  .board-chat__discord iframe { height: 480px; }
   // 푸터 한 줄 유지: 모바일에선 저작권 + 그 옆 separator 숨김 (헤더에 이미 사이트명 노출됨)
   .site-footer__copyright,
   .site-footer__sep--copy { display: none; }
