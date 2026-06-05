@@ -1246,6 +1246,27 @@ body.is-sidebar-open { overflow: hidden; }
     border: 0;
   }
 }
+.board-chat__join {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 9px 15px;
+  border-radius: 10px;
+  background: #5865f2;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+
+  &:hover {
+    background: #4752c4;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(88, 101, 242, 0.35);
+  }
+}
 
 // ===== Comments =====
 .comments {

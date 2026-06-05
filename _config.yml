@@ -50,6 +50,7 @@ giscus:
 board_chat:
   discord_server_id: "1512428013629997148"   # WidgetBot 서버 ID — 채워지면 수다방 섹션 노출
   discord_channel_id: "1512428015814967328"  # '오픈톡' 채널 — 기본으로 열림
+  discord_invite_url: "https://discord.gg/aNGPV3bM"  # 디스코드 서버 초대 링크 — '들어가기' 버튼 노출
   kakao_openchat_url: "https://open.kakao.com/me/panddu"
 
 # GitHub Pages 빌드 환경과 동일하게 유지
