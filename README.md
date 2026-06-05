@@ -122,12 +122,14 @@ frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도
 | 홈 hero 카피·프사 | `_layouts/home.html` |
 | 사이트 전체 색·여백·폰트 | `assets/css/main.scss` |
 | 댓글(giscus) 설정 | `_config.yml` → `giscus:` |
+| 오픈톡(디스코드 채팅)·1on1(카톡 오픈채팅) | `_config.yml` → `board_chat:` (서버/채널 ID·초대 링크·오픈채팅 URL) — 값 비우면 해당 요소 숨김 |
+| 오픈톡 페이지(`/chat/`) 마크업 | `chat.html` (디스코드 WidgetBot 임베드 + 입장 버튼) |
 | 채널 프사 교체 | `assets/img/avatar.png` 덮어쓰기 (정사각형, 400px 이상 권장) → 파비콘 재생성 필요 (아래 참조) |
 | 파비콘 | `assets/img/{favicon-16x16,favicon-32x32,apple-touch-icon,android-chrome-192x192}.png` — `avatar.png`에서 자동 생성 (아래 참조) |
 | 댓글 로딩 GIF 교체 | `assets/img/party-parrot.gif` 덮어쓰기, 또는 `_includes/giscus.html`의 `src` 변경 |
 | 푸터 (저작권·소셜 아이콘) | `_includes/footer.html` |
 | 헤더 (좌측 프사·사이트 타이틀·햄버거) | `_includes/header.html` |
-| 사이드바 (검색·카테고리·뚜벅뚜벅 CTA) | `_includes/sidebar.html` |
+| 사이드바 (검색·카테고리·뚜벅뚜벅·오픈톡·1on1 CTA) | `_includes/sidebar.html` |
 
 ### 채널 프사 / 파비콘 재생성
 
@@ -204,7 +206,7 @@ panddu.github.io/
 ├── _includes/
 │   ├── head.html            # <head> 메타 + GA4 + GoatCounter 트래커 + 네이버 인증
 │   ├── header.html          # 사이트 헤더 + nav + 햄버거
-│   ├── sidebar.html         # 좌측 사이드바 (검색·카테고리·뚜벅뚜벅 CTA)
+│   ├── sidebar.html         # 좌측 사이드바 (검색·카테고리·뚜벅뚜벅·오픈톡·1on1 CTA)
 │   ├── footer.html          # 푸터 (저작권·소셜·개인정보·방문 카운터)
 │   ├── post_meta.html       # 카테고리 배지 + 날짜
 │   └── giscus.html          # 글 댓글 위젯 (board.html은 자체 임베드)
@@ -224,6 +226,7 @@ panddu.github.io/
 │       ├── favicon-*.png    # 16/32/180/192 파비콘
 │       └── party-parrot.gif # 댓글 로딩 표시
 ├── board.html               # /board/ — 뚜벅뚜벅 자유게시판 (Giscus 임베드)
+├── chat.html                # /chat/ — 오픈톡 (디스코드 WidgetBot 임베드 + 입장 버튼)
 ├── privacy.md               # /privacy/ — 개인정보처리방침
 ├── about.md                 # /about/
 ├── index.html               # /, layout: home
