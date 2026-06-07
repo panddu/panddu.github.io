@@ -14,3 +14,6 @@ tmp/
 # IntelliJ — runConfigurations만 공유, 나머지 로컬 설정은 제외
 .idea/*
 !.idea/runConfigurations/
+
+# Claude Code: 공용 settings.json은 추적, 개인/로컬 설정은 제외
+.claude/settings.local.json
