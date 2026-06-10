@@ -1,3 +1,16 @@
 {
-  "model": "sonnet"
+  "model": "sonnet",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.config/mingus-kit/hooks/auto_pull.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
 }
