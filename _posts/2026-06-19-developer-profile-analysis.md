@@ -3,6 +3,7 @@ layout: post
 title: "AI가 내 대화 기록 다 털어서 개발자 평가를 내렸다"
 date: 2026-06-19 00:00:00 +0900
 category: daily
+excerpt: "어느 날 Claude와 Codex에게 내 모든 대화 기록을 던져주고 나를 개발자로서 평가해달라고 시켜보았다."
 ---
 
 <style>
@@ -28,11 +29,37 @@ category: daily
   font-size: 11px; font-weight: 700; background: var(--chip, #f3f4f6);
   color: var(--muted); border-radius: 999px; padding: 2px 10px; white-space: nowrap;
 }
-.prompt-body { padding: 20px 24px; font-size: 14px; line-height: 1.75; color: var(--ink-soft, #6b7280); border-top: 1px solid var(--line, #e5e7eb); }
+.prompt-body { position: relative; padding: 20px 80px 20px 24px; font-size: 14px; line-height: 1.75; color: var(--ink-soft, #6b7280); border-top: 1px solid var(--line, #e5e7eb); }
 .prompt-body p { margin: 0 0 10px; }
 .prompt-body ul { padding-left: 18px; margin: 0 0 10px; }
 .prompt-body ul li { margin: 3px 0; }
 .prompt-body strong { color: var(--ink); }
+#copy-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--line, #e5e7eb);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-soft, #4b5563);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+#copy-btn:hover {
+  background: var(--surface, #f9fafb);
+  border-color: var(--primary, #059669);
+  color: var(--primary, #059669);
+}
+.copy-icon {
+  flex-shrink: 0;
+}
 
 /* ---- analyzer block ---- */
 .analyzer-block { border: 1px solid var(--line, #e5e7eb); border-radius: 20px; padding: 32px 36px; margin: 40px 0; }
@@ -134,6 +161,26 @@ category: daily
   :root:not([data-theme="light"]) .scenario-success .scenario-label { color: #34d399; }
   :root:not([data-theme="light"]) .scenario-fail { background: #2b0f14; }
   :root:not([data-theme="light"]) .scenario-fail .scenario-label { color: #f87171; }
+  :root:not([data-theme="light"]) #copy-btn {
+    background: #1f2937;
+    border-color: #374151;
+    color: #d1d5db;
+  }
+  :root:not([data-theme="light"]) #copy-btn:hover {
+    background: #374151;
+    border-color: #34d399;
+    color: #34d399;
+  }
+}
+[data-theme="dark"] #copy-btn {
+  background: #1f2937;
+  border-color: #374151;
+  color: #d1d5db;
+}
+[data-theme="dark"] #copy-btn:hover {
+  background: #374151;
+  border-color: #34d399;
+  color: #34d399;
 }
 </style>
 
@@ -150,7 +197,15 @@ category: daily
   <span>내가 넣은 프롬프트 <span class="badge">펼치기</span></span>
 </summary>
 <div class="prompt-body">
-<p>내 다른 세션 모두 뒤져서 지금까지 나와 나눈 모든 대화 기록을 바탕으로 나를 개발자로 분석해줘.<br>단순한 성격 분석이 아니라, 실제 업무 성과, 성장 가능성, 기술적 역량, 의사결정 방식, 커리어 관점에서 평가해줘.<br>듣기 좋은 말보다 정확성을 우선해줘. 근거가 부족한 내용은 반드시 "추측"이라고 명시하고, 가능한 한 실제 대화에서 관찰된 패턴을 근거로 설명해줘.</p>
+  <button id="copy-btn" onclick="copyPrompt()" title="프롬프트 복사">
+    <svg class="copy-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>복사</span>
+  </button>
+  <div id="prompt-text">
+    <p>내 다른 세션 모두 뒤져서 지금까지 나와 나눈 모든 대화 기록을 바탕으로 나를 개발자로 분석해줘.<br>단순한 성격 분석이 아니라, 실제 업무 성과, 성장 가능성, 기술적 역량, 의사결정 방식, 커리어 관점에서 평가해줘.<br>듣기 좋은 말보다 정확성을 우선해줘. 근거가 부족한 내용은 반드시 "추측"이라고 명시하고, 가능한 한 실제 대화에서 관찰된 패턴을 근거로 설명해줘.</p>
 
 <p><strong>1. 개발자로서의 핵심 프로파일</strong><br>
 나의 가장 두드러지는 특징 / 문제를 해결하는 방식 / 의사결정 스타일 / 학습 방식 / 업무 스타일 / 장기적으로 성장할 가능성이 높은 영역</p>
@@ -176,6 +231,7 @@ category: daily
 <p><strong>6. 앞으로 2년 성장 전략</strong> — 우선순위 순서로 구체적으로</p>
 <p><strong>7. 한 문장 요약</strong></p>
 <p><strong>8. 마지막으로 하고 싶은 말</strong> — 오랫동안 나를 지켜본 멘토라고 가정했을 때 꼭 한 번은 해주고 싶었던 말. 칭찬만 하지 말고, 앞으로의 커리어와 인생을 위해 진심으로 남기고 싶은 한마디.</p>
+  </div>
 </div>
 </details>
 
@@ -456,3 +512,19 @@ category: daily
 </div><!-- .analyzer-block.codex -->
 
 </div><!-- .analysis-wrap -->
+
+<script>
+function copyPrompt() {
+  const promptText = document.getElementById('prompt-text').innerText.trim();
+  navigator.clipboard.writeText(promptText).then(() => {
+    const btn = document.getElementById('copy-btn');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span>✅ 복사됨!</span>';
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+</script>
