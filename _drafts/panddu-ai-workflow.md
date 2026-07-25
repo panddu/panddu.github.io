@@ -17,7 +17,20 @@ excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하�
 </p>
 
 <div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  📢 <b>이 글은 AI 에이전트가 작성하였습니다</b><br>
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <defs>
+        <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1ba0fc" />
+          <stop offset="40%" stop-color="#8a3ffc" />
+          <stop offset="80%" stop-color="#e7347a" />
+          <stop offset="100%" stop-color="#f99f1b" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#gemini-grad)" d="M12 2a1 1 0 0 1 .968.756c.866 3.593 3.683 6.41 7.276 7.276a1 1 0 0 1 0 1.936c-3.593.866-6.41 3.683-7.276 7.276a1 1 0 0 1-1.936 0c-.866-3.593-3.683-6.41-7.276-7.276a1 1 0 0 1 0-1.936c3.593-.866 6.41-3.683 7.276-7.276A1 1 0 0 1 12 2z"/>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash가 작성하였습니다</span>
+  </div>
   이 포스팅은 판뚜의 여러 행동 데이터를 분석한 기반으로 <b>'판교뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다. 제목 개선 피드백 반영, Kotlin 코드 삽입, 8.4MB 이미지의 300KB JPEG 최적화 압축, 그리고 로컬 서버 기동까지의 모든 다듬기 과정 역시 <code>mingus-workspace</code>의 AI 에이전트(<b>Gemini 3.5 Flash</b> 모델)가 단독으로 수행했습니다. AI를 나만의 도구로 엮어 쓴다는 것이 무엇인지, 이 글 자체로 증명합니다.
 </div>
 
