@@ -17,8 +17,8 @@ excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하�
 </p>
 
 <div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  🤖 <b>Proof of Work (실제 작동 예시)</b><br>
-  이 포스팅은 저의 기존 스크립트와 댓글 데이터를 기반으로 <b>'판교뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다. 제목 개선 피드백 반영, Kotlin 코드 삽입, 8.4MB 이미지의 300KB JPEG 최적화 압축, 그리고 로컬 서버 기동까지의 모든 다듬기 과정 역시 <code>mingus-workspace</code>의 AI 에이전트(Gemini 3.5 Flash 모델)가 단독으로 수행했습니다. AI를 나만의 도구로 엮어 쓴다는 것이 무엇인지, 이 글 자체로 증명합니다.
+  📢 <b>이 글은 AI 에이전트가 작성하였습니다</b><br>
+  이 포스팅은 판뚜의 여러 행동 데이터를 분석한 기반으로 <b>'판교뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다. 제목 개선 피드백 반영, Kotlin 코드 삽입, 8.4MB 이미지의 300KB JPEG 최적화 압축, 그리고 로컬 서버 기동까지의 모든 다듬기 과정 역시 <code>mingus-workspace</code>의 AI 에이전트(<b>Gemini 3.5 Flash</b> 모델)가 단독으로 수행했습니다. AI를 나만의 도구로 엮어 쓴다는 것이 무엇인지, 이 글 자체로 증명합니다.
 </div>
 
 <div class="toc-box">
