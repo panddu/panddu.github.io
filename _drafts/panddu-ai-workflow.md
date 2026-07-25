@@ -1,13 +1,25 @@
 ---
 layout: post
-title: "프롬프트만 치는 건 끝났습니다. 저는 AI를 이렇게 씁니다"
+title: "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시"
 date: 2026-07-25 16:22:00 +0900
 category: tech
 image: /assets/img/posts/2026-07-25/thumbnail.jpg
-excerpt: "세션 저장, 자막 자동화, 로컬 LLM 태깅까지… 벤더 종속 없이 나에게 꼭 필요한 기능만 뚝딱 만들어 활용하는 실용적 AI 자동화 파이프라인과 JetBrains Koog 소개."
+excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하고, 로컬 LLM으로 QnA 데이터 분류까지 해결한 판교 개발자의 벤더 종속 없는 실전 AI 파이프라인 구축기."
 ---
 
 ![대표 썸네일](/assets/img/posts/2026-07-25/thumbnail.jpg)
+
+<p style="margin: 22px 0 30px;">
+  <a href="https://youtu.be/uHRUcb_gXIQ" target="_blank" rel="noopener noreferrer" style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px; color: #e62117; text-decoration: none;">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="flex-shrink: 0;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    <span style="border-bottom: 1px solid rgba(230, 33, 23, 0.35);">YouTube에서 관련 영상 보기</span>
+  </a>
+</p>
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  🤖 <b>Proof of Work (실제 작동 예시)</b><br>
+  이 포스팅은 저의 기존 스크립트와 댓글 데이터를 기반으로 <b>'판교뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다. 제목 개선 피드백 반영, Kotlin 코드 삽입, 8.4MB 이미지의 300KB JPEG 최적화 압축, 그리고 로컬 서버 기동까지의 모든 다듬기 과정 역시 <code>mingus-workspace</code>의 AI 에이전트가 단독으로 수행했습니다. AI를 나만의 도구로 엮어 쓴다는 것이 무엇인지, 이 글 자체로 증명합니다.
+</div>
 
 <div class="toc-box">
   <p class="toc-title">목차</p>
@@ -46,12 +58,15 @@ excerpt: "세션 저장, 자막 자동화, 로컬 LLM 태깅까지… 벤더 종
     list-style: none !important;
   }
   .toc-box a {
-    color: var(--primary, #2563eb);
+    color: var(--accent, #5b6cff);
     text-decoration: none;
     font-weight: 500;
   }
   .toc-box a:hover {
     text-decoration: underline;
+  }
+  [id] {
+    scroll-margin-top: 90px;
   }
 </style>
 
@@ -69,15 +84,15 @@ excerpt: "세션 저장, 자막 자동화, 로컬 LLM 태깅까지… 벤더 종
 
 제 개인 작업 공간은 다음과 같은 4단 레이어 구조로 탄탄히 엮여 있습니다.
 
-1. **최하단 영속성 계층 (DB)**: **Bear Note**
-   * 개인 workflow를 구성할 때 가장 먼저 결정해야 할 것이 바로 이 영속성 계층의 선택입니다. 저는 `bearcli` 명령어 인터페이스와 마크다운 문법을 완벽히 지원하는 Bear 노트를 메인 영속성으로 채택해 모든 기록의 싱글 소스오브트루스(Single Source of Truth)로 사용하고 있습니다.
+1. **최하단 영속성 계층 (DB)**: **<a href="https://bear.app/" target="_blank" rel="noopener noreferrer">Bear Note</a>**
+   * 개인 workflow를 구성할 때 가장 먼저 결정해야 할 것이 바로 이 영속성 계층의 선택입니다. 저는 <a href="https://blog.bear.app/2026/04/bear-2-8-bearcli-claude-connector-and-mcp-server/" target="_blank" rel="noopener noreferrer">bearcli</a> 명령어 인터페이스와 마크다운 문법을 완벽히 지원하는 Bear 노트를 메인 영속성으로 채택해 모든 기록의 싱글 소스오브트루스(Single Source of Truth)로 사용하고 있습니다.
 2. **코어 연동 계층 (CORE)**: **`mingus-kit`**
    * 구글 시트, 캘린더, 유튜브 분석 등 제가 매일 반복해서 체크해야 하는 모든 API 스킬들을 묶어 둔 중심 프로젝트입니다. 
 3. **영상 작업 보조 계층 (STUDIO)**: **`mingus-studio`**
    * 영상 더빙용 음성 합성(GPT-SoVITS)과 Whisper 기반의 파이널컷 XML 자막 생성 자동화를 담당합니다.
 4. **LLM 제어 및 에이전트 계층 (AGENT)**: **`mingus-agent`**
    * JVM 환경에서 동작하며, 로컬 LLM을 엮어 복잡한 데이터 정제(블로그 상담소 질문 분류 및 HTML 변환 등)를 처리합니다.
-5. **최상위 결과물 계층 (OUTPUT)**: **블로그(`panddu.github.io`) 및 유튜브 채널**
+5. **최상위 결과물 계층 (OUTPUT)**: **블로그 및 <a href="https://www.youtube.com/@pan-ddu" target="_blank" rel="noopener noreferrer">유튜브 채널</a>**
 
 이 모든 레이어가 거대하고 복잡한 엔지니어링 덩어리가 아니라, 각자가 필요한 역할만 수행하며 유기적으로 연결됩니다.
 
@@ -117,7 +132,32 @@ excerpt: "세션 저장, 자막 자동화, 로컬 LLM 태깅까지… 벤더 종
 
 저는 현업에서 주로 사용하는 JVM 환경의 강점을 살려 Kotlin 기반의 AI 에이전트 프레임워크인 **JetBrains Koog**를 사용했습니다. Koog는 Spring AI나 LangChain처럼 다양한 LLM(Gemini, Ollama 등)을 매끄럽게 교체할 수 있을 뿐만 아니라, Kotlin DSL을 통해 에이전트들의 오케스트레이션 및 데이터 흐름 상태를 코드로 명료하게 선언할 수 있습니다.
 
-블로그에 게시한 '뚜쪽상담소'의 181개 QnA 카테고리 태깅 및 블로그용 HTML 마크업 생성 역시 로컬에서 Ollama로 `gemma4:e4b` 모델을 물려 안전하고 비용 걱정 없이 처리했습니다. JSON 형태가 일그러질 때를 대비한 native schema 강제와 `StructureFixingParser`를 통한 automatic 복구까지 구현하여 실제 업무 파이프라인에서 신뢰성 높게 동작하도록 했습니다.
+블로그에 게시한 [뚜쪽상담소]({{ '/series/comms/' | relative_url }})의 181개 QnA 카테고리 태깅 및 블로그용 HTML 마크업 생성 역시 로컬에서 Ollama로 `gemma4:e4b` 모델을 물려 안전하고 비용 걱정 없이 처리했습니다.
+
+다만 소형 로컬 LLM의 특성상 출력 포맷(JSON)이 깨져서 파이프라인이 멈추는 고질적인 문제가 있었는데, 이를 해결하기 위해 Koog의 네이티브 스키마 생성 기능과 내장 자동 복구기(`StructureFixingParser`)를 이용해 아래와 같이 구조화 출력(Structured Output)을 위한 코틀린 확장 함수를 구현하여 극복했습니다.
+
+```kotlin
+suspend fun <T> PromptExecutor.executeStructuredNative(
+    prompt: Prompt,
+    model: LLModel,
+    serializer: KSerializer<T>,
+): T {
+    // 1. 소형 모델 친화적인 '평탄화된 JSON 스키마' 생성
+    val structure = JsonStructure.create(
+        serializer.descriptor.serialName,
+        serializer,
+        NATIVE_JSON,
+        BasicJsonSchemaGenerator.Default,
+    )
+    val config = StructuredRequestConfig(StructuredRequest.Native(structure), emptyMap())
+    
+    // 2. 파싱 에러 발생 시, 깨진 출력과 스키마를 모델에 다시 보여주고 수정을 유도 (최대 2회)
+    val fixer = StructureFixingParser(model, retries = 2)
+    return executeStructured(prompt, model, config, fixer).getOrThrow().data
+}
+```
+
+이 래퍼 함수 덕분에 소형 로컬 LLM을 연동하면서도 포맷 어긋남 걱정 없이 실제 업무 파이프라인에서 100%에 가까운 신뢰성으로 데이터 정제를 자동화할 수 있었습니다.
 
 ---
 
@@ -132,3 +172,10 @@ excerpt: "세션 저장, 자막 자동화, 로컬 LLM 태깅까지… 벤더 종
 굳이 남이 복잡하게 짜놓은 자동화 패키지나 맞지 않는 기성복 옷에 내 일하는 방식을 억지로 구겨 넣지 마세요. 내 몸에 꼭 맞는 최적화된 도구들을 직접 엮어 나가는 것, 그것이 현 시점 AI 시대를 살아가는 가장 실리적이고 현명한 전략이라고 생각합니다.
 
 ![나만의 방식 나만의 AI](/assets/img/posts/2026-07-25/ai_era_my_way.jpg)
+
+<p style="margin: 32px 0 16px; text-align: center;">
+  <a href="https://youtu.be/uHRUcb_gXIQ" target="_blank" rel="noopener noreferrer" style="font-weight: 600; display: inline-flex; align-items: center; gap: 8px; color: #e62117; text-decoration: none; font-size: 16.5px;">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="flex-shrink: 0;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    <span style="border-bottom: 1px solid rgba(230, 33, 23, 0.35);">YouTube에서 관련 영상 보기</span>
+  </a>
+</p>

@@ -178,6 +178,31 @@
         if (e.data && e.data.giscus) syncGiscus();
       });
     })();
+
+    // ----- 맨 위로 가기 (PC만) -----
+    (function () {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'scroll-top';
+      btn.setAttribute('aria-label', '맨 위로 가기');
+      btn.innerHTML = '↑';
+      document.body.appendChild(btn);
+
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      var visible = false;
+      function onScroll() {
+        var show = window.scrollY > 200;
+        if (show !== visible) {
+          visible = show;
+          btn.classList.toggle('is-visible', show);
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
   </script>
   <script defer src="{{ '/assets/js/qna.js' | relative_url }}"></script>
 </body>
