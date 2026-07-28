@@ -121,6 +121,64 @@ excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하�
 
 ![Bear 세션 영속화](/assets/img/posts/2026-07-25/session_persistence.jpg)
 
+`mingus-kit`은 단순히 API 스크립트만 모아둔 것이 아닙니다. 각 기능(스킬)별 상세 지침서인 `SKILL.md`뿐만 아니라, `/worklog`, `/resume` 같이 에이전트의 작업 방식을 제어하는 명령어 사양서(`commands/*.md`)까지 한 곳에서 체계적으로 관리합니다.
+
+실제 `mingus-kit`의 주요 디렉토리 구조는 다음과 같습니다:
+
+<div class="code-block-container" markdown="1">
+<div class="code-block-header">mingus-kit/</div>
+
+```plaintext
+mingus-kit/
+├── commands/
+│   ├── worklog.md            # 작업 로그(worklog) 기록 규칙 정의
+│   └── resume.md             # 세션 복구(resume) 규칙 정의
+├── skills/
+│   ├── calendar/
+│   │   ├── SKILL.md          # 캘린더 조회/변경 가이드라인
+│   │   └── scripts/
+│   │       └── calendar.py   # 실제 API 호출 스크립트
+│   └── sheets/
+│       ├── SKILL.md
+│       └── scripts/
+│           └── sheets.py
+└── scripts/
+```
+
+</div>
+
+여기에 들어가는 마크다운 문서들은 에이전트가 이 도구를 사용하는 "맥락과 규칙"을 명시합니다. 예를 들어, 대화 내역을 요약해 기록하도록 지시하는 `worklog.md` 명령어 사양서의 일부는 다음과 같습니다. 에이전트는 이 규칙을 읽고 도구 출력을 그대로 복사하는 대신 스스로 세션을 회고하며 중요한 트레이드오프와 의사결정만 정리해 Bear Note에 저장하게 됩니다:
+
+<div class="code-block-container" markdown="1">
+<div class="code-block-header">mingus-kit/commands/worklog.md</div>
+
+{% raw %}
+```markdown
+---
+description: 현재 세션에서 한 일을 정리해 Bear에 worklog 노트로 저장한다. 미리보기 후 사용자 확인을 거쳐 저장.
+argument-hint: [제목 한 줄 요약 또는 추가 메모(선택)]
+---
+
+지금까지의 세션을 돌아보고 worklog 노트를 Bear에 저장하라.
+
+## 절차
+
+### 1. 컨텍스트 수집
+- 오늘 날짜 수집
+- 작업 디렉토리 및 프로젝트명 파악
+
+### 2. 세션 회고 (도구 출력을 그대로 복붙하지 말 것)
+- **컨텍스트**: 무엇을 하려고 했나, 왜 (요청·동기·제약)
+- **한 일**: 실제로 변경한 것, 결정된 것 (단순 탐색·실패한 시도·중간 시행착오는 생략)
+- **결정 / 배움**: 중요한 트레이드오프와 그 이유, 새로 알게 된 사실
+- **다음 단계**: 미해결, 후속 작업, TODO
+```
+{% endraw %}
+
+</div>
+
+![mingus-kit 구조 및 지침](/assets/img/posts/2026-07-25/mingus_kit_structure.jpg)
+
 ---
 
 ## <span id="caption-automation">🎬 자막 지옥에서 탈출하기 (`mingus-studio`)</span>
@@ -149,6 +207,9 @@ excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하�
 
 다만 소형 로컬 LLM의 특성상 출력 포맷(JSON)이 깨져서 파이프라인이 멈추는 고질적인 문제가 있었는데, 이를 해결하기 위해 Koog의 네이티브 스키마 생성 기능과 내장 자동 복구기(`StructureFixingParser`)를 이용해 아래와 같이 구조화 출력(Structured Output)을 위한 코틀린 확장 함수를 구현하여 극복했습니다.
 
+<div class="code-block-container" markdown="1">
+<div class="code-block-header">mingus-agent/src/main/kotlin/executeStructuredNative.kt</div>
+
 ```kotlin
 suspend fun <T> PromptExecutor.executeStructuredNative(
     prompt: Prompt,
@@ -169,6 +230,8 @@ suspend fun <T> PromptExecutor.executeStructuredNative(
     return executeStructured(prompt, model, config, fixer).getOrThrow().data
 }
 ```
+
+</div>
 
 이 래퍼 함수 덕분에 소형 로컬 LLM을 연동하면서도 포맷 어긋남 걱정 없이 실제 업무 파이프라인에서 100%에 가까운 신뢰성으로 데이터 정제를 자동화할 수 있었습니다.
 

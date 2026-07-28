@@ -1504,3 +1504,53 @@ body.is-sidebar-open { overflow: hidden; }
   color: #90a959;
 }
 
+/* Code Block Custom Header Styling (Unified Dark Theme) */
+.code-block-container {
+  margin: 20px 0;
+  border: 1px solid #282d39;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.code-block-header {
+  background: #161821;
+  border-bottom: 1px solid #232635;
+  padding: 10px 16px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a6accd;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-block-header::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent, #5b6cff);
+}
+
+/* Reset margin for highlighter-rouge inside container */
+.code-block-container .highlighter-rouge {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.code-block-container .highlight {
+  border-radius: 0 !important;
+  background: #1f2430 !important;
+}
+
+.code-block-container pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+
