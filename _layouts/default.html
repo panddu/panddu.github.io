@@ -45,7 +45,7 @@
         .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
         .then(function (d) {
           var n = d.count_unique != null ? d.count_unique : (d.count || 0);
-          el.textContent = Number(String(n).replace(/,/g, '')).toLocaleString('ko-KR');
+          el.textContent = Number(String(n).replace(/\D/g, '')).toLocaleString('ko-KR');
         })
         .catch(function () { /* silent — '—' 유지 */ });
     })();
