@@ -7,6 +7,7 @@ excerpt: "오랜만에 친구들이나 가족들을 만나면 자연스레 서�
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/13" target="_blank">판뚜의 브런치(@panddu/13)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 오랜만에 친구들이나 가족들을 만나면 자연스레 서로의 근황을 묻게 됩니다.
 

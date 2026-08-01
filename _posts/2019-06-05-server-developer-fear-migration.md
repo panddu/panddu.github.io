@@ -7,6 +7,7 @@ excerpt: "앞서 '서버 개발자가 꺼리는 일 - 이벤트'라는 글을 �
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/25" target="_blank">판뚜의 브런치(@panddu/25)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 [서버 개발자가 꺼리는 일 - 이벤트](https://brunch.co.kr/@mingus/20)
 앞서 이런 글을 올린 적이 있습니다. 근데 생각해보니 저것 말고도 꺼려지는 일이 한두 가지가 아니더군요. 오늘은 다른 사례를 소개해볼까 합니다.

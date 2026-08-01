@@ -7,6 +7,7 @@ excerpt: "회사는 코딩을 하기에 앞서 팀원들과 일을 하는 곳입
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/27" target="_blank">판뚜의 브런치(@panddu/27)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > 회사는 코딩을 하기에 앞서 팀원들과 일을 하는 곳입니다.

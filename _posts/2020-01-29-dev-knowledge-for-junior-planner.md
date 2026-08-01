@@ -7,6 +7,7 @@ excerpt: "회의시간에 개발자한테 털리고 나왔다.."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/41" target="_blank">판뚜의 브런치(@panddu/41)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > 회의시간에 개발자한테 털리고 나왔다..

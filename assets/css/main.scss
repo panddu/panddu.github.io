@@ -496,6 +496,16 @@ a {
     color: var(--muted);
     background: var(--quote-bg);
     border-radius: 0 8px 8px 0;
+    p:last-child { margin-bottom: 0; }
+  }
+  // 마이그레이션 안내처럼 본문 인용과는 성격이 다른 시스템 공지 — 일반 blockquote(인용구)와
+  // 시각적으로 구분되게 accent 컬러 바 없이 중립 톤 뱃지로 처리.
+  blockquote.migration-notice {
+    border-left: none;
+    border-radius: 8px;
+    background: var(--chip);
+    padding: 10px 14px;
+    font-size: 0.88em;
   }
   code {
     background: var(--code-bg);

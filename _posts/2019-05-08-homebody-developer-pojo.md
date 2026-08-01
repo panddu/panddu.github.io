@@ -7,6 +7,7 @@ excerpt: "저는 집돌이입니다. 여자 친구도 집순이입니다. 집 �
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/23" target="_blank">판뚜의 브런치(@panddu/23)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 ### TMI

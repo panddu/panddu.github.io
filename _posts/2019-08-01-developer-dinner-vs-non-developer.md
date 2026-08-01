@@ -7,6 +7,7 @@ excerpt: "사실 개발자, 비개발자에 따라 항상 그런 것은 아니�
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/37" target="_blank">판뚜의 브런치(@panddu/37)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > 사실 개발자, 비개발자에 따라 항상 그런 것은 아니고요. 

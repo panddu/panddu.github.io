@@ -7,6 +7,7 @@ excerpt: "\"이렇게 하면 1만 명 모을 수 있다\"가 아니라 \"이런 
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/42" target="_blank">판뚜의 브런치(@panddu/42)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > "이렇게 하면 1만 명 모을 수 있다"가 아니라

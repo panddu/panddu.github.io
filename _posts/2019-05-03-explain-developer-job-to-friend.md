@@ -7,6 +7,7 @@ excerpt: "다른 글에서 말씀드렸던 처럼 저는 개발자입니다. 그
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/15" target="_blank">판뚜의 브런치(@panddu/15)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 다른 글에서 말씀드렸던 처럼 저는 개발자입니다.
 

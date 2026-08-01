@@ -6,7 +6,8 @@ category: workroom
 excerpt: "글귀를 스팸체, 한국인전용체로 바꿔주는 미니 웹앱입니다."
 ---
 
-> 💡 이 글은 예전 블로그(mingpd.github.io)에서 마이그레이션된 글입니다.
+> 💡 이 글은 전에 운영하던 mingpd.github.io에서 마이그레이션된 글입니다.
+{: .migration-notice}
 
 ## 소개
 

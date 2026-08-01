@@ -7,6 +7,7 @@ excerpt: "개발자의 관점에서 '슈퍼마리오 메이커'를 바라보았�
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/32" target="_blank">판뚜의 브런치(@panddu/32)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > 개발자의 관점에서 

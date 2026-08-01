@@ -7,6 +7,7 @@ excerpt: "예전에 이런 댓글을 본 적이 있습니다. 한창 톡 감청 
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/22" target="_blank">판뚜의 브런치(@panddu/22)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 예전에 이런 댓글을 본 적이 있습니다. 한창 톡 감청 루머로 대한민국이 시끌시끌하던 때입니다.
 

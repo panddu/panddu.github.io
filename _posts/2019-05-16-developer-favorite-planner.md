@@ -7,6 +7,7 @@ excerpt: "주의. 지극히 개인적인 생각이기 때문에 공감이 1도 �
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/19" target="_blank">판뚜의 브런치(@panddu/19)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 
 > 주의. 지극히 개인적인 생각이기 때문에 

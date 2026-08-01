@@ -6,7 +6,8 @@ category: tech
 excerpt: "한글 한 음절을 초성·중성·종성으로 쪼개고 다시 조합하는 공식을 정리합니다."
 ---
 
-> 💡 이 글은 예전 블로그(mingpd.github.io)에서 마이그레이션된 글입니다.
+> 💡 이 글은 전에 운영하던 mingpd.github.io에서 마이그레이션된 글입니다.
+{: .migration-notice}
 
 [작업실](/series/workroom/) 카테고리에 [스팸체 생성기](/posts/2019/04/spammaker/)를 올려두었는데요. 관련하여 가장 중요한 내용을 여기에 써보려합니다.
 

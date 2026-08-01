@@ -7,6 +7,7 @@ excerpt: "앞서 이런 글을 썼던 적이 있습니다. 생각해보니 이�
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/36" target="_blank">판뚜의 브런치(@panddu/36)</a>로부터 마이그레이션된 글입니다.
+{: .migration-notice}
 
 [https://brunch.co.kr/@mingus/19](https://brunch.co.kr/@mingus/19)
 
