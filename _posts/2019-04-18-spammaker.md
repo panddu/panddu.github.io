@@ -14,12 +14,12 @@ excerpt: "글귀를 스팸체, 한국인전용체로 바꿔주는 미니 웹앱�
   <div style="background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;">
     <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">스팸체</div>
     <p style="margin: 0 0 10px; color: var(--ink-soft);">스팸체를 만들 수 있습니다.</p>
-    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; word-break: break-all; line-height: 1.6;">亼✣팸ღㅊㅔ✽를✚만✬들✏㐃✺있✪습L1딻.✮</div>
+    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; white-space: nowrap; overflow-x: auto; line-height: 1.6;">亼✣팸ღㅊㅔ✽를✚만✬들✏㐃✺있✪습L1딻.✮</div>
   </div>
   <div style="background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;">
     <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">한국인전용체</div>
     <p style="margin: 0 0 10px; color: var(--ink-soft);">한국인만 읽을 수 있는 글을 만들 수 있습니다.</p>
-    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; word-break: break-all; line-height: 1.6;">한국읹많 읽읊 수 있늕 글읊 많들 쑮 있습니땂.</div>
+    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; white-space: nowrap; overflow-x: auto; line-height: 1.6;">한국읹많 읽읊 수 있늕 글읊 많들 쑮 있습니땂.</div>
   </div>
 </div>
 
