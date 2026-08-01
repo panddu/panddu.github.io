@@ -5,14 +5,14 @@
 daily:
   display: 일상
   bracket: "[일상]"
-  desc: 업계·회사·육아·관심사·일상 이야기
+  desc: 일상·육아·관심사·회사 이야기
   color: "#7c3aed"
   bg: "#ede9fe"
 
 tech:
   display: 테크
   bracket: "[테크]"
-  desc: AI·개발·기술 이야기
+  desc: AI·개발·기술·업계 이야기
   color: "#2563eb"
   bg: "#dbeafe"
 
