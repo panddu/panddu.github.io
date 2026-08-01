@@ -3,6 +3,7 @@ layout: post
 title: "개발자를 손님으로 맞이한 택시기사"
 date: 2019-05-04 11:00:18 +0900
 category: daily
+excerpt: "대전에 지인을 만날 일이 있어 서대전역에서 택시를 탔습니다. 한 30대 후반으로 보이는 남자 기사님께서 절 맞이해 주셨습니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/17" target="_blank">판뚜의 브런치(@panddu/17)</a>로부터 마이그레이션된 글입니다.

@@ -3,6 +3,7 @@ layout: post
 title: "기획자가 좋아하는 개발자는?"
 date: 2019-07-24 09:11:01 +0900
 category: daily
+excerpt: "앞서 이런 글을 썼던 적이 있습니다. 생각해보니 이건 너무 저만 생각한 것 같더군요."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/36" target="_blank">판뚜의 브런치(@panddu/36)</a>로부터 마이그레이션된 글입니다.

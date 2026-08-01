@@ -3,6 +3,7 @@ layout: post
 title: "훌륭한 코딩 교육 도구 '슈퍼마리오 메이커'"
 date: 2019-07-03 07:55:51 +0900
 category: review
+excerpt: "개발자의 관점에서 '슈퍼마리오 메이커'를 바라보았습니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/32" target="_blank">판뚜의 브런치(@panddu/32)</a>로부터 마이그레이션된 글입니다.

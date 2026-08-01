@@ -3,6 +3,7 @@ layout: post
 title: "개발자 커플의 기념일"
 date: 2019-05-01 20:44:41 +0900
 category: daily
+excerpt: "앞선 글에서 말씀드린 것처럼 저흰 개발자끼리 만나고 있습니다. 개발자인 것뿐 아니라 다른 부분도 비슷한 점이 많은데요. 그중 하나가 바로 기념일에 대한 생각입니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/16" target="_blank">판뚜의 브런치(@panddu/16)</a>로부터 마이그레이션된 글입니다.

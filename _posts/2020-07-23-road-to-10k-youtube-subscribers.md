@@ -3,6 +3,7 @@ layout: post
 title: "판교 뚜벅쵸, 1만 구독 YouTube 채널이 되기까지"
 date: 2020-07-23 22:10:20 +0900
 category: daily
+excerpt: "\"이렇게 하면 1만 명 모을 수 있다\"가 아니라 \"이런 시도를 해봤더니 반응이 조금씩 오더라\"이므로 가볍게 참고만 부탁드립니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/42" target="_blank">판뚜의 브런치(@panddu/42)</a>로부터 마이그레이션된 글입니다.

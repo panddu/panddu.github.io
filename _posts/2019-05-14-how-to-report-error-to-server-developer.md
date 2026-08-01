@@ -3,6 +3,7 @@ layout: post
 title: "서버 개발자에게 에러 제보 시의 매너"
 date: 2019-05-14 08:50:58 +0900
 category: daily
+excerpt: "저는 가끔 외부 업체랑 커뮤니케이션을 할 때가 있습니다. 저희가 제공하는 API가 완벽할 순 없기에 가끔 이메일로 문의를 받곤 합니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/24" target="_blank">판뚜의 브런치(@panddu/24)</a>로부터 마이그레이션된 글입니다.

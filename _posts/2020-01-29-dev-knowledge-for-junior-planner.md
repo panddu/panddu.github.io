@@ -3,6 +3,7 @@ layout: post
 title: "꼬꼬마 기획자에게 집어넣는 개발 지식"
 date: 2020-01-29 23:14:47 +0900
 category: tech
+excerpt: "회의시간에 개발자한테 털리고 나왔다.."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/41" target="_blank">판뚜의 브런치(@panddu/41)</a>로부터 마이그레이션된 글입니다.

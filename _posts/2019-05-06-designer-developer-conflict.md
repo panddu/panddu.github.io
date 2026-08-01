@@ -3,6 +3,7 @@ layout: post
 title: "개발자 때문에 상처 받은 디자이너"
 date: 2019-05-06 21:37:57 +0900
 category: daily
+excerpt: "이 글은 개발자와 타 직군 간의 갈등을 조장할 의도는 전혀 없습니다. 다 같이 이해하며 좋은 퍼포먼스를 내보자는 취지의 한 사례일 뿐입니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/18" target="_blank">판뚜의 브런치(@panddu/18)</a>로부터 마이그레이션된 글입니다.

@@ -521,6 +521,28 @@ a {
     border-top: 1px solid var(--line);
     margin: 2.5em 0;
   }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4em 0;
+    font-size: 0.94em;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  th, td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--chip);
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--quote-bg); }
   // About 페이지의 시리즈 목록 — 배지 + 설명 한 줄짜리 list 결 가다듬기
   ul li .series-badge {
     margin-right: 4px;

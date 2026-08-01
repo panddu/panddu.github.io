@@ -3,6 +3,7 @@ layout: post
 title: "개발자끼리 연애하면 좋나요?"
 date: 2019-04-30 22:57:12 +0900
 category: daily
+excerpt: "이 회사의 특징인지, 업계의 특징인지 모르겠습니다만 주위에 사내 커플도 많고 사내 부부도 많습니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/14" target="_blank">판뚜의 브런치(@panddu/14)</a>로부터 마이그레이션된 글입니다.

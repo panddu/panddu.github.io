@@ -3,6 +3,7 @@ layout: post
 title: "서버 개발자가 꺼리는 일 - 마이그레이션"
 date: 2019-06-05 09:00:08 +0900
 category: tech
+excerpt: "앞서 '서버 개발자가 꺼리는 일 - 이벤트'라는 글을 올린 적이 있습니다. 근데 생각해보니 저것 말고도 꺼려지는 일이 한두 가지가 아니더군요."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/25" target="_blank">판뚜의 브런치(@panddu/25)</a>로부터 마이그레이션된 글입니다.

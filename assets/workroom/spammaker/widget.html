@@ -1,0 +1,203 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    // 부모 페이지(같은 오리진)의 다크모드 토글 상태를 그대로 따라간다.
+    (function () {
+      function sync() {
+        try {
+          var t = window.parent.document.documentElement.getAttribute('data-theme');
+          if (t === 'dark' || t === 'light') {
+            document.documentElement.setAttribute('data-theme', t);
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+        } catch (e) { /* 크로스오리진이면 시스템 설정(prefers-color-scheme)만 따른다 */ }
+      }
+      sync();
+      try {
+        new MutationObserver(sync).observe(window.parent.document.documentElement, {
+          attributes: true, attributeFilter: ['data-theme']
+        });
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body { padding: 16px; }
+    .spammaker { display: flex; flex-direction: column; gap: 8px; }
+    .spammaker__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .spammaker__textarea {
+      width: 100%;
+      resize: none;
+      box-sizing: border-box;
+      background: var(--card);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.6;
+      transition: border-color 0.15s ease;
+    }
+    .spammaker__textarea::placeholder { color: var(--muted); }
+    .spammaker__textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .spammaker__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0 8px;
+    }
+    .spammaker__btn {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s ease, background 0.15s ease;
+    }
+    .spammaker__btn:hover { opacity: 0.85; }
+    .spammaker__btn:active { opacity: 0.7; }
+    .spammaker__btn--primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+    .spammaker__btn--ghost {
+      background: var(--chip);
+      color: var(--ink-soft);
+    }
+    .spammaker__status {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .spammaker__status--visible { opacity: 1; }
+    .spammaker__status--error { color: #e11d48; }
+    .spammaker__notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(234, 88, 12, 0.1);
+      border: 1px solid rgba(234, 88, 12, 0.35);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 4px;
+    }
+    .spammaker__notice-icon { font-size: 16px; line-height: 1.4; }
+    .spammaker__notice p {
+      margin: 0;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="spammaker">
+    <div class="spammaker__notice">
+      <span class="spammaker__notice-icon">⚠️</span>
+      <p>부디 재미로만 이용해주세요. 만든 글귀의 사용에 따른 책임은 개발자가 지지 않습니다.</p>
+    </div>
+
+    <label class="spammaker__label" for="text-source">바꾸려는 글귀</label>
+    <textarea id="text-source" class="spammaker__textarea" rows="6" maxlength="300" placeholder="바꾸려는 글귀를 입력하세요."></textarea>
+
+    <div class="spammaker__actions">
+      <button type="button" class="spammaker__btn spammaker__btn--primary" data-mode="spam">스팸체</button>
+      <button type="button" class="spammaker__btn spammaker__btn--primary" data-mode="korean">한국인전용체</button>
+      <button type="button" id="btn-reset" class="spammaker__btn spammaker__btn--ghost">다시쓰기</button>
+    </div>
+
+    <label class="spammaker__label" for="text-transformed">결과</label>
+    <textarea id="text-transformed" class="spammaker__textarea" rows="6"></textarea>
+
+    <div class="spammaker__actions">
+      <button type="button" id="btn-copy" class="spammaker__btn spammaker__btn--primary">복사하기</button>
+      <span id="copy-status" class="spammaker__status" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="lib/kotlin.js"></script>
+  <script type="text/javascript" src="spammaker.js"></script>
+  <script>
+    var sourceEl = document.getElementById('text-source');
+    var resultEl = document.getElementById('text-transformed');
+    var statusEl = document.getElementById('copy-status');
+    var statusTimer = null;
+
+    function showStatus(message, isError) {
+      statusEl.textContent = message;
+      statusEl.classList.toggle('spammaker__status--error', !!isError);
+      statusEl.classList.add('spammaker__status--visible');
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(function () {
+        statusEl.classList.remove('spammaker__status--visible');
+      }, 1800);
+    }
+
+    document.getElementById('btn-reset').addEventListener('click', function () {
+      sourceEl.value = '';
+      sourceEl.focus();
+    });
+
+    document.querySelectorAll('.spammaker__btn[data-mode]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var source = sourceEl.value;
+        if (!source) {
+          showStatus('입력이 제대로 안된거 같은데요', true);
+          return;
+        }
+        switch (btn.dataset.mode) {
+          case 'spam':
+            resultEl.value = spammaker.toSpam(source);
+            break;
+          case 'korean':
+            resultEl.value = spammaker.toKorean(source);
+            break;
+        }
+      });
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', function () {
+      if (!resultEl.value) {
+        showStatus('복사할 내용이 없는데요', true);
+        return;
+      }
+      var done = function () { showStatus('복사 완료!'); };
+      var fail = function () { showStatus('복사 실패! 다시 시도해주세요.', true); };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(resultEl.value).then(done, fail);
+      } else {
+        resultEl.select();
+        try {
+          document.execCommand('copy') ? done() : fail();
+        } catch (e) {
+          fail();
+        }
+      }
+    });
+
+    var defaultPlaceholder = sourceEl.getAttribute('placeholder');
+    resultEl.setAttribute('placeholder', spammaker.toSpam(defaultPlaceholder));
+  </script>
+</body>
+</html>

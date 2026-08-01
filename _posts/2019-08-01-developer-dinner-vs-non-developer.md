@@ -3,6 +3,7 @@ layout: post
 title: "개발자의 회식 vs 비개발자의 회식"
 date: 2019-08-01 20:43:20 +0900
 category: daily
+excerpt: "사실 개발자, 비개발자에 따라 항상 그런 것은 아니고요. 구성원들의 성향에 따라 달라진다는 점을 말씀드립니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/37" target="_blank">판뚜의 브런치(@panddu/37)</a>로부터 마이그레이션된 글입니다.

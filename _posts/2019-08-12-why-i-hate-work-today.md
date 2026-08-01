@@ -3,6 +3,7 @@ layout: post
 title: "'일하기 너무나 하기 싫은 날'의 이유"
 date: 2019-08-12 08:02:07 +0900
 category: daily
+excerpt: "가끔 주위 개발자 및 기획자, 디자이너분들과 대화를 하다 보면 이런 얘기가 나오곤 합니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/38" target="_blank">판뚜의 브런치(@panddu/38)</a>로부터 마이그레이션된 글입니다.

@@ -3,6 +3,7 @@ layout: post
 title: "신입 개발자에게 하고픈 말 - 있는 걸 갖다 쓰자"
 date: 2019-06-12 09:10:26 +0900
 category: tech
+excerpt: "회사는 코딩을 하기에 앞서 팀원들과 일을 하는 곳입니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/27" target="_blank">판뚜의 브런치(@panddu/27)</a>로부터 마이그레이션된 글입니다.

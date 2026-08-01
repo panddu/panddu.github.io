@@ -3,6 +3,7 @@ layout: post
 title: "서버 개발자가 꺼리는 일 - 이벤트"
 date: 2019-05-21 09:28:24 +0900
 category: tech
+excerpt: "많은 서비스들이 사용자를 끌어모으기 위해 프로모션의 일환으로 적립금, 쿠폰 지급이나 선착순 이벤트를 많이 진행합니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/20" target="_blank">판뚜의 브런치(@panddu/20)</a>로부터 마이그레이션된 글입니다.

@@ -3,6 +3,7 @@ layout: post
 title: "DBA에게 참교육 당한 애플리케이션 개발자"
 date: 2019-10-06 21:09:00 +0900
 category: tech
+excerpt: "개발자라고 소개해놓고 지금까지 그럴싸한 개발 관련 글을 썼던 적이 없는 것 같습니다만, 이번엔 정말 개발 관련 글입니다."
 ---
 
 > 💡 이 글은 <a href="https://brunch.co.kr/@panddu/39" target="_blank">판뚜의 브런치(@panddu/39)</a>로부터 마이그레이션된 글입니다.
