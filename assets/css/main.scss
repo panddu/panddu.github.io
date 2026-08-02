@@ -968,12 +968,21 @@ body.is-sidebar-open { overflow: hidden; }
   gap: 12px;
 }
 .sidebar__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
   margin: 0;
   font-weight: 800;
+}
+.sidebar__heading-total {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  opacity: 0.7;
 }
 
 .sidebar__search {
