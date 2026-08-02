@@ -10,7 +10,6 @@ description: 판뚜 블로그의 글 분류 — 일상·테크·리뷰·문답.
     {% assign key = s[0] %}
     {% assign meta = s[1] %}
     <a class="series-card" href="{{ '/series/' | append: key | append: '/' | relative_url }}">
-      <div class="series-card__bracket">{{ meta.bracket }}</div>
       <div class="series-card__title">{{ meta.display }}</div>
       <p class="series-card__desc">{{ meta.desc }}</p>
     </a>
