@@ -121,6 +121,14 @@ frontmatter는 일반 포스트와 같고 `date:`는 생략 가능.
   예약 발행이 되는 게 아니라 그냥 없는 글이 된다 → 시각이 지난 뒤 아무 커밋이나 다시 push해야 나타남.
 - 그래서 **로컬 기본 명령엔 `--future`를 넣지 않는다.** prod와 동작을 맞춰둬야
   "로컬은 되는데 prod에선 안 뜸"을 안 겪는다. 미래 날짜를 박아둔 동안만 붙였다 뗀다.
+- **예약 시각이 지난 뒤 수동으로 재빌드 트리거** — 새 커밋 없이 GitHub Pages API로 "최신 커밋 기준 재빌드"를 요청할 수 있음:
+
+  ```bash
+  gh auth switch --hostname github.com --user panddu
+  gh api -X POST repos/panddu/panddu.github.io/pages/builds
+  ```
+
+  예약 시각을 지난 뒤 이 커맨드를 실행하면 그 시점 기준으로 다시 빌드되어 글이 노출된다. (빈 커밋을 다시 push해도 같은 효과.)
 
 ## 자주 바꾸는 것들 — 어디에서
 
