@@ -2,6 +2,14 @@
 # 포스트 frontmatter의 `category:` 값이 이 키와 매칭됨.
 # 표시 순서는 이 파일 순서를 따라감.
 # (파일명은 series.yml 그대로 유지 — 내부 코드 영향 최소화)
+#
+# 필드별 쓰임:
+#   display — 배지·카테고리 페이지 제목에 노출되는 이름 (post_meta.html, series.html, series/index.html)
+#   desc    — 카테고리 페이지 설명. series/<키>.html의 frontmatter `description:`에도
+#             같은 값을 복제해둬야 함 (jekyll-seo-tag가 meta description을 거기서 읽음).
+#   color/bg — 배지 글자색/배경색
+#   bracket — 현재 미사용. 2026-08에 대괄호 표기를 걷어내면서 참조가 전부 사라졌음.
+#             (배지는 display를 씀) 다시 필요해질 때를 대비해 값만 남겨둠.
 daily:
   display: 일상
   bracket: "[일상]"
@@ -12,7 +20,7 @@ daily:
 tech:
   display: 테크
   bracket: "[테크]"
-  desc: AI·개발·기술 이야기
+  desc: AI·개발·기술·업계에서 배운 것
   color: "#2563eb"
   bg: "#dbeafe"
 
