@@ -6,6 +6,10 @@ author: 판뚜
 url: "https://panddu.github.io"
 baseurl: ""
 
+# GitHub Pages 빌드 서버는 시스템 타임존이 UTC라서, 이 설정이 없으면
+# 포스트 날짜(front matter의 +0900)가 배포본에서 UTC로 표시되는 문제가 있었음.
+timezone: Asia/Seoul
+
 # 카톡·페북 등 공유 시 미리보기 이미지 (각 글 frontmatter의 image:로 덮어쓸 수 있음)
 image: /assets/img/avatar.png
 
