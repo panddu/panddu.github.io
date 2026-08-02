@@ -2,7 +2,7 @@
 layout: post
 title: "카카오맵 x w3w (what3words)"
 date: 2019-04-02 11:35:58 +0900
-category: tech
+category: review
 excerpt: "카카오맵에 탑재된 what3words, 지구를 3m x 3m 단위로 쪼개 세 단어로 주소를 붙이는 신 좌표체계를 소개합니다."
 ---
 
