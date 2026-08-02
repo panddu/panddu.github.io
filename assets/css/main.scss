@@ -207,7 +207,7 @@ a {
 .site-main {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 56px 24px 80px;
+  padding: 32px 24px 80px;
 }
 .site-footer {
   border-top: 1px solid var(--line);
@@ -1128,12 +1128,12 @@ body.is-sidebar-open { overflow: hidden; }
   .sidebar-backdrop { display: none; }
 
   .sidebar {
-    top: 80px;
+    top: calc(var(--header-height) + 32px);
     left: max(24px, calc(50% - 440px - 24px - 200px));
     width: 200px;
     max-width: 200px;
     height: auto;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - var(--header-height) - 52px);
     background: transparent;
     border-right: none;
     box-shadow: none;
@@ -1160,6 +1160,85 @@ body.is-sidebar-open { overflow: hidden; }
   font-weight: 800;
 }
 .series-hero__desc { margin: 0; font-size: 15px; }
+
+// ===== Related posts (같은 카테고리 다른 글) =====
+// 기본: 댓글 영역 위에 본문과 같은 폭의 카드로 노출.
+// 광폭 레이아웃에서는 아래 @media (min-width: 1440px)에서 우측 fixed 패널로 전환.
+.related-posts {
+  max-width: var(--maxw);
+  margin: 56px auto 28px;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.related-posts__heading {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 14px;
+  font-weight: 800;
+}
+.related-posts__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.related-posts__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--chip);
+    text-decoration: none;
+    .related-posts__title { color: var(--accent); }
+  }
+}
+.related-posts__title {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.related-posts__date {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// 데스크탑: 본문 880px 우측 외부에 fixed로 노출.
+// 패널 240px + 외곽 24px gap을 확보하려면 viewport ≥ 880 + 2*(240+24) = 1408 필요.
+// 왼쪽 사이드바보다 폭이 넓어 더 넉넉한 1440에서 전환.
+// (반드시 위 기본 .related-posts 규칙보다 뒤에 와야 margin: 0이 이긴다 — 캐스케이드 순서 버그 재발 방지)
+@media (min-width: 1440px) {
+  .related-posts {
+    position: fixed;
+    top: calc(var(--header-height) + 32px);
+    right: max(24px, calc(50% - 440px - 24px - 240px));
+    width: 240px;
+    max-width: 240px;
+    max-height: calc(100vh - var(--header-height) - 52px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 20px 18px;
+    z-index: 5;
+  }
+  .related-posts__link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
 
 // ===== Series index (전체 시리즈 카드) =====
 .series-index {
@@ -1400,6 +1479,7 @@ body.is-sidebar-open { overflow: hidden; }
   .post-list__link { padding: 18px 18px; }
   .series-hero { padding: 24px 22px; border-radius: 14px; }
   .series-hero__title { font-size: 26px; }
+  .related-posts { padding: 16px 18px; border-radius: 14px; }
   .board-hero { padding: 22px 20px 20px; border-radius: 14px; }
   .board-hero__title { font-size: 26px; }
   .board-chat__discord widgetbot,
