@@ -5,21 +5,21 @@
 daily:
   display: 일상
   bracket: "[일상]"
-  desc: 일상·육아·관심사·회사 이야기
+  desc: 일상·육아·관심사·개발자 에피소드
   color: "#7c3aed"
   bg: "#ede9fe"
 
 tech:
   display: 테크
   bracket: "[테크]"
-  desc: AI·개발·기술·업계 이야기
+  desc: AI·개발·기술 이야기
   color: "#2563eb"
   bg: "#dbeafe"
 
 review:
   display: 리뷰
   bracket: "[리뷰]"
-  desc: 하드웨어·소프트웨어·서비스·작품 리뷰
+  desc: 제품·서비스·작품 리뷰
   color: "#059669"
   bg: "#d1fae5"
 
