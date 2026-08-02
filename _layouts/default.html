@@ -179,6 +179,25 @@
       });
     })();
 
+    // ----- 글 목록 더보기 (10개씩) -----
+    (function () {
+      var lists = document.querySelectorAll('[data-load-more]');
+      lists.forEach(function (list) {
+        var batch = parseInt(list.getAttribute('data-batch'), 10) || 10;
+        var btn = list.nextElementSibling;
+        if (!btn || !btn.hasAttribute('data-load-more-btn')) return;
+        btn.addEventListener('click', function () {
+          var hidden = list.querySelectorAll('.post-list__item--more');
+          for (var i = 0; i < hidden.length && i < batch; i++) {
+            hidden[i].classList.remove('post-list__item--more');
+          }
+          if (list.querySelectorAll('.post-list__item--more').length === 0) {
+            btn.style.display = 'none';
+          }
+        });
+      });
+    })();
+
     // ----- 맨 위로 가기 (PC만) -----
     (function () {
       var btn = document.createElement('button');

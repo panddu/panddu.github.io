@@ -11,15 +11,5 @@ layout: default
 
 <section class="post-list">
   <h2 class="section-title">최근 글</h2>
-  <ul class="post-list__items">
-    {% for post in site.posts limit: 20 %}
-      <li class="post-list__item">
-        <a href="{{ post.url | relative_url }}" class="post-list__link">
-          {% include post_meta.html post=post %}
-          <h3 class="post-list__heading">{{ post.title | escape }}</h3>
-          {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+  {% include post_list.html posts=site.posts %}
 </section>

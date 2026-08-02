@@ -429,6 +429,28 @@ a {
   color: var(--ink-soft);
   line-height: 1.62;
 }
+.post-list__item--more {
+  display: none;
+}
+.load-more-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+}
 
 // ===== Post meta (badge + date) =====
 .post-meta {

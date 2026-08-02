@@ -1,0 +1,18 @@
+{%- assign posts = include.posts -%}
+{%- assign batch = include.batch | default: 10 -%}
+<ul class="post-list__items" data-load-more data-batch="{{ batch }}">
+  {% for post in posts %}
+    <li class="post-list__item{% if forloop.index > batch %} post-list__item--more{% endif %}">
+      <a href="{{ post.url | relative_url }}" class="post-list__link">
+        {% include post_meta.html post=post %}
+        <h3 class="post-list__heading">{{ post.title | escape }}</h3>
+        {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
+      </a>
+    </li>
+  {% else %}
+    <li class="muted">아직 글이 없어요.</li>
+  {% endfor %}
+</ul>
+{% if posts.size > batch %}
+  <button type="button" class="load-more-btn" data-load-more-btn>더보기</button>
+{% endif %}
