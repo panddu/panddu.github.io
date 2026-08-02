@@ -1,12 +1,13 @@
 {%- comment -%}
-  블로그 목록은 최신순으로 나열되므로, "이전 글"은 목록에서 한 칸 위(= 더 최근에 쓴 글,
-  Liquid의 page.next)이고 "다음 글"은 한 칸 아래(= 더 오래전에 쓴 글, page.previous)다.
+  블로그 목록은 최신순으로 나열되므로, Liquid의 page.next는 목록에서 한 칸 위(= 더 최근에 쓴 글)이고
+  page.previous는 한 칸 아래(= 더 오래전에 쓴 글)다. 일반적인 "이전 글=과거, 다음 글=최신" 관례에 맞춰
+  라벨을 붙인다(화면상 위치/링크 순서/화살표 방향은 그대로 두고 라벨 단어만 대응시킴).
 {%- endcomment -%}
 {%- if page.previous or page.next -%}
 <nav class="post-nav" aria-label="이전글 다음글">
   {%- if page.next -%}
     <a class="post-nav__link post-nav__link--prev" href="{{ page.next.url | relative_url }}">
-      <span class="post-nav__label">← 이전 글</span>
+      <span class="post-nav__label">← 다음 글</span>
       <span class="post-nav__title">{{ page.next.title | escape }}</span>
     </a>
   {%- else -%}
@@ -14,7 +15,7 @@
   {%- endif -%}
   {%- if page.previous -%}
     <a class="post-nav__link post-nav__link--next" href="{{ page.previous.url | relative_url }}">
-      <span class="post-nav__label">다음 글 →</span>
+      <span class="post-nav__label">이전 글 →</span>
       <span class="post-nav__title">{{ page.previous.title | escape }}</span>
     </a>
   {%- else -%}
