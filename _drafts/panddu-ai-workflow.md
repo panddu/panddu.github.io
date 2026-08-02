@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시"
-date: 2026-07-25 16:22:00 +0900
+date: 2026-08-02 22:00:00 +0900
 category: tech
 image: /assets/img/posts/2026-07-25/thumbnail.jpg
 excerpt: "Kotlin 기반 LLM 연동으로 Whisper 자막 제작을 자동화하고, 로컬 LLM으로 QnA 데이터 분류까지 해결한 판교 개발자의 벤더 종속 없는 실전 AI 파이프라인 구축기."
