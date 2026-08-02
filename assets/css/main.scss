@@ -1161,6 +1161,58 @@ body.is-sidebar-open { overflow: hidden; }
 }
 .series-hero__desc { margin: 0; font-size: 15px; }
 
+// ===== Post nav (이전글 / 다음글) =====
+.post-nav {
+  max-width: var(--maxw);
+  margin: 32px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.post-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: rgba(91, 108, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+    text-decoration: none;
+    .post-nav__title { color: var(--accent); }
+  }
+}
+.post-nav__link--next {
+  align-items: flex-end;
+  text-align: right;
+}
+.post-nav__link--empty {
+  border: none;
+  background: none;
+}
+.post-nav__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.post-nav__title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 // ===== Related posts (같은 카테고리 다른 글) =====
 // 기본: 댓글 영역 위에 본문과 같은 폭의 카드로 노출.
 // 광폭 레이아웃에서는 아래 @media (min-width: 1440px)에서 우측 fixed 패널로 전환.
@@ -1480,6 +1532,18 @@ body.is-sidebar-open { overflow: hidden; }
   .series-hero { padding: 24px 22px; border-radius: 14px; }
   .series-hero__title { font-size: 26px; }
   .related-posts { padding: 16px 18px; border-radius: 14px; }
+  .post-nav { gap: 8px; }
+  .post-nav__link { padding: 10px 12px; gap: 4px; }
+  .post-nav__label { font-size: 11px; }
+  .post-nav__title {
+    font-size: 13px;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .board-hero { padding: 22px 20px 20px; border-radius: 14px; }
   .board-hero__title { font-size: 26px; }
   .board-chat__discord widgetbot,
