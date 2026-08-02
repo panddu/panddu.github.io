@@ -73,11 +73,17 @@ youtube_id: "abc123" # (선택) 유튜브 영상 임베드 — 글 상단에 박
 ```
 
 - **`layout: post`** — 필수
-- **`category`** — 카테고리 분류. 아래 넷 중 하나:
-  - `daily` → `[일상]` 배지 (업계/회사 이야기·육아·관심사 등 아무 글)
-  - `tech` → `[테크]` 배지 (개발·기술·툴 이야기)
-  - `review` → `[리뷰]` 배지 (직접 써보고 남기는 장비·서비스 리뷰)
-  - `comms` → `[문답]` 배지 (구독자 Q&A·뚜쪽 상담소 답글 모음)
+- **`category`** — 카테고리 분류. 아래 다섯 중 하나:
+  - `daily` → `일상` 배지 (육아·관심사·개발자 에피소드)
+  - `tech` → `테크` 배지 (AI·개발·기술, 업계에서 배운 것)
+  - `review` → `리뷰` 배지 (직접 써보고 남기는 제품·서비스·작품 리뷰)
+  - `comms` → `문답` 배지 (구독자 Q&A·뚜쪽 상담소 답글 모음)
+  - `workroom` → `작업실` 배지 (직접 만든 도구·미니 프로젝트)
+
+  > 어디 넣을지 애매하면 **읽고 나서 뭐가 남느냐**로 가른다. 지식·판단이 남으면 `tech`,
+  > 공감·웃음이 남으면 `daily`, 살지 말지 판단이 남으면 `review`.
+  > 같은 회사 얘기라도 "서버 개발자가 꺼리는 일 - 마이그레이션"은 `tech`,
+  > "개발자의 회식 vs 비개발자의 회식"은 `daily`.
 
   > 카테고리 표시명·설명·색은 `_data/series.yml`이 원본. 위는 요약이라 거기서 바꾸면 README도 같이 맞춰주면 됨.
 - **`series_no`** — `#3` 같은 번호 (배지 옆에 박힘). 안 박으려면 생략.
@@ -96,13 +102,25 @@ _drafts/
 └── keyboard-review-vanguard.md   # 날짜 없음
 ```
 
-frontmatter는 일반 포스트와 같지만 `date:`는 생략 가능 (있어도 무시됨).
+frontmatter는 일반 포스트와 같고 `date:`는 생략 가능.
 
 - **기본 빌드에선 안 잡힘** — GitHub Pages 배포해도 사이트에 안 뜸.
-- **로컬에서만 미리보기**: `bundle exec jekyll serve --drafts --livereload`. draft 글의 날짜는 "현재 시각"으로 잡힘.
+- **로컬에서만 미리보기**: `bundle exec jekyll serve --drafts --livereload`.
+- **draft의 날짜** — `date:`를 적었으면 그 값을 쓰고, 없으면 **파일 수정시각**을 쓴다.
+  URL의 연·월(`/posts/YYYY/MM/`)도 여기서 나오니, 날짜 없이 굴리면 파일 건드릴 때마다 URL이 바뀐다.
 - 완성되면 `_posts/YYYY-MM-DD-slug.md` 로 이동하면서 파일명에 날짜 박는다. 끝.
 
 > ⚠️ draft 파일도 git에 push되긴 한다(이 레포가 public이라 누가 봐도 보임). 진짜 비공개로 굴릴 게 있으면 `.gitignore`에 `_drafts/` 추가하거나 다른 곳에 둘 것.
+
+### 예약 날짜 (미래 시각으로 박아둘 때)
+
+`date:`를 현재보다 미래로 잡으면 Jekyll이 그 글을 **빌드에서 제외**한다 (`future: false`가 기본값).
+
+- 로컬에서 보려면: `bundle exec jekyll serve --livereload --drafts --future`
+- ⚠️ **GitHub Pages도 똑같이 제외한다.** 그 시각 전에 push하면 사이트에 글이 안 뜬다.
+  예약 발행이 되는 게 아니라 그냥 없는 글이 된다 → 시각이 지난 뒤 아무 커밋이나 다시 push해야 나타남.
+- 그래서 **로컬 기본 명령엔 `--future`를 넣지 않는다.** prod와 동작을 맞춰둬야
+  "로컬은 되는데 prod에선 안 뜸"을 안 겪는다. 미래 날짜를 박아둔 동안만 붙였다 뗀다.
 
 ## 자주 바꾸는 것들 — 어디에서
 
@@ -164,7 +182,7 @@ QNA_DRAFTS=10 ./gradlew runPandduQna --args="<시트URL> --jekyll-out=/Users/min
 ./gradlew runPandduQna --args="--mode=answers --jekyll-out=/Users/mingus/Workspace/panddu.github.io"
 ```
 
-→ drafts 모드는 `_posts/YYYY-MM-DD-qna.md` 1개, answers 모드는 `_drafts/YYYY-MM-DD-counsel-ep0N.md` 영상편수별 다수. 둘 다 `category: comms` 자동 ([문답] 배지). 다른 카테고리로 떨구려면 `QNA_POST_CATEGORY=<키>`.
+→ drafts 모드는 `_posts/YYYY-MM-DD-qna.md` 1개, answers 모드는 `_drafts/YYYY-MM-DD-counsel-ep0N.md` 영상편수별 다수. 둘 다 `category: comms` 자동 (`문답` 배지). 다른 카테고리로 떨구려면 `QNA_POST_CATEGORY=<키>`.
 
 **제목·날짜·파일 슬러그 오버라이드 환경변수:**
 
@@ -208,23 +226,27 @@ panddu.github.io/
 │   ├── header.html          # 사이트 헤더 + nav + 햄버거
 │   ├── sidebar.html         # 좌측 사이드바 (검색·카테고리·뚜벅뚜벅·오픈톡·1on1 CTA)
 │   ├── footer.html          # 푸터 (저작권·소셜·개인정보·방문 카운터)
-│   ├── post_meta.html       # 카테고리 배지 + 날짜
+│   ├── post_meta.html       # 카테고리 배지 + 날짜시각 (홈·카테고리 목록·개별 글 공용)
 │   └── giscus.html          # 글 댓글 위젯 (board.html은 자체 임베드)
 ├── _posts/                  # 발행된 글 (YYYY-MM-DD-slug.md)
-├── _drafts/                 # 작성 중 (날짜 없음, --drafts 플래그로만 빌드)
+├── _drafts/                 # 작성 중 (파일명에 날짜 없음, --drafts 플래그로만 빌드)
 ├── series/                  # 카테고리 페이지 (URL은 /series/* 유지)
 │   ├── index.html           # /series/ — 전체 카테고리 카드 (제목은 "카테고리")
 │   ├── daily.html           # /series/daily/ → 일상
 │   ├── tech.html            # /series/tech/ → 테크
 │   ├── review.html          # /series/review/ → 리뷰
-│   └── comms.html           # /series/comms/ → 문답
+│   ├── comms.html           # /series/comms/ → 문답
+│   └── workroom.html        # /series/workroom/ → 작업실
 ├── assets/
 │   ├── css/main.scss        # 사이트 전체 스타일 (사이드바·드로어·카테고리·게시판 등 다 포함)
 │   ├── js/qna.js            # QnA 페이지 인터랙션 (카테고리 필터 토글 · PC 전용 맨 위로 가기 버튼)
 │   └── img/
 │       ├── avatar.png       # 채널 프사 (홈·about hero·OG 이미지 fallback)
 │       ├── favicon-*.png    # 16/32/180/192 파비콘
-│       └── party-parrot.gif # 댓글 로딩 표시
+│       ├── party-parrot.gif # 댓글 로딩 표시
+│       ├── brunch/          # 브런치(@panddu)에서 마이그레이션한 글의 이미지
+│       ├── tistory/         # 티스토리(cfdf.tistory.com)에서 마이그레이션한 글의 이미지
+│       └── posts/YYYY-MM-DD/ # 그 외 글별 이미지
 ├── board.html               # /board/ — 뚜벅뚜벅 자유게시판 (Giscus 임베드)
 ├── chat.html                # /chat/ — 오픈톡 (디스코드 WidgetBot 임베드 + 입장 버튼)
 ├── privacy.md               # /privacy/ — 개인정보처리방침
