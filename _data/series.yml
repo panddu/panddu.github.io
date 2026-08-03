@@ -10,6 +10,13 @@
 #   color/bg — 배지 글자색/배경색
 #   bracket — 현재 미사용. 2026-08에 대괄호 표기를 걷어내면서 참조가 전부 사라졌음.
 #             (배지는 display를 씀) 다시 필요해질 때를 대비해 값만 남겨둠.
+essay:
+  display: 에세이
+  bracket: "[에세이]"
+  desc: 생각·경험·가벼운 수필
+  color: "#475569"
+  bg: "#f1f5f9"
+
 daily:
   display: 일상
   bracket: "[일상]"
@@ -44,10 +51,3 @@ workroom:
   desc: 직접 만든 도구·미니 프로젝트
   color: "#ea580c"
   bg: "#ffedd5"
-
-essay:
-  display: 에세이
-  bracket: "[에세이]"
-  desc: 생각·경험·가벼운 수필
-  color: "#d97706"
-  bg: "#fef3c7"
