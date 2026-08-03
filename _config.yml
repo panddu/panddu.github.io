@@ -11,14 +11,14 @@ baseurl: ""
 timezone: Asia/Seoul
 
 # 카톡·페북 등 공유 시 미리보기 이미지 (각 글 frontmatter의 image:로 덮어쓸 수 있음)
-image: /assets/img/avatar.png
+image: /assets/img/og_default.jpg
 
 # Page-level defaults — jekyll-seo-tag가 site.image를 og:image로 안 잡는 이슈 우회용
 defaults:
   - scope:
       path: ""
     values:
-      image: /assets/img/avatar.png
+      image: /assets/img/og_default.jpg
 
 # Google Analytics 4 — production 빌드에만 출력
 google_analytics: G-BBPMF5TZ6B
