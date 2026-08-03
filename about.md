@@ -16,7 +16,7 @@ description: 판뚜는 누구이고 이 블로그는 어떤 공간인지 — 채
 
 {% for s in site.data.series %}
 {%- assign key = s[0] %}{%- assign meta = s[1] -%}
-- <a href="{{ '/series/' | append: key | append: '/' | relative_url }}" class="series-badge" style="color: {{ meta.color }}; background: {{ meta.bg }};">{{ meta.bracket }}</a> {{ meta.desc }}
+- <a href="{{ '/series/' | append: key | append: '/' | relative_url }}" class="series-badge" style="color: {{ meta.color }}; background: {{ meta.bg }};">{{ meta.display }}</a> {{ meta.desc }}
 {% endfor %}
 
 ## 연락처
