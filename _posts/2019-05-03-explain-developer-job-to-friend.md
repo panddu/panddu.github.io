@@ -2,7 +2,7 @@
 layout: post
 title: "친구가 개발자를 찾아와 아이디어를 늘어놓았다"
 date: 2019-05-03 08:55:38 +0900
-category: daily
+category: essay
 excerpt: "다른 글에서 말씀드렸던 처럼 저는 개발자입니다. 그중에서도 웹 서버 개발자입니다."
 ---
 

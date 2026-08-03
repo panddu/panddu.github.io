@@ -2,7 +2,7 @@
 layout: post
 title: "기획자의 워크샵 vs 개발자의 워크샵"
 date: 2019-07-10 21:01:04 +0900
-category: daily
+category: essay
 excerpt: "저는 판교에서 일하는 개발자입니다. 개발자치고 진지한 개발 관련 글은 아직까지 쓴 적이 없는데요."
 ---
 

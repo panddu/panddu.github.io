@@ -2,7 +2,7 @@
 layout: post
 title: "개발자가 좋아하는 기획자는?"
 date: 2019-05-16 09:34:24 +0900
-category: daily
+category: essay
 excerpt: "주의. 지극히 개인적인 생각이기 때문에 공감이 1도 안될 수 있습니다."
 ---
 
