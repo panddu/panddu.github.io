@@ -121,6 +121,14 @@ excerpt: "어느 날 Claude와 Codex에게 내 모든 대화 기록을 던져주
 
 .divider { border: none; border-top: 1px solid var(--line, #e5e7eb); margin: 16px 0; }
 
+/* ---- 모바일: 이중 박스로 본문 폭이 좁아지는 것 방지 ---- */
+@media (max-width: 600px) {
+  .analyzer-block { padding: 20px 16px; border-radius: 16px; }
+  .prompt-body { padding: 16px 16px 46px; }
+  .prompt-body #copy-btn { top: auto; bottom: 12px; right: 12px; }
+  .oneliner-box, .mentor-box { padding: 16px 18px; }
+}
+
 /* ============================================================
    DARK MODE OVERRIDES
    (사이트 theme toggle 대응 + prefers-color-scheme 대응)

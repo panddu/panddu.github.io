@@ -247,6 +247,17 @@ excerpt: "매일 코딩 자동화시키고 쉬지도 않고 외주 돌리는 계
   opacity: 1;
 }
 
+/* 모바일: 이중 박스로 본문 폭이 좁아지는 것 방지 */
+@media (max-width: 600px) {
+  .intro-box { padding: 16px 18px; }
+  .prompt-box { padding: 16px 16px 46px 16px; }
+  #copy-btn { top: auto; bottom: 12px; right: 12px; transform: none; }
+  .community-post-container { padding: 20px 16px; }
+  .post-header-title { font-size: 19px; }
+  .comment-card { padding: 14px 16px; }
+  .comment-card.reply { margin-left: 14px; }
+}
+
 /* 다크 모드 대응 */
 [data-theme="dark"] .intro-box {
   background: #111827;
