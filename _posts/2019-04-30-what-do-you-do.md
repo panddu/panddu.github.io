@@ -2,7 +2,7 @@
 layout: post
 title: "비개발자가 물었다. \"넌 대체 무슨 일 해?\""
 date: 2019-04-30 22:55:42 +0900
-category: daily
+category: essay
 excerpt: "오랜만에 친구들이나 가족들을 만나면 자연스레 서로의 근황을 묻게 됩니다."
 ---
 
