@@ -44,3 +44,10 @@ workroom:
   desc: 직접 만든 도구·미니 프로젝트
   color: "#ea580c"
   bg: "#ffedd5"
+
+essay:
+  display: 에세이
+  bracket: "[에세이]"
+  desc: 생각·경험·가벼운 수필
+  color: "#d97706"
+  bg: "#fef3c7"

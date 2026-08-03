@@ -2,7 +2,7 @@
 layout: post
 title: "'일하기 너무나 하기 싫은 날'의 이유"
 date: 2019-08-12 08:02:07 +0900
-category: daily
+category: essay
 excerpt: "가끔 주위 개발자 및 기획자, 디자이너분들과 대화를 하다 보면 이런 얘기가 나오곤 합니다."
 ---
 

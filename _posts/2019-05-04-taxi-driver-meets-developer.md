@@ -2,7 +2,7 @@
 layout: post
 title: "개발자를 손님으로 맞이한 택시기사"
 date: 2019-05-04 11:00:18 +0900
-category: daily
+category: essay
 excerpt: "대전에 지인을 만날 일이 있어 서대전역에서 택시를 탔습니다. 한 30대 후반으로 보이는 남자 기사님께서 절 맞이해 주셨습니다."
 ---
 

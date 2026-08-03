@@ -2,7 +2,7 @@
 layout: post
 title: "집돌이 개발자의 항변 (feat. POJO)"
 date: 2019-05-08 08:54:11 +0900
-category: daily
+category: essay
 excerpt: "저는 집돌이입니다. 여자 친구도 집순이입니다. 집 밖에 잘 안 나갑니다. 그래서 데이트도 주로 집에서 합니다."
 ---
 

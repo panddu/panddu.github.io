@@ -2,7 +2,7 @@
 layout: post
 title: "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?"
 date: 2026-08-03 19:00:00 +0900
-category: comms
+category: essay
 image: /assets/img/posts/2026-08-03/thumbnail.jpg
 excerpt: "기술 발전의 속도에 조급함을 느끼는 취준생분들을 위해, 시니어 개발자로서 생각하는 AI 시대의 기본기와 효율에 대한 솔직한 이야기."
 ---
