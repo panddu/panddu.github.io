@@ -909,6 +909,7 @@ a {
   width: 300px;
   max-width: 84vw;
   height: 100vh;
+  height: 100dvh; // iOS Safari 주소창 접힘/펼침 시 100vh가 실제 화면보다 커져 스크롤이 막히는 문제 방지
   background: var(--card);
   border-right: 1px solid var(--line);
   box-shadow: 4px 0 24px rgba(16, 24, 40, 0.06);
