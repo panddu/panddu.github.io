@@ -28,8 +28,6 @@ permalink: /posts/:year/:month/:slug/
 # Site nav
 nav:
   - { name: 글, url: "/posts/" }
-  - { name: 카테고리, url: "/series/" }
-  - { name: 뚜벅뚜벅, url: "/board/" }
   - { name: 소개, url: "/about/" }
 
 # Series 메타데이터 — 시리즈 페이지·포스트 헤더에서 참조
