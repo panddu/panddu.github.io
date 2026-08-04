@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://panddu.github.io/sitemap.xml
+
+#DaumWebMasterTool:0e9dfee3ecb25f4146f625f5defc547ace2159593cb88ce2913ed00d972d2475:lz95XezL/vZ7uH8/mt6pWg==
