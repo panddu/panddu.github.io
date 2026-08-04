@@ -27,7 +27,7 @@ permalink: /posts/:year/:month/:slug/
 
 # Site nav
 nav:
-  - { name: 글, url: "/" }
+  - { name: 글, url: "/posts/" }
   - { name: 카테고리, url: "/series/" }
   - { name: 뚜벅뚜벅, url: "/board/" }
   - { name: 소개, url: "/about/" }

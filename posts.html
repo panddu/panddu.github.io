@@ -1,0 +1,15 @@
+---
+layout: default
+title: 전체 글
+permalink: /posts/
+description: 판뚜 블로그의 모든 글을 최신순으로 모아봤어요.
+---
+
+<section class="series-hero">
+  <h1 class="series-hero__title">전체 글</h1>
+  <p class="series-hero__desc muted">지금까지 쓴 글 {{ site.posts | size }}개</p>
+</section>
+
+<section class="post-list">
+  {% include post_list.html posts=site.posts %}
+</section>

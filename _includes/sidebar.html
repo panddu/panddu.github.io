@@ -13,7 +13,7 @@
     </div>
 
     <nav class="sidebar__section" aria-label="카테고리">
-      <h2 class="sidebar__heading"><span>카테고리</span><span class="sidebar__heading-total">전체 {{ site.posts | size }}</span></h2>
+      <h2 class="sidebar__heading"><span>카테고리</span><a class="sidebar__heading-total" href="{{ '/posts/' | relative_url }}">전체 {{ site.posts | size }}</a></h2>
       <ul class="sidebar__list">
         {% for s in site.data.series %}
           {%- assign key = s[0] -%}
