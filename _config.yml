@@ -19,7 +19,11 @@ defaults:
       path: ""
     values:
       image: /assets/img/og_default.jpg
-  # 인기글 위젯: 글 목록/카테고리 페이지에만 노출 (홈·소개·게시판 등은 제외)
+  # 인기글 위젯: 홈/글 목록/카테고리 페이지에 노출 (소개·게시판 등은 제외)
+  - scope:
+      path: "index.html"
+    values:
+      show_popular_posts: true
   - scope:
       path: "posts.html"
     values:
