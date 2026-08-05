@@ -1342,12 +1342,22 @@ body.is-sidebar-open { overflow: hidden; }
   border-radius: 14px;
 }
 .popular-posts__heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted);
   margin: 0 0 14px;
   font-weight: 800;
+}
+.popular-posts__updated {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+  font-size: 11px;
 }
 .popular-posts__list {
   list-style: none;

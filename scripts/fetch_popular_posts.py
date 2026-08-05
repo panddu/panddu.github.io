@@ -11,6 +11,9 @@ import json
 import os
 import urllib.parse
 import urllib.request
+from datetime import datetime, timedelta, timezone
+
+KST = timezone(timedelta(hours=9))
 
 PROPERTY_ID = "539653871"
 LIMIT = 5
@@ -73,9 +76,16 @@ def main():
         if len(posts) >= LIMIT:
             break
 
+    output = {
+        # Liquid의 date 필터는 명시 오프셋을 그대로 찍고(사이트 timezone 설정과 무관하게
+        # 로컬 변환을 안 해줌), 그래서 UTC가 아니라 KST 오프셋을 붙여서 저장한다.
+        "generated_at": datetime.now(KST).isoformat(timespec="seconds"),
+        "posts": posts,
+    }
+
     os.makedirs("_data", exist_ok=True)
     with open("_data/popular_posts.json", "w", encoding="utf-8") as f:
-        json.dump(posts, f, ensure_ascii=False, indent=2)
+        json.dump(output, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
 
