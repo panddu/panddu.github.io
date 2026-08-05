@@ -2,7 +2,7 @@ name: Update popular posts
 
 on:
   schedule:
-    - cron: "0 4 * * *"  # GA4 지표는 이벤트 트리거가 없어 매일 새벽 4시 폴링
+    - cron: "0 15 * * *"  # KST 자정(00:00) = UTC 15:00, 하루 1회
   workflow_dispatch: {}
 
 permissions:

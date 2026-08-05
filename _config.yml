@@ -19,6 +19,15 @@ defaults:
       path: ""
     values:
       image: /assets/img/og_default.jpg
+  # 인기글 위젯: 글 목록/카테고리 페이지에만 노출 (홈·소개·게시판 등은 제외)
+  - scope:
+      path: "posts.html"
+    values:
+      show_popular_posts: true
+  - scope:
+      path: "series"
+    values:
+      show_popular_posts: true
 
 # Google Analytics 4 — production 빌드에만 출력
 google_analytics: G-BBPMF5TZ6B
