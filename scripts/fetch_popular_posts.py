@@ -18,7 +18,8 @@ KST = timezone(timedelta(hours=9))
 
 PROPERTY_ID = "539653871"
 LIMIT = 5
-START_DATE = "28daysAgo"
+PERIOD_DAYS = 28
+START_DATE = f"{PERIOD_DAYS}daysAgo"
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 REPORT_URL = f"https://analyticsdata.googleapis.com/v1beta/properties/{PROPERTY_ID}:runReport"
@@ -113,6 +114,7 @@ def main():
         # Liquid의 date 필터는 명시 오프셋을 그대로 찍고(사이트 timezone 설정과 무관하게
         # 로컬 변환을 안 해줌), 그래서 UTC가 아니라 KST 오프셋을 붙여서 저장한다.
         "generated_at": datetime.now(KST).isoformat(timespec="seconds"),
+        "period_days": PERIOD_DAYS,
         "posts": posts,
     }
 

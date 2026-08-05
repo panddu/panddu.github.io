@@ -5,7 +5,7 @@
   <h2 class="popular-posts__heading">
     인기 글
     {%- if data.generated_at -%}
-      <time class="popular-posts__updated" datetime="{{ data.generated_at }}">({{ data.generated_at | date: "%Y.%m.%d" }} {{ data.generated_at | date: "%-H" }}시 기준)</time>
+      <time class="popular-posts__updated" datetime="{{ data.generated_at }}">(최근 {{ data.period_days | default: 28 }}일 · {{ data.generated_at | date: "%y.%m.%d" }} {{ data.generated_at | date: "%-H" }}시 기준)</time>
     {%- endif -%}
   </h2>
   <ol class="popular-posts__list">
