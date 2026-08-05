@@ -4,7 +4,7 @@
   {% for post in posts %}
     <li class="post-list__item{% if forloop.index > batch %} post-list__item--more{% endif %}">
       <a href="{{ post.url | relative_url }}" class="post-list__link">
-        {% include post_meta.html post=post %}
+        {% include post_meta.html post=post show_new=true %}
         <h3 class="post-list__heading">{{ post.title | escape }}</h3>
         {% if post.excerpt %}<p class="post-list__excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
       </a>

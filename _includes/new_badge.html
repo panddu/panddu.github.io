@@ -1,0 +1,10 @@
+{%- assign now_ts = site.time | date: '%s' -%}
+{%- assign post_ts = include.post.date | date: '%s' -%}
+{%- assign seconds_ago = now_ts | minus: post_ts -%}
+{%- if seconds_ago >= 0 and seconds_ago < 86400 -%}
+  {%- if include.style == 'dot' -%}
+<span class="badge-new-dot{% if include.class %} {{ include.class }}{% endif %}" aria-label="24시간 이내 작성된 글" title="24시간 이내 작성된 글"></span>
+  {%- else -%}
+<span class="badge-new{% if include.class %} {{ include.class }}{% endif %}" aria-label="24시간 이내 작성된 글">N</span>
+  {%- endif -%}
+{%- endif -%}

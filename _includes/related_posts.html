@@ -8,7 +8,10 @@
       <li class="related-posts__item">
         <a class="related-posts__link" href="{{ post.url | relative_url }}">
           <span class="related-posts__title">{{ post.title | escape }}</span>
-          <time class="related-posts__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          <span class="related-posts__meta">
+            <time class="related-posts__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+            {% include new_badge.html post=post %}
+          </span>
         </a>
       </li>
     {%- endfor -%}

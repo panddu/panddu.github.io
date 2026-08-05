@@ -1,6 +1,7 @@
 {%- assign s = site.data.series[include.post.category] -%}
 {%- assign linked = include.linked | default: false -%}
 {%- assign hide_series = include.hide_series | default: false -%}
+{%- assign show_new = include.show_new | default: false -%}
 <div class="post-meta">
   {%- if s and hide_series == false -%}
     {%- if linked -%}
@@ -10,4 +11,5 @@
     {%- endif -%}
   {%- endif -%}
   <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y.%m.%d %H:%M:%S" }}</time>
+  {%- if show_new -%}{% include new_badge.html post=include.post %}{%- endif -%}
 </div>
