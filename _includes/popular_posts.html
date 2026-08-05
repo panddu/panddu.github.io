@@ -1,0 +1,22 @@
+{%- assign data = site.data.popular_posts -%}
+{%- assign posts = data.posts -%}
+{%- if posts and posts.size > 0 -%}
+<aside class="popular-posts" aria-label="인기 글">
+  <h2 class="popular-posts__heading">
+    인기 글
+    {%- if data.generated_at -%}
+      <time class="popular-posts__updated" datetime="{{ data.generated_at }}">({{ data.generated_at | date: "%Y.%m.%d" }} {{ data.generated_at | date: "%-H" }}시 기준)</time>
+    {%- endif -%}
+  </h2>
+  <ol class="popular-posts__list">
+    {%- for p in posts -%}
+      <li class="popular-posts__item">
+        <a class="popular-posts__link" href="{{ p.url | relative_url }}">
+          <span class="popular-posts__rank">{{ forloop.index }}</span>
+          <span class="popular-posts__title">{{ p.title }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ol>
+</aside>
+{%- endif -%}

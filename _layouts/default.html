@@ -8,6 +8,9 @@
   {% include sidebar.html %}
   <main class="site-main">
     {{ content }}
+    {% if page.show_popular_posts %}
+      {% include popular_posts.html %}
+    {% endif %}
   </main>
   {% include footer.html %}
 
