@@ -9,7 +9,7 @@
   <main class="site-main">
     {{ content }}
     {% unless page.layout == 'post' %}
-      {% include recent_comments.html %}
+      {% include popular_posts.html %}
     {% endunless %}
   </main>
   {% include footer.html %}
