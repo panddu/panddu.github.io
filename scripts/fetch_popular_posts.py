@@ -9,6 +9,7 @@
 """
 import json
 import os
+import re
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -21,6 +22,34 @@ START_DATE = "28daysAgo"
 
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 REPORT_URL = f"https://analyticsdata.googleapis.com/v1beta/properties/{PROPERTY_ID}:runReport"
+
+POST_FILENAME_RE = re.compile(r"^(\d{4})-(\d{2})-\d{2}-(.+)\.(?:md|markdown)$")
+FRONT_MATTER_TITLE_RE = re.compile(r'^title:\s*(.+?)\s*$', re.MULTILINE)
+
+
+def load_post_titles(posts_dir="_posts"):
+    """permalink(:year/:month/:slug) -> front matter의 실제 글 제목.
+
+    GA4 pageTitle은 <title> 태그 전체(사이트명 접미사 포함, 과거 방문 시점의
+    포맷일 수도 있음)라서 위젯에 그대로 쓰면 지저분함. 파일명/날짜에서 유도되는
+    permalink로 매칭해 원본 제목만 가져온다.
+    """
+    titles = {}
+    if not os.path.isdir(posts_dir):
+        return titles
+    for fname in os.listdir(posts_dir):
+        match = POST_FILENAME_RE.match(fname)
+        if not match:
+            continue
+        year, month, slug = match.groups()
+        with open(os.path.join(posts_dir, fname), encoding="utf-8") as f:
+            content = f.read()
+        title_match = FRONT_MATTER_TITLE_RE.search(content)
+        if not title_match:
+            continue
+        title = title_match.group(1).strip().strip('"').strip("'")
+        titles[f"{year}/{month}/{slug}"] = title
+    return titles
 
 
 def refresh_access_token():
@@ -56,6 +85,7 @@ def fetch_report(access_token):
 def main():
     access_token = refresh_access_token()
     report = fetch_report(access_token)
+    post_titles = load_post_titles()
 
     posts = []
     seen_paths = set()
@@ -71,6 +101,9 @@ def main():
         if path in seen_paths:
             continue
         seen_paths.add(path)
+
+        if len(parts) >= 4:
+            title = post_titles.get(f"{parts[1]}/{parts[2]}/{parts[3]}", title)
 
         posts.append({"title": title, "url": path, "views": views})
         if len(posts) >= LIMIT:
