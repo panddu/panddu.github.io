@@ -13,7 +13,10 @@
       <li class="popular-posts__item">
         <a class="popular-posts__link" href="{{ p.url | relative_url }}">
           <span class="popular-posts__rank">{{ forloop.index }}</span>
-          <span class="popular-posts__title">{{ p.title }}</span>
+          <span class="popular-posts__body">
+            <span class="popular-posts__title">{{ p.title }}</span>
+            <span class="popular-posts__views">조회 {{ p.views }}</span>
+          </span>
         </a>
       </li>
     {%- endfor -%}
