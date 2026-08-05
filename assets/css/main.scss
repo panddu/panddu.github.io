@@ -1331,6 +1331,82 @@ body.is-sidebar-open { overflow: hidden; }
   }
 }
 
+// ===== Recent comments (레이아웃 느낌 확인용 — 목업) =====
+// related-posts와 동일한 반응형 패턴: 기본은 본문 폭 카드, 광폭에서 우측 fixed 패널.
+.recent-comments {
+  max-width: var(--maxw);
+  margin: 56px auto 28px;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.recent-comments__heading {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 14px;
+  font-weight: 800;
+}
+.recent-comments__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.recent-comments__link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--chip);
+    text-decoration: none;
+    .recent-comments__body { color: var(--accent); }
+  }
+}
+.recent-comments__body {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.recent-comments__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.recent-comments__author {
+  font-weight: 700;
+}
+
+@media (min-width: 1440px) {
+  .recent-comments {
+    position: fixed;
+    top: calc(var(--header-height) + 32px);
+    right: max(24px, calc(50% - 440px - 24px - 240px));
+    width: 240px;
+    max-width: 240px;
+    max-height: calc(100vh - var(--header-height) - 52px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 20px 18px;
+    z-index: 5;
+  }
+}
+
 // ===== Series index (전체 시리즈 카드) =====
 .series-index {
   display: grid;
@@ -1571,6 +1647,7 @@ body.is-sidebar-open { overflow: hidden; }
   .series-hero { padding: 24px 22px; border-radius: 14px; }
   .series-hero__title { font-size: 26px; }
   .related-posts { padding: 16px 18px; border-radius: 14px; }
+  .recent-comments { padding: 16px 18px; border-radius: 14px; }
   .post-nav { gap: 8px; }
   .post-nav__link { padding: 10px 12px; gap: 4px; }
   .post-nav__label { font-size: 11px; }

@@ -8,6 +8,9 @@
   {% include sidebar.html %}
   <main class="site-main">
     {{ content }}
+    {% unless page.layout == 'post' %}
+      {% include recent_comments.html %}
+    {% endunless %}
   </main>
   {% include footer.html %}
 
