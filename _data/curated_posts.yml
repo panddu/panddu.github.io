@@ -1,0 +1,13 @@
+# 홈 화면 상단 "PICK" 큐레이션.
+# url — site.posts 검색 키 (permalink 그대로).
+# note — 카드에 노출할 짧은 한 줄 추천 사유.
+# 오래 방치하면 옛 글이 박제되니 가끔 손봐줄 것.
+
+- url: /posts/2019/04/spammaker/
+  note: 블로그 스테디셀러, 아직도 은근히 찾아주시는 장난감
+
+- url: /posts/2026/08/panddu-ai-workflow/
+  note: 판뚜만의 4단 레이어 워크플로우 구축기
+
+- url: /posts/2026/08/ai-and-basic-skills/
+  note: AI 시대에 기본기 고민, 다들 한 번쯤은 해봤을 질문

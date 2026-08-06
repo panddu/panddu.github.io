@@ -9,7 +9,39 @@ layout: default
 
 {{ content }}
 
+<nav class="home-series-strip" aria-label="카테고리">
+  {%- for s in site.data.series -%}
+    {%- assign key = s[0] -%}
+    {%- assign meta = s[1] -%}
+    {%- assign category_posts = site.posts | where: "category", key -%}
+    {%- assign count = category_posts | size -%}
+    {%- assign latest = category_posts.first -%}
+    <a class="home-series-strip__chip" href="{{ '/series/' | append: key | append: '/' | relative_url }}" style="color: {{ meta.color }}; background: {{ meta.bg }};">{{ meta.display }} <span class="home-series-strip__count">{{ count }}</span>{%- if latest -%}{% include new_badge.html post=latest style="dot" %}{%- endif -%}</a>
+  {%- endfor -%}
+</nav>
+
+{%- assign curated = site.data.curated_posts -%}
+{%- if curated and curated.size > 0 -%}
+<section class="home-curated" aria-label="PICK">
+  <h2 class="section-title">PICK</h2>
+  <div class="home-curated__grid">
+    {%- for c in curated -%}
+      {%- assign p = site.posts | where: "url", c.url | first -%}
+      {%- if p -%}
+        <a class="home-curated__card" href="{{ p.url | relative_url }}">
+          {% include post_meta.html post=p show_new=true %}
+          <h3 class="home-curated__title">{{ p.title | escape }}</h3>
+          {%- if c.note -%}<p class="home-curated__note">{{ c.note }}</p>{%- endif -%}
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
 <section class="post-list">
   <h2 class="section-title">최근 글</h2>
-  {% include post_list.html posts=site.posts %}
+  {%- assign recent_posts = site.posts | slice: 0, 6 -%}
+  {% include post_list.html posts=recent_posts batch=6 %}
+  <a class="home-more-link" href="{{ '/posts/' | relative_url }}">전체 글 보기 →</a>
 </section>

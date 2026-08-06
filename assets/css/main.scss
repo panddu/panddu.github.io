@@ -340,6 +340,105 @@ a {
   font-size: 15px;
 }
 
+// ===== Home series strip (카테고리 한눈에 보기) =====
+// 좌측 사이드바가 항상 떠 있는 폭(1340px, sidebar 고정 전환 지점과 동일)에서는
+// 카테고리 정보가 이미 사이드바에 있어 중복 → 그 이상에서는 숨김.
+.home-series-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  // overflow-x: auto가 overflow-y도 clip으로 만들어서 N뱃지(top:0 위로 튀어나오는
+  // dot)가 잘림 — 위쪽 여유를 주고 margin으로 상쇄 (.home-curated__grid와 동일 패턴).
+  padding: 8px 0 4px;
+  margin: -8px 0 40px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@media (min-width: 1340px) {
+  .home-series-strip { display: none; }
+}
+.home-series-strip__chip {
+  position: relative;
+  flex: none;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: filter 0.15s ease, transform 0.15s ease;
+  &:hover { text-decoration: none; filter: brightness(0.95); transform: translateY(-2px); }
+}
+.home-series-strip__count {
+  opacity: 0.65;
+  font-weight: 600;
+}
+
+// ===== Home curated (PICK) =====
+.home-curated {
+  margin-bottom: 48px;
+}
+// 그리드(auto-fit) 대신 가로 스크롤 한 줄 — 픽 개수가 몇 개든 뷰포트별로
+// 마지막 줄이 어중간하게 남는 문제 자체가 없음. 칩 스트립과 동일 패턴.
+.home-curated__grid {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  // overflow-x: auto가 overflow-y도 clip으로 만들어버려서 카드 hover의
+  // translateY(-2px)가 위쪽 보더까지 잘라먹음 — 여유 공간을 주고 margin으로 상쇄.
+  padding: 4px 0;
+  margin-top: -4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+.home-curated__card {
+  display: block;
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    text-decoration: none;
+    border-color: rgba(91, 108, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+    .home-curated__title { color: var(--accent); }
+  }
+}
+.home-curated__title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  margin: 10px 0 6px;
+}
+.home-curated__note {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+// ===== Home "전체 글 보기" 링크 =====
+.home-more-link {
+  display: block;
+  text-align: center;
+  margin: 20px auto 0;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: color 0.15s ease;
+  &:hover { color: var(--accent); text-decoration: none; }
+}
+
 // ===== About hero =====
 .about-hero {
   text-align: center;
