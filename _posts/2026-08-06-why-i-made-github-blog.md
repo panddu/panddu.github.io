@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유"
+date: 2026-08-06 20:36:00 +0900
 category: tech
+excerpt: "편리한 플랫폼 대신 굳이 깃허브 블로그를 다시 만들어 운영하게 된 솔직한 이야기와, 깃허브 Actions·Giscus·GA4 API와 AI를 연동한 백엔드리스 블로그 자동화 구축기입니다."
 ---
 
 <div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
