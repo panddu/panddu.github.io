@@ -1995,4 +1995,77 @@ body.is-sidebar-open { overflow: hidden; }
   background: transparent !important;
 }
 
-
+/* ===== Mermaid Diagram Custom Theme (Supports Live Dark/Light Mode) ===== */
+.mermaid {
+  text-align: center;
+  margin: 36px 0;
+  
+  svg {
+    background: transparent !important;
+    font-family: inherit !important;
+    
+    /* 노드 본체 스타일: 블로그의 포인트 칩 색상과 악센트 테두리로 세련되게 변경 */
+    .node rect, 
+    .node circle, 
+    .node polygon, 
+    .node path,
+    .node ext {
+      fill: var(--chip) !important;
+      stroke: var(--accent) !important;
+      stroke-width: 1.5px !important;
+    }
+    
+    /* 노드 텍스트 스타일: SVG text는 color가 아닌 fill로 색상을 채워야 다크모드에서 글씨가 보입니다 */
+    .node .label, 
+    .node text, 
+    .node span {
+      color: var(--ink) !important;
+      fill: var(--ink) !important;
+      font-family: inherit !important;
+      font-size: 14.5px !important;
+      font-weight: 600 !important;
+    }
+    
+    /* 간선(선) 및 화살표 스타일 */
+    .edgePath .path {
+      stroke: var(--muted) !important;
+      stroke-width: 1.5px !important;
+      stroke-opacity: 0.8 !important;
+    }
+    
+    /* 화살표 머리 부분 */
+    .marker {
+      fill: var(--muted) !important;
+      stroke: none !important;
+    }
+    
+    /* 간선 라벨 박스 배경 및 보더 (HTML 및 SVG 렌더링 모두 대응) */
+    .edgeLabel rect {
+      fill: var(--bg) !important;
+      stroke: var(--line) !important;
+    }
+    
+    .edgeLabel,
+    .edgeLabel .label,
+    span.edgeLabel,
+    div.edgeLabel {
+      background-color: var(--bg) !important;
+      background: var(--bg) !important;
+      border: 1px solid var(--line) !important;
+      border-radius: 3px !important;
+      padding: 1px 4px !important;
+      display: inline-block !important;
+    }
+    
+    /* 간선 라벨 텍스트 */
+    .edgeLabel text, 
+    .edgeLabel span,
+    .edgeLabel div,
+    .edgeLabel .label {
+      color: var(--ink-soft) !important;
+      fill: var(--ink-soft) !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+    }
+  }
+}
