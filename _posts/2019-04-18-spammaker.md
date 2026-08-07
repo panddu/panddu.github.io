@@ -6,26 +6,59 @@ category: workroom
 excerpt: "글귀를 스팸체, 한국인전용체로 바꿔주는 미니 웹앱입니다."
 ---
 
-> 💡 이 글은 전에 운영하던 mingpd.github.io에서 마이그레이션된 글입니다.
-{: .migration-notice}
+<style>
+.spam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 20px 0; }
+.spam-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+.spam-card__label { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.spam-card__desc { margin: 0 0 10px; color: var(--ink-soft); }
+.spam-card__sample {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--code-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+  white-space: nowrap;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+.spam-frame { border: 1px solid var(--line, #e8eaf0); border-radius: 10px; overflow: hidden; margin: 20px 0 24px; }
 
-## 소개
+/* 모바일: 카드 박스를 한 겹 아예 없애고(배경/테두리/패딩 제거) 구분선만 남겨
+   .post > .spam-card > .spam-card__sample로 3겹 쌓이던 패딩을 2겹으로 줄임 */
+@media (max-width: 600px) {
+  .spam-grid { gap: 4px; }
+  .spam-card {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 14px 0;
+  }
+  .spam-card + .spam-card { border-top: 1px solid var(--line); }
+  .spam-card__sample { padding: 8px 10px; font-size: 0.88em; }
+  .spam-frame { border: none; border-radius: 0; margin: 16px 0 20px; }
+}
+</style>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 20px 0;">
-  <div style="background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;">
-    <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">스팸체</div>
-    <p style="margin: 0 0 10px; color: var(--ink-soft);">스팸체를 만들 수 있습니다.</p>
-    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; white-space: nowrap; overflow-x: auto; line-height: 1.6;">亼✣팸ღㅊㅔ✽를✚만✬들✏㐃✺있✪습L1딻.✮</div>
-  </div>
-  <div style="background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;">
-    <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">한국인전용체</div>
-    <p style="margin: 0 0 10px; color: var(--ink-soft);">한국인만 읽을 수 있는 글을 만들 수 있습니다.</p>
-    <div style="font-family: &quot;SF Mono&quot;, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--code-bg); border-radius: 8px; padding: 10px 12px; white-space: nowrap; overflow-x: auto; line-height: 1.6;">한국읹많 읽읊 수 있늕 글읊 많들 쑮 있습니땂.</div>
-  </div>
+<div class="spam-frame">
+  <iframe src="/assets/workroom/spammaker/widget.html" width="100%" height="540" frameborder="0" allow="clipboard-read" style="display:block;"></iframe>
 </div>
 
-<div style="border: 1px solid var(--line, #e8eaf0); border-radius: 10px; overflow: hidden; margin: 20px 0 24px;">
-  <iframe src="/assets/workroom/spammaker/widget.html" width="100%" height="630" frameborder="0" style="display:block;"></iframe>
+> 💡 전에 운영하던 mingpd.github.io에서 마이그레이션된 도구입니다.
+{: .migration-notice}
+
+## 기능 소개
+
+<div class="spam-grid">
+  <div class="spam-card">
+    <div class="spam-card__label">스팸체</div>
+    <p class="spam-card__desc">스팸체를 만들 수 있습니다.</p>
+    <div class="spam-card__sample">亼✣팸ღㅊㅔ✽를✚만✬들✏㐃✺있✪습L1딻.✮</div>
+  </div>
+  <div class="spam-card">
+    <div class="spam-card__label">한국인전용체</div>
+    <p class="spam-card__desc">한국인만 읽을 수 있는 글을 만들 수 있습니다.</p>
+    <div class="spam-card__sample">한국읹많 읽읊 수 있늕 글읊 많들 쑮 있습니땂.</div>
+  </div>
 </div>
 
 ## 변환 규칙

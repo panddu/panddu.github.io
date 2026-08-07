@@ -30,12 +30,23 @@ sitemap: false
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <style>
-    body { padding: 16px; }
+    /* main.css의 body 배경은 var(--bg)(페이지 배경)라 이 위젯을 감싸는 .post 카드의
+       var(--card)와 다른 톤 — 프레임 테두리가 없는 모바일에서 이질감이 드러나므로 맞춰줌 */
+    body { padding: 0 16px 16px; background: var(--card); }
     .spammaker { display: flex; flex-direction: column; gap: 8px; }
     .spammaker__label {
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
+    }
+    .spammaker__label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .spammaker__btn--small {
+      padding: 4px 10px;
+      font-size: 12px;
     }
     .spammaker__textarea {
       width: 100%;
@@ -84,6 +95,16 @@ sitemap: false
       background: var(--chip);
       color: var(--ink-soft);
     }
+    /* 스팸체: 스팸메일 특유의 알록달록한 느낌 */
+    .spammaker__btn--spam {
+      background: linear-gradient(135deg, #ff7a45, #ffc542);
+      color: #3a1e00;
+    }
+    /* 한국인전용체: 태극 문양 색상(홍/청)을 대각선으로 대비 */
+    .spammaker__btn--korean {
+      background: linear-gradient(135deg, #cd2e3a 50%, #0047a0 50%);
+      color: #fff;
+    }
     .spammaker__status {
       font-size: 13px;
       color: var(--accent);
@@ -111,6 +132,15 @@ sitemap: false
       color: var(--ink-soft);
       line-height: 1.5;
     }
+
+    /* 모바일: .spam-frame 테두리가 사라져 좌우 여백이 불필요해진 만큼 body 좌우
+       패딩을 0으로 없애 위젯 내용이 본문 텍스트와 같은 폭을 쓰게 함 */
+    @media (max-width: 480px) {
+      body { padding: 0 0 10px; }
+      .spammaker__textarea { padding: 10px 12px; }
+      .spammaker__notice { padding: 10px 12px; }
+      .spammaker__btn { padding: 9px 14px; }
+    }
   </style>
 </head>
 
@@ -118,23 +148,26 @@ sitemap: false
   <div class="spammaker">
     <div class="spammaker__notice">
       <span class="spammaker__notice-icon">⚠️</span>
-      <p>부디 재미로만 이용해주세요. 만든 글귀의 사용에 따른 책임은 개발자가 지지 않습니다.</p>
+      <p>재미로만 이용해 주세요. 사용에 따른 책임은 개발자가 지지 않습니다.</p>
     </div>
 
-    <label class="spammaker__label" for="text-source">바꾸려는 글귀</label>
-    <textarea id="text-source" class="spammaker__textarea" rows="6" maxlength="300" placeholder="바꾸려는 글귀를 입력하세요."></textarea>
+    <div class="spammaker__label-row">
+      <label class="spammaker__label" for="text-source">바꾸려는 글귀</label>
+      <button type="button" id="btn-paste" class="spammaker__btn spammaker__btn--ghost spammaker__btn--small">문구 붙여넣기</button>
+    </div>
+    <textarea id="text-source" class="spammaker__textarea" rows="4" maxlength="300" placeholder="바꾸려는 글귀를 입력하세요."></textarea>
 
     <div class="spammaker__actions">
-      <button type="button" class="spammaker__btn spammaker__btn--primary" data-mode="spam">스팸체</button>
-      <button type="button" class="spammaker__btn spammaker__btn--primary" data-mode="korean">한국인전용체</button>
-      <button type="button" id="btn-reset" class="spammaker__btn spammaker__btn--ghost">다시쓰기</button>
+      <button type="button" class="spammaker__btn spammaker__btn--spam" data-mode="spam">스팸체</button>
+      <button type="button" class="spammaker__btn spammaker__btn--korean" data-mode="korean">한국인전용체</button>
+      <button type="button" id="btn-reset" class="spammaker__btn spammaker__btn--ghost" style="margin-left: auto;">입력창 초기화</button>
     </div>
 
     <label class="spammaker__label" for="text-transformed">결과</label>
-    <textarea id="text-transformed" class="spammaker__textarea" rows="6"></textarea>
+    <textarea id="text-transformed" class="spammaker__textarea" rows="4"></textarea>
 
     <div class="spammaker__actions">
-      <button type="button" id="btn-copy" class="spammaker__btn spammaker__btn--primary">복사하기</button>
+      <button type="button" id="btn-copy" class="spammaker__btn spammaker__btn--primary">결과 복사하기</button>
       <span id="copy-status" class="spammaker__status" aria-live="polite"></span>
     </div>
   </div>
@@ -160,6 +193,19 @@ sitemap: false
     document.getElementById('btn-reset').addEventListener('click', function () {
       sourceEl.value = '';
       sourceEl.focus();
+    });
+
+    document.getElementById('btn-paste').addEventListener('click', function () {
+      if (!navigator.clipboard || !navigator.clipboard.readText) {
+        showStatus('이 브라우저는 붙여넣기 버튼을 지원하지 않아요.', true);
+        return;
+      }
+      navigator.clipboard.readText().then(function (text) {
+        sourceEl.value = text;
+        sourceEl.focus();
+      }, function () {
+        showStatus('붙여넣기 실패! 클립보드 권한을 확인해주세요.', true);
+      });
     });
 
     document.querySelectorAll('.spammaker__btn[data-mode]').forEach(function (btn) {
