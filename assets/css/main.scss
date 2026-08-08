@@ -21,6 +21,9 @@
   --answer-border: #e3e8ff;
   --num-bg: #eef0f4;
   --ring: rgba(255, 255, 255, 0.9);
+  --counsel-accent: #e11d48;
+  --counsel-bg: #fff1f3;
+  --counsel-border: rgba(225, 29, 72, 0.25);
   --maxw: 880px;
   --header-height: 68px;
   color-scheme: light;
@@ -46,6 +49,9 @@
   --answer-border: #2f3650;
   --num-bg: #2a3040;
   --ring: rgba(255, 255, 255, 0.06);
+  --counsel-accent: #fb7185;
+  --counsel-bg: rgba(251, 113, 133, 0.1);
+  --counsel-border: rgba(251, 113, 133, 0.3);
   color-scheme: dark;
 }
 // 명시 토글(dark)
@@ -424,6 +430,65 @@ a {
   font-size: 13.5px;
   color: var(--muted);
   line-height: 1.5;
+}
+
+// ===== Home 상담소 최신 답변 =====
+// PICK 카드형과 결을 달리해 제목 1줄짜리 세로 목록으로 — 상담소는 업로드가
+// 뜸해서(비정기) 카드보다는 가벼운 리스트 + "더보기"로 문답 카테고리 유도가 더 맞다.
+.home-counsel {
+  margin-bottom: 48px;
+}
+.home-counsel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.home-counsel__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  margin: 0 -10px;
+  border-radius: 8px;
+  color: var(--ink);
+  transition: background 0.15s ease;
+  &:hover {
+    text-decoration: none;
+    background: var(--counsel-bg);
+    .home-counsel__title { color: var(--counsel-accent); }
+  }
+}
+.home-counsel__icon {
+  flex: 0 0 auto;
+  font-size: 15px;
+  line-height: 1;
+}
+.home-counsel__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.home-counsel__date {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--muted);
+}
+.home-counsel__more {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--counsel-accent);
+  &:hover { text-decoration: underline; }
 }
 
 // ===== Home "전체 글 보기" 링크 =====

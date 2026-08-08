@@ -39,6 +39,26 @@ layout: default
 </section>
 {%- endif -%}
 
+{%- assign counsel_posts = site.posts | where: "category", "comms" | where_exp: "p", "p.title contains '뚜쪽상담소'" | slice: 0, 3 -%}
+{%- if counsel_posts and counsel_posts.size > 0 -%}
+<section class="home-counsel" aria-label="최근 문답">
+  <h2 class="section-title">최근 문답</h2>
+  <ul class="home-counsel__list">
+    {%- for post in counsel_posts -%}
+      <li>
+        <a class="home-counsel__row" href="{{ post.url | relative_url }}">
+          <span class="home-counsel__icon" aria-hidden="true">📮</span>
+          <span class="home-counsel__title">{{ post.title | escape }}</span>
+          {% include new_badge.html post=post %}
+          <time class="home-counsel__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+  <a class="home-counsel__more" href="{{ '/series/comms/' | relative_url }}">문답 전체 보기 →</a>
+</section>
+{%- endif -%}
+
 <section class="post-list">
   <h2 class="section-title">최근 글</h2>
   {%- assign recent_posts = site.posts | slice: 0, 6 -%}
