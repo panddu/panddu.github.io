@@ -39,7 +39,7 @@ layout: default
 </section>
 {%- endif -%}
 
-{%- assign counsel_posts = site.posts | where: "category", "comms" | where_exp: "p", "p.title contains '뚜쪽상담소'" | slice: 0, 3 -%}
+{%- assign counsel_posts = site.posts | where: "category", "comms" | slice: 0, 3 -%}
 {%- if counsel_posts and counsel_posts.size > 0 -%}
 <section class="home-counsel" aria-label="최근 문답">
   <h2 class="section-title">최근 문답</h2>
@@ -48,8 +48,10 @@ layout: default
       <li>
         <a class="home-counsel__row" href="{{ post.url | relative_url }}">
           <span class="home-counsel__icon" aria-hidden="true">📮</span>
-          <span class="home-counsel__title">{{ post.title | escape }}</span>
-          {% include new_badge.html post=post %}
+          <span class="home-counsel__title-wrap">
+            <span class="home-counsel__title">{{ post.title | escape }}</span>
+            {% include new_badge.html post=post %}
+          </span>
           <time class="home-counsel__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
         </a>
       </li>

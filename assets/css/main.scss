@@ -466,8 +466,14 @@ a {
   font-size: 15px;
   line-height: 1;
 }
-.home-counsel__title {
+.home-counsel__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   flex: 1 1 auto;
+  min-width: 0;
+}
+.home-counsel__title {
   min-width: 0;
   font-size: 14.5px;
   font-weight: 700;
