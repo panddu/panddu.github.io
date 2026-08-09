@@ -17,7 +17,7 @@ excerpt: "편리한 플랫폼 대신 굳이 GitHub 블로그를 다시 만들어
     </svg>
     <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash가 작성하였습니다</span>
   </div>
-  이 포스팅은 판교 뚜벅쵸의 일기장과 YouTube [뚜데] 대본을 통해 구축된 AI 글짓기 페르소나를 기반으로 작성되었습니다. 정적 블로그(Jekyll)에 댓글 및 인기글을 구현한 설계 과정과 모든 지표를 AI로 분석(<code>content-analysis</code>)하는 백엔드 없는 자동화 환경을 다루고 있습니다.
+  이 포스팅은 판교 뚜벅쵸의 일기장과 YouTube [<a href="https://www.youtube.com/playlist?list=PLwS0fW8o-CUlHM7LI40ir2QXxmh4d7D94" target="_blank" rel="noopener noreferrer">뚜데</a>] 대본을 통해 구축된 AI 글짓기 페르소나를 기반으로 작성되었습니다. 정적 블로그(Jekyll)에 댓글 및 인기글을 구현한 설계 과정과 모든 지표를 AI로 분석(<code>content-analysis</code>)하는 백엔드 없는 자동화 환경을 다루고 있습니다.
 </div>
 
 <div class="toc-box">
@@ -176,7 +176,7 @@ excerpt: "편리한 플랫폼 대신 굳이 GitHub 블로그를 다시 만들어
         </a>
       </div>
       <h3 style="margin: 0 0 6px 0; font-size: 16px; font-weight: 700; color: var(--ink);">Vanilla JS</h3>
-      <p style="margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5;">인기글 목록 노출 렌더링, 24시간 이내 포스트 'N' 마크(빨간점) 자동 판별/표시, 그리고 GoatCounter API 데이터를 비동기로 페치하여 방문자 수를 출력하는 동적 프론트엔드 기능을 수행합니다.</p>
+      <p style="margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5;">인기글 목록 노출 렌더링, 48시간 이내 포스트 'N' 마크(빨간점) 자동 판별/표시, 그리고 GoatCounter API 데이터를 비동기로 페치하여 방문자 수를 출력하는 동적 프론트엔드 기능을 수행합니다.</p>
     </div>
   </div>
 
@@ -218,7 +218,7 @@ YouTube 영상 하나 만들려면 정말 영혼을 갈아 넣어야 합니다.
 
 예전에는 블로그 글 하나 쓰려면 하얀 화면 붙잡고 한 시간 동안 머리를 쥐어짜야 했는데, 이제는 AI가 초안을 기가 막히게 잡아줍니다. 그냥 해주는 게 아니라 제 스타일대로 해줍니다. 
 
-제가 평소에 썼던 일기장이나 YouTube [뚜데] 시리즈 대본을 싹 긁어다가 AI에게 제 말투와 관점을 제대로 학습(페르소나 구축)시켜 놨거든요. 덕분에 제가 생각나는 아이디어나 기술적인 요점 몇 줄만 툭 던지면, 찰떡같이 제 톤앤매너로 글을 뽑아줍니다. 
+제가 평소에 썼던 일기장이나 YouTube [<a href="https://www.youtube.com/playlist?list=PLwS0fW8o-CUlHM7LI40ir2QXxmh4d7D94" target="_blank" rel="noopener noreferrer">뚜데</a>] 시리즈 대본을 싹 긁어다가 AI에게 제 말투와 관점을 제대로 학습(페르소나 구축)시켜 놨거든요. 덕분에 제가 생각나는 아이디어나 기술적인 요점 몇 줄만 툭 던지면, 찰떡같이 제 톤앤매너로 글을 뽑아줍니다. 
 
 심지어 예전에 방치되어 있던 블로그 두 곳의 글들도 AI를 시켜서 마이그레이션을 뚝딱 끝냈습니다. 포맷 변환 같은 귀찮은 노가다를 AI가 대신해주니, 아주 쉽게 새 블로그로 글들을 다 이관하고 판뚜 블로그 하나로 일원화에 성공할 수 있었습니다. 
 
@@ -274,7 +274,7 @@ DB가 없다 보니 사용자가 들어올 때마다 실시간 조회수가 긁�
 
 액션이 돌아서 갱신된 JSON을 GitHub 레포에 푸시하면, GitHub 페이지의 호스팅 인프라가 알아서 새 데이터를 기준으로 정적 블로그를 재빌드해서 뿌려주는 구조입니다.
 
-여기서 재미있는 부수 효과(Side effect)가 하나 더 생깁니다. 제 블로그는 포스트를 쓴 지 24시간 이내의 글에만 'N' 마크나 '빨간점(뉴뱃지)'을 띄우도록 빌드 타임스탬프 기반으로 설계되어 있습니다. 
+여기서 재미있는 부수 효과(Side effect)가 하나 더 생깁니다. 제 블로그는 포스트를 쓴 지 48시간 이내의 글에만 'N' 마크나 '빨간점(뉴뱃지)'을 띄우도록 빌드 타임스탬프 기반으로 설계되어 있습니다. 
 
 일반적인 정적 블로그라면 새 글을 올리지 않고 방치할 경우, 이미 작성한 지 며칠이 지난 글도 재빌드가 돌지 않아 빨간점이 계속 켜져 있는 문제가 발생합니다. 
 
