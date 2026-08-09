@@ -26,6 +26,6 @@ gh auth switch --hostname github.com --user panddu
 
 - **발행(`_drafts/` → `_posts/`) 시 타임스탬프**:
   - Front Matter의 `date:`는 초안을 처음 작성한 시각이 아니라 실제로 `_drafts/`에서 `_posts/`로 옮겨 발행하는 시각으로 설정합니다.
-  - 이 값이 "24시간 이내 새 글" N 배지(`_includes/new_badge.html`) 판정 기준이라, 초안 작성 시각을 그대로 쓰면 배지가 조기에 사라지거나 애초에 뜨지 않습니다.
+  - 이 값이 "최근 작성된 글" N 배지(`_includes/new_badge.html`, 48시간 이내 판정) 기준이라, 초안 작성 시각을 그대로 쓰면 배지가 조기에 사라지거나 애초에 뜨지 않습니다.
   - 이미 발행된 글의 `date`가 의심스러우면 `git log --all --name-status`로 `_drafts/<slug>.md` → `_posts/<date>-<slug>.md` rename 커밋 시각을 찾아 그 시각으로 정정합니다.
 

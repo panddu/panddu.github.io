@@ -10,6 +10,12 @@
       <span class="series-badge" style="color: {{ s.color }}; background: {{ s.bg }};">{{ s.display }}{% if include.post.series_no %} #{{ include.post.series_no }}{% endif %}</span>
     {%- endif -%}
   {%- endif -%}
-  <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y.%m.%d %H:%M:%S" }}</time>
+  {%- if linked -%}
+    {%- assign wdays = "일,월,화,수,목,금,토" | split: "," -%}
+    {%- assign widx = include.post.date | date: "%w" | plus: 0 -%}
+    <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y.%m.%d" }}({{ wdays[widx] }}) {{ include.post.date | date: "%H:%M" }}</time>
+  {%- else -%}
+    <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y.%m.%d" }}</time>
+  {%- endif -%}
   {%- if show_new -%}{% include new_badge.html post=include.post %}{%- endif -%}
 </div>
