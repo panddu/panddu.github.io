@@ -89,3 +89,5 @@ exclude:
   - vendor/
   - README.md
   - .bundle/
+  - board.html
+  - chat.html
