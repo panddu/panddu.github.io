@@ -1898,6 +1898,13 @@ body.is-sidebar-open { overflow: hidden; }
   // 푸터 한 줄 유지: 모바일에선 저작권 + 그 옆 separator 숨김 (헤더에 이미 사이트명 노출됨)
   .site-footer__copyright,
   .site-footer__sep--copy { display: none; }
+  // 카운터 자리수가 늘어나도 텍스트 줄이 깨지지 않도록, 소셜 아이콘을 아래 줄로 내려 텍스트 줄에 폭을 몰아준다
+  .site-footer__inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .site-footer__copy { text-align: center; }
 }
 
 // ===== Syntax Highlighting (base16.dark theme) =====
