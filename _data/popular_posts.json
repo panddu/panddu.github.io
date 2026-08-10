@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-08-10T00:29:25+09:00",
+  "generated_at": "2026-08-11T00:58:42+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 397
+      "views": 480
     },
     {
       "title": "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시",
       "url": "/posts/2026/08/panddu-ai-workflow/",
-      "views": 111
+      "views": 117
     },
     {
       "title": "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?",
       "url": "/posts/2026/08/ai-and-basic-skills/",
-      "views": 82
-    },
-    {
-      "title": "매일 이 계정주 부탁 들어주는 AI인데 현타 온다",
-      "url": "/posts/2026/06/ai-analysis-comm-style/",
-      "views": 46
+      "views": 104
     },
     {
       "title": "AI 코딩, 외국에선 비관적이라는데 정말 그럴까요?",
       "url": "/posts/2026/08/ai-coding-sentiment/",
-      "views": 46
+      "views": 86
+    },
+    {
+      "title": "완모 아기 단유 팁과 돌 이후 어린이집 등원 고민",
+      "url": "/posts/2026/08/weaning-and-daycare/",
+      "views": 65
     }
   ]
 }
