@@ -91,3 +91,6 @@ exclude:
   - .bundle/
   - board.html
   - chat.html
+  - CLAUDE.md
+  - migrate_brunch.py
+  - giscus.json
