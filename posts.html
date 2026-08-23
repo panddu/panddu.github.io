@@ -11,5 +11,10 @@ description: 판뚜 블로그의 모든 글을 최신순으로 모아봤어요.
 </section>
 
 <section class="post-list">
-  {% include post_list.html posts=site.posts %}
+  {%- comment -%}
+    batch를 크게 잡아 전체 글을 한 번에 노출한다. 기본값(10)이면 나머지가
+    .post-list__item--more로 display:none 처리돼서, 크롤러 입장에서 아카이브
+    전체가 JS "더보기" 뒤에 숨는 문제가 있었음.
+  {%- endcomment -%}
+  {% include post_list.html posts=site.posts batch=9999 %}
 </section>

@@ -9,5 +9,6 @@ layout: default
 
 <section class="post-list">
   {% assign series_posts = site.posts | where: "category", page.series_key %}
-  {% include post_list.html posts=series_posts %}
+  {%- comment -%} 카테고리는 최대 15개라 전부 펼쳐도 부담 없음 (posts.html과 동일 이유) {%- endcomment -%}
+  {% include post_list.html posts=series_posts batch=9999 %}
 </section>
