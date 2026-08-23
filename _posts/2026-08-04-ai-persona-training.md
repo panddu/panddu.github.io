@@ -13,20 +13,6 @@ excerpt: "영상 자동화 초안 품질에 놀랐다는 댓글 하나에, 판�
   </a>
 </p>
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#D97757" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <g>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
-      </g>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Claude Sonnet 5가 작성하였습니다</span>
-  </div>
-  이 포스팅은 판교 뚜벅쵸의 영상 스크립트·유튜브 답글로 만들어진 <b>'판뚜 페르소나'</b>와, 그 페르소나를 실제로 만든 과정이 담긴 <code>mingus-kit</code>·<code>mingus-studio</code> 워크로그를 함께 분석해 문체와 사고 흐름을 반영해 작성되었습니다.
-</div>
-
 <div class="toc-box">
   <p class="toc-title">목차</p>
   <ul>
@@ -221,3 +207,19 @@ AI·개발자 진로 얘기가 나오면 이 두 줄이 같이 참고 자료로 
 다만 이렇게 제 데이터를 정리해서 참고 자료로 쥐여주면, 매번 "저는 이런 톤으로 씁니다"를 처음부터 설명할 필요가 없어진다는 게 가장 큰 이득이라고 생각합니다. 다음에 또 비슷한 질문 주시면 이 글 링크로 답글 드려야겠네요.
 
 감사합니다.
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#D97757" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <g>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
+      </g>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Claude Sonnet 5와 함께 작성되었습니다</span>
+  </div>
+  이 포스팅은 판교 뚜벅쵸의 영상 스크립트·유튜브 답글로 만들어진 <b>'판뚜 페르소나'</b>와, 그 페르소나를 실제로 만든 과정이 담긴 <code>mingus-kit</code>·<code>mingus-studio</code> 워크로그를 함께 분석해 문체와 사고 흐름을 반영해 작성되었습니다.
+</div>

@@ -6,23 +6,6 @@ category: tech
 excerpt: "재신청한 지 2주 만에 다시 날아온 애드센스 리젝 메일. 수동 색인 요청조차 씹는 구글 봇에게 Google Indexing API로 수집 신호를 보내며 조심스레 결과를 기다려봅니다."
 ---
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <defs>
-        <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#9168C0"/>
-          <stop offset="50%" stop-color="#5684D1"/>
-          <stop offset="100%" stop-color="#DE6B48"/>
-        </linearGradient>
-      </defs>
-      <path fill="url(#gemini-grad)" d="M12 2a1 1 0 0 1 .968.756c.866 3.593 3.683 6.41 7.276 7.276a1 1 0 0 1 0 1.936c-3.593.866-6.41 3.683-7.276 7.276a1 1 0 0 1-1.936 0c-.866-3.593-3.683-6.41-7.276-7.276a1 1 0 0 1 0-1.936c3.593-.866 6.41-3.683 7.276-7.276A1 1 0 0 1 12 2z"/>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini와 함께 작성되었습니다</span>
-  </div>
-  2차 애드센스 낙방 통보를 받고, 여전히 풀리지 않는 색인 문제를 해결하기 위해 Google Indexing API라는 다소 낯선 방식을 적용해 본 시도에 대한 기록입니다.
-</div>
-
 <style>
   .toc-box {
     background: var(--surface, #f9fafb);
@@ -129,3 +112,22 @@ API를 활용해 수집 신호를 전송하긴 했지만, 이것을 쓴다고 �
 이 방법마저 통하지 않는다면 정말 텍스트 자체의 퀄리티나 사이트 전체의 구조를 근본적으로 다시 점검해야 할 것 같습니다. 
 
 일단은 구글 봇이 며칠 내로 사이트를 드나들며 색인을 갱신해 주기를 조용히 바라볼 뿐입니다. 며칠 뒤 검색 결과에 변화가 생기면 다시 그 결과를 정리해 보겠습니다. 이번엔 제발 좋은 소식으로 이어지기를 기대해 봅니다.
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <defs>
+        <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9168C0"/>
+          <stop offset="50%" stop-color="#5684D1"/>
+          <stop offset="100%" stop-color="#DE6B48"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#gemini-grad)" d="M12 2a1 1 0 0 1 .968.756c.866 3.593 3.683 6.41 7.276 7.276a1 1 0 0 1 0 1.936c-3.593.866-6.41 3.683-7.276 7.276a1 1 0 0 1-1.936 0c-.866-3.593-3.683-6.41-7.276-7.276a1 1 0 0 1 0-1.936c3.593-.866 6.41-3.683 7.276-7.276A1 1 0 0 1 12 2z"/>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini와 함께 작성되었습니다</span>
+  </div>
+  2차 애드센스 낙방 통보를 받고, 여전히 풀리지 않는 색인 문제를 해결하기 위해 Google Indexing API라는 다소 낯선 방식을 적용해 본 시도에 대한 기록입니다.
+</div>

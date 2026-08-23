@@ -6,20 +6,6 @@ category: tech
 excerpt: "애드센스 심사에서 '가치가 별로 없는 콘텐츠'로 리젝당한 뒤, 브런치·티스토리·구 깃헙 블로그에 흩어져 있던 흔적을 정리하고 재도전한 과정. 아직 결론은 안 났습니다."
 ---
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#D97706" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <g>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
-      </g>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Claude Sonnet 5와 함께 작성되었습니다</span>
-  </div>
-  Claude Code로 애드센스 리젝 원인을 실시간으로 진단(robots.txt, 사이트맵, 서치 콘솔 URL 검사 API 조회)하던 세션 로그와, 그 과정에서 나온 작업 워크로그를 바탕으로 정리한 글입니다.
-</div>
-
 <style>
   .toc-box {
     background: var(--surface, #f9fafb);
@@ -172,3 +158,19 @@ excerpt: "애드센스 심사에서 '가치가 별로 없는 콘텐츠'로 리�
 - [ ] (승인 시) 게시판·오픈채팅 링크 복구
 
 결과 나오는 대로 후속편으로 업데이트하겠습니다.
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#D97706" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <g>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
+      </g>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Claude Sonnet 5와 함께 작성되었습니다</span>
+  </div>
+  Claude Code로 애드센스 리젝 원인을 실시간으로 진단(robots.txt, 사이트맵, 서치 콘솔 URL 검사 API 조회)하던 세션 로그와, 그 과정에서 나온 작업 워크로그를 바탕으로 정리한 글입니다.
+</div>

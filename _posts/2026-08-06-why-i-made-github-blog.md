@@ -6,20 +6,6 @@ category: tech
 excerpt: "편리한 플랫폼 대신 굳이 GitHub 블로그를 다시 만들어 운영하게 된 솔직한 이야기와, GitHub Actions·Giscus·GA4 API와 AI를 연동한 백엔드리스 블로그 자동화 구축기입니다."
 ---
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#4B9CD3" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <g>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
-      </g>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash가 작성하였습니다</span>
-  </div>
-  이 포스팅은 판교 뚜벅쵸의 일기장과 YouTube [<a href="https://www.youtube.com/playlist?list=PLwS0fW8o-CUlHM7LI40ir2QXxmh4d7D94" target="_blank" rel="noopener noreferrer">뚜데</a>] 대본을 통해 구축된 AI 글짓기 페르소나를 기반으로 작성되었습니다. 정적 블로그(Jekyll)에 댓글 및 인기글을 구현한 설계 과정과 모든 지표를 AI로 분석(<code>content-analysis</code>)하는 백엔드 없는 자동화 환경을 다루고 있습니다.
-</div>
-
 <div class="toc-box">
   <p class="toc-title">목차</p>
   <ul>
@@ -330,3 +316,19 @@ DB가 없다 보니 사용자가 들어올 때마다 실시간 조회수가 긁�
 암튼, GitHub 블로그는 귀찮음을 감수할 만큼 충분히 매력적인 놀이터입니다. 
 
 혹시 블로그 개설을 망설이고 계신 분들이 있다면, AI 든든하게 옆에 끼고 한번 본인만의 아지트를 지어보시는 건 어떨까 싶습니다. 😄
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#4B9CD3" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <g>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
+      </g>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash와 함께 작성되었습니다</span>
+  </div>
+  이 포스팅은 판교 뚜벅쵸의 일기장과 YouTube [<a href="https://www.youtube.com/playlist?list=PLwS0fW8o-CUlHM7LI40ir2QXxmh4d7D94" target="_blank" rel="noopener noreferrer">뚜데</a>] 대본을 통해 구축된 AI 글짓기 페르소나를 기반으로 작성되었습니다. 정적 블로그(Jekyll)에 댓글 및 인기글을 구현한 설계 과정과 모든 지표를 AI로 분석(<code>content-analysis</code>)하는 백엔드 없는 자동화 환경을 다루고 있습니다.
+</div>

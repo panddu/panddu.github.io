@@ -6,20 +6,6 @@ category: tech
 excerpt: "유튜브와 블로그 API를 파이썬으로 연결해 데이터를 통째로 긁어보았습니다. 테크 영상의 패키징 딜레마와 블로그 교차 유입 시너지를 수치로 증명한 데이터 분석기입니다."
 ---
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#4B9CD3" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <g>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
-      </g>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash가 작성하였습니다</span>
-  </div>
-  이 포스팅은 판교 뚜벅쵸의 유튜브 채널 분석 스킬(<code>youtube</code>)과 블로그 방문 지표 분석 스킬(<code>blog-analytics</code>)의 실 데이터를 바탕으로, AI가 분석 흐름과 문체를 자연스럽게 녹여내어 작성했습니다.
-</div>
-
 <div class="toc-box">
   <p class="toc-title">목차</p>
   <ul>
@@ -210,3 +196,19 @@ excerpt: "유튜브와 블로그 API를 파이썬으로 연결해 데이터를 �
 <p>
 데이터를 분석하기 전에는 유튜브 조회수 하락에 섭섭해하고, 이제 막 문을 연 블로그에 사람이 오긴 오는 건지 막연하기만 했는데, API 데이터를 결합해 보니 두 플랫폼이 어떻게 톱니바퀴처럼 서로를 밀어주고 있는지, 그리고 블로그의 초기 유입이 어떤 모양으로 시작되고 있는지 명확하게 볼 수 있었습니다. 역시 느낌 대신 데이터에 질문을 던지는 것이 가장 확실한 성장의 열쇠인 것 같습니다.
 </p>
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#4B9CD3" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <g>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
+        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
+      </g>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash와 함께 작성되었습니다</span>
+  </div>
+  이 포스팅은 판교 뚜벅쵸의 유튜브 채널 분석 스킬(<code>youtube</code>)과 블로그 방문 지표 분석 스킬(<code>blog-analytics</code>)의 실 데이터를 바탕으로, AI가 분석 흐름과 문체를 자연스럽게 녹여내어 작성했습니다.
+</div>

@@ -9,24 +9,6 @@ excerpt: "기술 발전의 속도에 조급함을 느끼는 취준생분들을 �
 
 ![대표 썸네일](/assets/img/posts/2026-08-03/thumbnail.jpg)
 
-<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
-  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <defs>
-        <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1ba0fc" />
-          <stop offset="40%" stop-color="#8a3ffc" />
-          <stop offset="80%" stop-color="#e7347a" />
-          <stop offset="100%" stop-color="#f99f1b" />
-        </linearGradient>
-      </defs>
-      <path fill="url(#gemini-grad)" d="M12 2a1 1 0 0 1 .968.756c.866 3.593 3.683 6.41 7.276 7.276a1 1 0 0 1 0 1.936c-3.593.866-6.41 3.683-7.276 7.276a1 1 0 0 1-1.936 0c-.866-3.593-3.683-6.41-7.276-7.276a1 1 0 0 1 0-1.936c3.593-.866 6.41-3.683 7.276-7.276A1 1 0 0 1 12 2z"/>
-    </svg>
-    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash가 작성하였습니다</span>
-  </div>
-  이 포스팅은 판교 뚜벅쵸의 유튜브 댓글 및 대댓글을 바탕으로 <b>'판교 뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다.
-</div>
-
 <div class="toc-box">
   <p class="toc-title">목차</p>
   <ul>
@@ -146,3 +128,23 @@ JPA의 동작 원리와 영속성 컨텍스트, 그리고 인덱스(Index)의 �
 불안하고 지치는 취업 준비 기간이겠지만, 스스로의 속도를 믿고 묵묵히 뼈대를 세워가시기를 응원합니다. 저도 제 자리에서 제 코드를 짜며 계속 응원하겠습니다. 
 
 감사합니다.
+
+---
+
+<div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
+  <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
+    <svg viewBox="0 0 24 24" width="20" height="20" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <defs>
+        <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1ba0fc" />
+          <stop offset="40%" stop-color="#8a3ffc" />
+          <stop offset="80%" stop-color="#e7347a" />
+          <stop offset="100%" stop-color="#f99f1b" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#gemini-grad)" d="M12 2a1 1 0 0 1 .968.756c.866 3.593 3.683 6.41 7.276 7.276a1 1 0 0 1 0 1.936c-3.593.866-6.41 3.683-7.276 7.276a1 1 0 0 1-1.936 0c-.866-3.593-3.683-6.41-7.276-7.276a1 1 0 0 1 0-1.936c3.593-.866 6.41-3.683 7.276-7.276A1 1 0 0 1 12 2z"/>
+    </svg>
+    <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini 3.5 Flash와 함께 작성되었습니다</span>
+  </div>
+  이 포스팅은 판교 뚜벅쵸의 유튜브 댓글 및 대댓글을 바탕으로 <b>'판교 뚜벅쵸 페르소나'를 사전에 분석하여</b> 저 고유의 문체와 생각의 흐름을 반영해 작성되었습니다.
+</div>
