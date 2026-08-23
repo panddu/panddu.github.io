@@ -112,16 +112,11 @@ excerpt: "재신청한 지 2주 만에 다시 날아온 애드센스 리젝 메�
 
 구글은 채용 정보나 라이브 방송처럼 빠른 수집이 필요한 페이지들을 위해 **[Google Indexing API]**라는 색인 수집 API를 따로 열어두고 있습니다. 개인 블로그 글을 등록하는 용도로는 권장되지 않는 편이라고 하지만, 지금처럼 일반 수동 요청이 전혀 작동하지 않을 때는 지푸라기라도 잡는 심정으로 적용해 볼 만한 대안이었습니다.
 
-로컬 환경에 세팅되어 있던 GCP(Google Cloud Platform) 서비스 계정(`ga4-reader@ddu-family.iam.gserviceaccount.com`)을 활용해 설정을 시도해 보았습니다.
+로컬 환경에 세팅되어 있던 GCP(Google Cloud Platform) 서비스 계정을 활용해 설정을 시도해 보았습니다.
 
 1. **API 활성화**: GCP 콘솔에서 `Web Search Indexing API`를 사용 설정했습니다.
 2. **소유자 권한 부여**: 구글의 이전 관리자 페이지인 [웹마스터 센터](https://www.google.com/webmasters/verification/home)로 접속해, 서비스 계정 이메일을 블로그의 **[소유자(Owner)]**로 등록했습니다.
-3. **스크립트 실행**: 블로그 사이트맵(`sitemap.xml`)에서 모든 포스트 URL을 읽어와 구글 API 서버로 다이렉트 전송하는 파이썬 스크립트(`force_index.py`)를 돌려 보았습니다.
-
-```bash
-# 구글 봇에게 64개 URL을 실시간으로 강제 제출하는 파이썬 명령어
-~/.config/mingus-kit/.venv/bin/python3 skills/blog-analytics/scripts/force_index.py --key-path ~/.config/mingus-kit/ga4_service_account.json
-```
+3. **스크립트 실행**: 블로그 사이트맵(`sitemap.xml`)에서 모든 포스트 URL을 읽어와 구글 API 서버로 다이렉트 전송하는 파이썬 스크립트를 돌려 보았습니다.
 
 다행히 64개 URL 전체에 대해 전송 성공(`SUCCESS`) 응답이 떨어졌고, 구글 서버로 직접 색인 갱신 신호를 밀어 넣는 데까지는 완료했습니다.
 
