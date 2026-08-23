@@ -8,12 +8,8 @@ excerpt: "재신청한 지 2주 만에 다시 날아온 애드센스 리젝 메�
 
 <div style="background: var(--answer-bg, #f6f8ff); border: 1px solid var(--answer-border, #e3e8ff); border-radius: 8px; padding: 16px 20px; margin: 24px 0 28px; font-size: 14.5px; line-height: 1.6; color: var(--ink);">
   <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 8px; font-size: 15.5px; color: var(--ink);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#D97706" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
-      <g>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(60 12 12)"/>
-        <rect x="10.5" y="1" width="3" height="22" rx="1.5" transform="rotate(120 12 12)"/>
-      </g>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#5b6cff" style="flex-shrink: 0; display: inline-block; vertical-align: middle; margin-top: -2px;">
+      <path d="M12 2c0 5.523 4.477 10 10 10-5.523 0-10 4.477-10 10-5.523 0-10-4.477-10-10 5.523 0 10-4.477 10-10z"/>
     </svg>
     <span style="display: inline-block; vertical-align: middle;">이 글은 Gemini와 함께 작성되었습니다</span>
   </div>
