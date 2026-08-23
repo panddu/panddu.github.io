@@ -1,10 +1,15 @@
 title: 판뚜 · panddu
 tagline: 안녕하세요. 판교 뚜벅쵸입니다.
 description: >-
-  판교 뚜벅쵸 · 판뚜 · panddu
+  판교에서 일하는 개발자 판뚜의 블로그입니다. AI 도구 활용과 개발 실무 이야기,
+  영상에서 못 다한 이야기, 시청자 문답, 그리고 일상 기록을 남깁니다.
 author: 판뚜
 url: "https://panddu.github.io"
 baseurl: ""
+
+# jekyll-seo-tag가 og:locale에 쓰는 값. 미설정 시 en_US로 나가서 한국어 사이트인데
+# 영어 로케일로 잡히는 문제가 있었음. (<html lang="ko">는 BCP47 표기라 형식이 다름)
+lang: ko_KR
 
 # GitHub Pages 빌드 서버는 시스템 타임존이 UTC라서, 이 설정이 없으면
 # 포스트 날짜(front matter의 +0900)가 배포본에서 UTC로 표시되는 문제가 있었음.
