@@ -3,130 +3,19 @@ layout: post
 title: "뚜기쿤 첫돌 기념 Q&A 🎉"
 date: 2026-05-31 12:00:00 +0900
 category: comms
+excerpt: "뚜기쿤 첫돌을 기념해 받은 사연 38건 중 공개에 동의해주신 36건. 육아와 일의 균형, AI 시대의 공부법과 자격증의 쓸모, 권고사직 이후의 재취업까지 — 개발 이야기와 육아 이야기가 반반으로 섞인 문답입니다."
+extra_css: /assets/css/bq-report.css
 ---
 
-<p style="color:#6b7280;font-size:14px;">※ 총 38명 중 공개에 동의해주신 36명의 응답을 실었습니다. 답변 완료 36건</p>
+뚜기가 태어난 지 1년이 됐습니다. 기념으로 폼을 열었더니 38건이 들어왔고, 공개에 동의해주신 36건을 실었습니다.
 
-<style>
-.bq-report{--bq-ink:#1f2430;--bq-muted:#6b7280;--bq-accent:#5b6cff;--bq-line:#eef0f4;--bq-soft:#f7f8fc;margin:8px 0 32px;}
-.bq-report *{box-sizing:border-box;}
-.bq-catbar{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;}
-.bq-cat{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;transition:filter .12s ease,box-shadow .12s ease;}
-.bq-cat b{font-weight:800;margin-left:2px;}
-.bq-cat--none,.bq-q__cat--none{background:#f1f5f9;color:#475569;}
-.bq-cat:hover{filter:brightness(.95);}
-.bq-cat.is-active{box-shadow:0 0 0 2px currentColor inset;filter:brightness(.92);}
-.bq-q.is-hidden{display:none;}
-.bq-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;}
-.bq-chip{background:var(--chip);color:var(--accent);font-size:14px;font-weight:700;padding:5px 12px;border-radius:999px;text-decoration:none;transition:filter .12s ease;}
-.bq-chip:hover{filter:brightness(.92);}
-.bq-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
-.bq-q{scroll-margin-top:84px;background:#fff;border:1px solid var(--bq-line);border-radius:16px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);}
-.bq-q__head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
-.bq-q__head-main{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
-.bq-q__num{flex:none;min-width:30px;height:30px;padding:0 7px;border-radius:9px;background:var(--bq-accent);color:#fff;font-weight:700;font-size:14px;display:inline-flex;align-items:center;justify-content:center;}
-.bq-q__nick{font-weight:700;font-size:17px;letter-spacing:-.01em;}
-.bq-q__head-meta{display:flex;align-items:center;gap:8px;color:var(--bq-muted);font-size:13px;}
-.bq-meta__item{white-space:nowrap;}
-.bq-meta__item+.bq-meta__item::before{content:"·";margin-right:8px;opacity:.5;}
-.bq-q__cats{display:inline-flex;flex-wrap:wrap;gap:5px;}
-.bq-q__cat{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;}
-.bq-q__video{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;border:1px solid #dbe4ff;text-decoration:none;white-space:nowrap;transition:filter .12s ease,transform .12s ease;}
-.bq-q__video:hover{filter:brightness(.97);transform:translateY(-1px);}
-.bq-q__video--draft{cursor:default;opacity:.92;}
-.bq-q__tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
-.bq-tag{font-size:12.5px;padding:4px 10px;border-radius:8px;}
-.bq-tag--desc{background:var(--bq-soft);color:#374151;border:1px solid var(--bq-line);}
-.bq-tag--whom{background:#fff7ed;color:#b45309;border:1px solid #fde7c8;font-weight:600;}
-.bq-q__msg{background:linear-gradient(135deg,#fff7f9,#fef6ff);border:1px solid #fbe3ee;border-radius:12px;padding:12px 14px;margin-bottom:12px;}
-.bq-q__msg-label{display:inline-block;font-size:12px;font-weight:700;color:#c2418a;margin-bottom:6px;}
-.bq-q__msg-text{font-size:14.5px;line-height:1.7;color:#4b3a44;}
-.bq-q__qblock{margin-bottom:4px;}
-.bq-q__qlabel{display:inline-block;font-size:12.5px;font-weight:700;color:#3b48c7;margin-bottom:6px;}
-.bq-q__qtext{font-size:15px;line-height:1.78;color:var(--bq-ink);}
-.bq-q__qcap{display:none;}
-.bq-q__answer{margin-top:14px;padding-top:14px;border-top:1px dashed var(--bq-line);}
-.bq-q__alabel{display:inline-block;font-size:12.5px;font-weight:700;color:#166534;margin-bottom:6px;}
-.bq-q__atext{font-size:15px;line-height:1.78;color:#243329;background:#f3faf5;border-radius:10px;padding:12px 14px;}
-.bq-q__atext--pending{color:#94a3b8;font-style:italic;background:#f8fafc;}
-.bq-q__answer--pending .bq-q__alabel{color:#94a3b8;}
-@media (max-width:600px){.bq-q{padding:16px 15px;}.bq-q__nick{font-size:16px;}}
-:root[data-theme="dark"] .bq-q{background:#1a1d24;border-color:#2a2f3a;}
-:root[data-theme="dark"] .bq-q__qtext,:root[data-theme="dark"] .bq-q__nick,:root[data-theme="dark"] .bq-q__msg-text{color:#e5e7eb;}
-:root[data-theme="dark"] .bq-q__atext{background:#16241b;color:#d1fae5;}
-:root[data-theme="dark"] .bq-q__atext--pending{background:#1f2229;color:#8b95a3;}
-:root[data-theme="dark"] .bq-tag--desc{background:#23272f;color:#cbd5e1;border-color:#2a2f3a;}
-:root[data-theme="dark"] .bq-tag--whom{background:#3a2a12;color:#fcd9a8;border-color:#5a3f17;}
-:root[data-theme="dark"] .bq-q__video{background:#1f285a;color:#dbe4ff;border-color:#34408a;}
-:root[data-theme="dark"] .bq-q__msg{background:#2a2030;border-color:#4a2f44;}
-:root[data-theme="dark"] .bq-q__msg-label{color:#f08bc0;}
-:root[data-theme="dark"] .bq-q__qlabel{color:#a8b4ff;}
-:root[data-theme="dark"] .bq-q__alabel{color:#86efac;}
-:root[data-theme="dark"] .bq-cat--none,:root[data-theme="dark"] .bq-q__cat--none{background:#334155;color:#cbd5e1;}
-:root[data-theme="dark"] .bq-cat.is-active{box-shadow:0 0 0 2px currentColor inset,0 0 0 1px var(--card);filter:brightness(1.2);}
-@media (prefers-color-scheme:dark){
-:root:not([data-theme="light"]) .bq-q{background:#1a1d24;border-color:#2a2f3a;}
-:root:not([data-theme="light"]) .bq-q__qtext,:root:not([data-theme="light"]) .bq-q__nick,:root:not([data-theme="light"]) .bq-q__msg-text{color:#e5e7eb;}
-:root:not([data-theme="light"]) .bq-q__atext{background:#16241b;color:#d1fae5;}
-:root:not([data-theme="light"]) .bq-q__atext--pending{background:#1f2229;color:#8b95a3;}
-:root:not([data-theme="light"]) .bq-tag--desc{background:#23272f;color:#cbd5e1;border-color:#2a2f3a;}
-:root:not([data-theme="light"]) .bq-tag--whom{background:#3a2a12;color:#fcd9a8;border-color:#5a3f17;}
-:root:not([data-theme="light"]) .bq-q__video{background:#1f285a;color:#dbe4ff;border-color:#34408a;}
-:root:not([data-theme="light"]) .bq-q__msg{background:#2a2030;border-color:#4a2f44;}
-:root:not([data-theme="light"]) .bq-q__msg-label{color:#f08bc0;}
-:root:not([data-theme="light"]) .bq-q__qlabel{color:#a8b4ff;}
-:root:not([data-theme="light"]) .bq-q__alabel{color:#86efac;}
-:root:not([data-theme="light"]) .bq-cat--none,:root:not([data-theme="light"]) .bq-q__cat--none{background:#334155;color:#cbd5e1;}
-:root:not([data-theme="light"]) .bq-cat.is-active{box-shadow:0 0 0 2px currentColor inset,0 0 0 1px var(--card);filter:brightness(1.2);}
-}
-/* ===== 캡처/발표 모드 (영상 캡처용 한 장씩 보기) ===== */
-.bq-cap-toggle{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:13px;font-weight:700;color:#fff;background:#5b6cff;border:none;border-radius:999px;padding:7px 14px;cursor:pointer;margin:0 0 16px;}
-.bq-cap-toggle:hover{filter:brightness(.95);}
-.bq-cap{position:fixed;inset:0;z-index:9999;background:#0f1117;display:flex;align-items:center;justify-content:center;padding:6vh 6vw;}
-.bq-cap[hidden]{display:none;}
-.bq-cap__stage{display:flex;align-items:center;justify-content:center;}
-.bq-cap__frame{position:relative;width:min(1200px,92vw);aspect-ratio:16/9;max-height:86vh;background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.45);overflow:hidden;}
-.bq-cap__fit{position:absolute;top:0;left:0;width:100%;padding:30px 34px 36px;font-size:20px;}
-/* 프레임이 흰 박스라 카드 자체 배경/그림자/패딩 제거 */
-.bq-cap__frame .bq-q{background:transparent !important;border:none !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important;list-style:none !important;display:block !important;}
-/* 답변 영역은 캡처에서 통째로 제거 (영상 자막으로 대체) */
-.bq-cap__frame .bq-q__answer{display:none !important;}
-.bq-cap .bq-q__num{min-width:2em;height:2em;font-size:0.9em;border-radius:0.6em;}
-.bq-cap .bq-q__nick{font-size:1.35em;}
-.bq-cap .bq-q__cat{font-size:0.75em;padding:0.25em 0.65em;}
-.bq-cap .bq-q__head-meta,.bq-cap .bq-meta__item{font-size:0.85em;}
-.bq-cap .bq-q__qlabel,.bq-cap .bq-q__msg-label{font-size:0.85em;}
-.bq-cap .bq-q__qtext{font-size:1.3em;line-height:1.8;}
-.bq-cap .bq-q__msg-text{font-size:1.15em;line-height:1.75;}
-.bq-cap .bq-q__tags{margin-bottom:0.8em;}
-.bq-cap .bq-tag{font-size:0.75em;}
-/* 캡처 프레임은 항상 라이트(다크모드여도 흰 배경 가독성 유지) */
-.bq-cap__frame .bq-q__qtext,.bq-cap__frame .bq-q__nick,.bq-cap__frame .bq-q__msg-text{color:#1f2430 !important;}
-.bq-cap__frame .bq-q__qlabel{color:#3b48c7 !important;}
-.bq-cap__frame .bq-q__msg-label{color:#c2418a !important;}
-.bq-cap__frame .bq-q__head-meta,.bq-cap__frame .bq-meta__item{color:#6b7280 !important;}
-.bq-cap__frame .bq-tag--desc{background:#f7f8fc !important;color:#374151 !important;border-color:#eef0f4 !important;}
-.bq-cap__frame .bq-tag--whom{background:#fff7ed !important;color:#b45309 !important;border-color:#fde7c8 !important;}
-.bq-cap__frame .bq-q__msg{background:linear-gradient(135deg,#fff7f9,#fef6ff) !important;border-color:#fbe3ee !important;}
-/* 캡처용: 닉네임 줄에 메타·소개태그를 합쳐 한 줄로 (세로 공간 절약 → 위로 올림) */
-.bq-cap__frame .bq-q__head{margin-bottom:12px;}
-.bq-cap__frame .bq-q__head-main{gap:8px 12px;}
-/* 캡처 모드엔 상단에 03/35 카운터가 있어 카드 번호 뱃지는 숨김 → 닉네임 맨 왼쪽 */
-.bq-cap__frame .bq-q__num{display:none !important;}
-.bq-cap .bq-q__sumtag{display:inline-flex;align-items:center;font-size:0.78em;font-weight:700;color:#4f46e5;background:#eef2ff;border:1px solid #e0e3ff;border-radius:999px;padding:0.15em 0.7em;margin-left:0.5em;vertical-align:middle;}
-.bq-cap .bq-q__sumtag svg{width:0.95em;height:0.95em;margin-right:0.3em;flex:none;}
-.bq-cap__counter{position:fixed;top:24px;left:50%;transform:translateX(-50%);color:#cbd5e1;font-size:18px;font-weight:700;letter-spacing:.06em;}
-.bq-cap__hint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);color:#5b6678;font-size:13px;text-align:center;}
-.bq-cap__wm{position:fixed;bottom:18px;right:26px;color:#7c8699;font-size:15px;font-weight:700;}
-.bq-cap__close{position:fixed;top:18px;right:22px;width:40px;height:40px;border-radius:50%;border:none;background:#272c38;color:#cbd5e1;font-size:18px;cursor:pointer;}
-.bq-cap__close:hover{background:#343b4a;}
-.bq-cap__nav{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:none;background:#272c38;color:#e5e7eb;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.bq-cap__nav:hover{background:#3a4252;}
-.bq-cap__nav:disabled{opacity:.3;cursor:default;}
-.bq-cap__prev{left:24px;}
-.bq-cap__next{right:24px;}
-@media (max-width:600px){.bq-cap{padding:4vh 4vw;}.bq-cap__fit{padding:22px 20px 30px;}.bq-cap__nav{width:44px;height:44px;font-size:24px;}.bq-cap__prev{left:8px;}.bq-cap__next{right:8px;}}
-</style><style>.bq-cat--t0,.bq-q__cat--t0{background:#dbeafe;color:#1e40af;}:root[data-theme="dark"] .bq-cat--t0,:root[data-theme="dark"] .bq-q__cat--t0{background:#1e3a5f;color:#93c5fd;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t0,:root:not([data-theme="light"]) .bq-q__cat--t0{background:#1e3a5f;color:#93c5fd;}}.bq-cat--t1,.bq-q__cat--t1{background:#dcfce7;color:#166534;}:root[data-theme="dark"] .bq-cat--t1,:root[data-theme="dark"] .bq-q__cat--t1{background:#14532d;color:#86efac;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t1,:root:not([data-theme="light"]) .bq-q__cat--t1{background:#14532d;color:#86efac;}}.bq-cat--t2,.bq-q__cat--t2{background:#ffedd5;color:#9a3412;}:root[data-theme="dark"] .bq-cat--t2,:root[data-theme="dark"] .bq-q__cat--t2{background:#4a2f10;color:#fdba74;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t2,:root:not([data-theme="light"]) .bq-q__cat--t2{background:#4a2f10;color:#fdba74;}}.bq-cat--t3,.bq-q__cat--t3{background:#ffe4ef;color:#b3266b;}:root[data-theme="dark"] .bq-cat--t3,:root[data-theme="dark"] .bq-q__cat--t3{background:#4a1530;color:#f9a8d4;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t3,:root:not([data-theme="light"]) .bq-q__cat--t3{background:#4a1530;color:#f9a8d4;}}.bq-cat--t4,.bq-q__cat--t4{background:#ede9fe;color:#6d28d9;}:root[data-theme="dark"] .bq-cat--t4,:root[data-theme="dark"] .bq-q__cat--t4{background:#2e1065;color:#c4b5fd;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t4,:root:not([data-theme="light"]) .bq-q__cat--t4{background:#2e1065;color:#c4b5fd;}}.bq-cat--t5,.bq-q__cat--t5{background:#ccfbf1;color:#0f766e;}:root[data-theme="dark"] .bq-cat--t5,:root[data-theme="dark"] .bq-q__cat--t5{background:#0f3d38;color:#5eead4;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t5,:root:not([data-theme="light"]) .bq-q__cat--t5{background:#0f3d38;color:#5eead4;}}</style>
+기존 뚜쪽상담소와 질문 성격이 꽤 달랐습니다. 커리어 12건, 육아 9건, AI 8건, 일상 7건, 취준 5건, 연애 4건 — 개발 질문만 오던 곳에 **육아 질문이 두 번째로 많이 들어왔습니다.** 25년 6월생 아들을 키우는 육아휴직 중인 아빠, 곧 돌을 맞는 열무 부모님처럼 같은 시기를 지나는 분들이 안전가드나 아이 얼굴 공개 방침 같은 실제 살림 이야기를 물어주셨습니다. 육아와 개발 공부의 밸런스를 어떻게 잡느냐는 질문은 저도 답을 정하지 못한 채 답했습니다.
+
+**AI 질문 8건**은 1년 전 회차들과 결이 완전히 달라진 부분입니다. 예전엔 "ChatGPT로 만든 프로젝트를 써도 되나" 수준이었는데, 이번엔 자격증이 아직 쓸모가 있는지, AI 에이전트를 끼고 라이브코딩하는 이직 면접이 실제인지, MCP를 쓰려고 디바이스에 크리덴셜을 평문 저장하는 걸 보안 조직과 개발 조직이 다르게 보는 문제까지 올라왔습니다.
+
+커리어 쪽에서는 어려운 사연이 많았습니다. 경영 악화로 권고사직을 당하고 7개월째 재취업을 준비하는 2년차, 회사가 망해 쉰 지 2주 된 10년차, SI에서 납기에 급급해 코드 퀄리티에 회의감이 든 2년차. 반대로 만족스러운 회사에 다니면서도 3년이 되니 이직을 기계적으로 떠올리게 된다는 분도 있었습니다.
+
+<p style="color:#6b7280;font-size:14px;">※ 총 38명 중 공개에 동의해주신 36명의 응답을 실었습니다. 답변 완료 36건</p>
 
 <div class="bq-report">
   <button type="button" class="bq-cap-toggle" id="bqCapBtn">📹 캡처 모드 (한 장씩 보기)</button>
