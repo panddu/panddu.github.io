@@ -50,7 +50,6 @@
 .bq-q__atext{font-size:15px;line-height:1.78;color:#243329;background:#f3faf5;border-radius:10px;padding:12px 14px;}
 .bq-q__atext--pending{color:#94a3b8;font-style:italic;background:#f8fafc;}
 .bq-q__answer--pending .bq-q__alabel{color:#94a3b8;}
-@media (max-width:600px){.bq-q{padding:16px 15px;}.bq-q__nick{font-size:16px;}}
 :root[data-theme="dark"] .bq-q{background:#1a1d24;border-color:#2a2f3a;}
 :root[data-theme="dark"] .bq-q__qtext,:root[data-theme="dark"] .bq-q__nick,:root[data-theme="dark"] .bq-q__msg-text{color:#e5e7eb;}
 :root[data-theme="dark"] .bq-q__atext{background:#16241b;color:#d1fae5;}
@@ -129,3 +128,38 @@
 
 .bq-cat--t0,.bq-q__cat--t0{background:#dbeafe;color:#1e40af;}:root[data-theme="dark"] .bq-cat--t0,:root[data-theme="dark"] .bq-q__cat--t0{background:#1e3a5f;color:#93c5fd;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t0,:root:not([data-theme="light"]) .bq-q__cat--t0{background:#1e3a5f;color:#93c5fd;}}.bq-cat--t1,.bq-q__cat--t1{background:#dcfce7;color:#166534;}:root[data-theme="dark"] .bq-cat--t1,:root[data-theme="dark"] .bq-q__cat--t1{background:#14532d;color:#86efac;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t1,:root:not([data-theme="light"]) .bq-q__cat--t1{background:#14532d;color:#86efac;}}.bq-cat--t2,.bq-q__cat--t2{background:#ffedd5;color:#9a3412;}:root[data-theme="dark"] .bq-cat--t2,:root[data-theme="dark"] .bq-q__cat--t2{background:#4a2f10;color:#fdba74;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t2,:root:not([data-theme="light"]) .bq-q__cat--t2{background:#4a2f10;color:#fdba74;}}.bq-cat--t3,.bq-q__cat--t3{background:#ffe4ef;color:#b3266b;}:root[data-theme="dark"] .bq-cat--t3,:root[data-theme="dark"] .bq-q__cat--t3{background:#4a1530;color:#f9a8d4;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t3,:root:not([data-theme="light"]) .bq-q__cat--t3{background:#4a1530;color:#f9a8d4;}}.bq-cat--t4,.bq-q__cat--t4{background:#ede9fe;color:#6d28d9;}:root[data-theme="dark"] .bq-cat--t4,:root[data-theme="dark"] .bq-q__cat--t4{background:#2e1065;color:#c4b5fd;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t4,:root:not([data-theme="light"]) .bq-q__cat--t4{background:#2e1065;color:#c4b5fd;}}.bq-cat--t5,.bq-q__cat--t5{background:#ccfbf1;color:#0f766e;}:root[data-theme="dark"] .bq-cat--t5,:root[data-theme="dark"] .bq-q__cat--t5{background:#0f3d38;color:#5eead4;}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bq-cat--t5,:root:not([data-theme="light"]) .bq-q__cat--t5{background:#0f3d38;color:#5eead4;}}
 
+
+// ── 모바일(≤600px) 박스 걷어내기 ─────────────────────────────────────────────
+// .post가 이미 카드(배경+테두리+패딩)인데 .bq-q가 또 카드를 두르고 그 안에서
+// .bq-q__atext가 한 번 더 박스를 만든다. 좌우 패딩이 3겹 쌓여 390px 화면에서
+// 답변 텍스트 폭이 268px까지 줄었다 (counsel 포스트는 300px).
+//
+// counsel 쪽(.qna-*)은 421d779 "QnA 카드 삼중 박스 정리"에서 같은 처리를 받았는데,
+// 뚜기편 CSS는 그때 포스트 본문에 <style>로 인라인돼 있어서 손이 닿지 않았다.
+// 카드를 걷고 구분선만 남겨 counsel과 같은 폭(질문 328 / 답변 304)으로 맞춘다.
+//
+// 이 블록을 파일 맨 끝에 두는 이유: 다크모드 규칙 `:root[data-theme="dark"] .bq-q`가
+// 특이도 (0,3,0)이라 위쪽에 두면 배경이 안 지워진다. 같은 특이도로 뒤에서 덮는다.
+// 캡처 모드(.bq-cap__frame .bq-q)는 !important라 영향 없음.
+@media (max-width: 600px) {
+  .bq-list { gap: 0; }
+
+  .bq-q {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 16px 0;
+  }
+  :root[data-theme="dark"] .bq-q,
+  :root:not([data-theme="light"]) .bq-q { background: none; }
+
+  // 카드 대신 구분선. var(--line)은 main.scss에서 테마별로 정의돼 있음
+  .bq-q + .bq-q { border-top: 1px solid var(--line); }
+
+  .bq-q__nick { font-size: 16px; }
+
+  // 답변·쪽지 박스는 의미가 있어 남기고 좌우 패딩만 줄인다
+  .bq-q__atext,
+  .bq-q__msg { padding: 10px 12px; }
+}
