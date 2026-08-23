@@ -1,0 +1,49 @@
+---
+layout: default
+title: 페이지를 찾을 수 없어요
+permalink: /404.html
+description: 요청한 주소에 해당하는 페이지가 없습니다.
+sitemap: false
+noindex: true
+---
+
+<section class="series-hero">
+  <h1 class="series-hero__title">404</h1>
+  <p class="series-hero__desc muted">찾으시는 페이지가 없어요. 주소가 바뀌었거나 지워진 글일 수 있습니다.</p>
+</section>
+
+<section class="post-list">
+  <h2 class="section-title">이쪽으로 가보세요</h2>
+  <ul class="post-list__items">
+    <li class="post-list__item">
+      <a href="{{ '/' | relative_url }}" class="post-list__link">
+        <h3 class="post-list__heading">홈으로</h3>
+        <p class="post-list__excerpt">최근 글과 추천 글을 모아둔 첫 화면입니다.</p>
+      </a>
+    </li>
+    <li class="post-list__item">
+      <a href="{{ '/posts/' | relative_url }}" class="post-list__link">
+        <h3 class="post-list__heading">전체 글 {{ site.posts | size }}개</h3>
+        <p class="post-list__excerpt">지금까지 쓴 글을 최신순으로 모아봤어요.</p>
+      </a>
+    </li>
+    <li class="post-list__item">
+      <a href="{{ '/about/' | relative_url }}" class="post-list__link">
+        <h3 class="post-list__heading">소개</h3>
+        <p class="post-list__excerpt">판뚜는 누구이고 이 블로그는 어떤 공간인지.</p>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="post-list">
+  <h2 class="section-title">카테고리</h2>
+  <nav class="home-series-strip" aria-label="카테고리">
+    {%- for s in site.data.series -%}
+      {%- assign key = s[0] -%}
+      {%- assign meta = s[1] -%}
+      {%- assign count = site.posts | where: "category", key | size -%}
+      <a class="home-series-strip__chip" href="{{ '/series/' | append: key | append: '/' | relative_url }}" style="color: {{ meta.color }}; background: {{ meta.bg }};">{{ meta.display }} <span class="home-series-strip__count">{{ count }}</span></a>
+    {%- endfor -%}
+  </nav>
+</section>
