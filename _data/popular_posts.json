@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-09-01T05:39:17+09:00",
+  "generated_at": "2026-09-02T03:09:14+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1701
+      "views": 1700
     },
     {
       "title": "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시",
       "url": "/posts/2026/08/panddu-ai-workflow/",
-      "views": 199
-    },
-    {
-      "title": "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?",
-      "url": "/posts/2026/08/ai-and-basic-skills/",
-      "views": 180
+      "views": 181
     },
     {
       "title": "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유",
       "url": "/posts/2026/08/why-i-made-github-blog/",
-      "views": 173
+      "views": 176
+    },
+    {
+      "title": "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?",
+      "url": "/posts/2026/08/ai-and-basic-skills/",
+      "views": 158
     },
     {
       "title": "AI 코딩, 외국에선 비관적이라는데 정말 그럴까요?",
       "url": "/posts/2026/08/ai-coding-sentiment/",
-      "views": 150
+      "views": 151
     }
   ]
 }
