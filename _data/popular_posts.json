@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-18T03:48:58+09:00",
+  "generated_at": "2026-09-19T03:04:45+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1577
+      "views": 1548
     },
     {
       "title": "애드고시 리젝당하다 2편 - 수동 색인도 안 될 때의 또 다른 시도",
@@ -15,7 +15,7 @@
     {
       "title": "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유",
       "url": "/posts/2026/08/why-i-made-github-blog/",
-      "views": 84
+      "views": 75
     },
     {
       "title": "백엔드 개발자와 인프라 직무 전향 고민",
@@ -25,7 +25,7 @@
     {
       "title": "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시",
       "url": "/posts/2026/08/panddu-ai-workflow/",
-      "views": 71
+      "views": 66
     }
   ]
 }
