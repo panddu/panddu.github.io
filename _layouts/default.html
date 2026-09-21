@@ -225,6 +225,201 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
+
+    // ----- 이미지 라이트박스 줌 (본문 이미지 클릭 시 확대) -----
+    (function () {
+      var postContent = document.querySelector('.post-content');
+      if (!postContent) return;
+
+      var images = postContent.querySelectorAll('img');
+      if (!images.length) return;
+
+      // 라이트박스 DOM 생성
+      var lightbox = document.createElement('div');
+      lightbox.className = 'img-lightbox';
+      lightbox.setAttribute('role', 'dialog');
+      lightbox.setAttribute('aria-modal', 'true');
+      lightbox.setAttribute('aria-label', '이미지 크게 보기');
+
+      var closeBtn = document.createElement('button');
+      closeBtn.className = 'img-lightbox__close';
+      closeBtn.setAttribute('type', 'button');
+      closeBtn.setAttribute('aria-label', '닫기');
+      closeBtn.innerHTML = '&times;';
+
+      var bigImg = document.createElement('img');
+      bigImg.className = 'img-lightbox__img';
+
+      lightbox.appendChild(closeBtn);
+      lightbox.appendChild(bigImg);
+      document.body.appendChild(lightbox);
+
+      var scale = 1;
+      var posX = 0;
+      var posY = 0;
+      var startDist = 0;
+      var startScale = 1;
+      var startX = 0;
+      var startY = 0;
+      var isDragging = false;
+      var lastTap = 0;
+
+      function updateTransform(animate) {
+        if (animate) {
+          bigImg.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else {
+          bigImg.style.transition = 'none';
+        }
+        bigImg.style.transform = 'translate(' + posX + 'px, ' + posY + 'px) scale(' + scale + ')';
+      }
+
+      function resetTransform() {
+        scale = 1;
+        posX = 0;
+        posY = 0;
+        updateTransform(true);
+      }
+
+      function openLightbox(src, alt) {
+        bigImg.src = src;
+        bigImg.alt = alt || '';
+        resetTransform();
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(resetTransform, 250);
+      }
+
+      images.forEach(function (img) {
+        img.addEventListener('click', function () {
+          openLightbox(this.currentSrc || this.src, this.alt);
+        });
+      });
+
+      // 닫기 버튼 및 배경 클릭
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeLightbox();
+      });
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // ESC 키로 닫기
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          closeLightbox();
+        }
+      });
+
+      // ----- 터치 제스처 (핀치 줌, 드래그 이동, 더블 탭 확대) -----
+      function getDistance(t1, t2) {
+        var dx = t1.clientX - t2.clientX;
+        var dy = t1.clientY - t2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+      }
+
+      bigImg.addEventListener('touchstart', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (e.touches.length === 2) {
+          // 핀치 줌 시작
+          startDist = getDistance(e.touches[0], e.touches[1]);
+          startScale = scale;
+        } else if (e.touches.length === 1) {
+          // 싱글 터치 (이동 또는 더블탭 감지)
+          var now = Date.now();
+          if (now - lastTap < 300) {
+            // 더블 탭: 1배 <-> 2.5배 토글
+            if (scale > 1.2) {
+              resetTransform();
+            } else {
+              scale = 2.5;
+              posX = 0;
+              posY = 0;
+              updateTransform(true);
+            }
+            lastTap = 0;
+            return;
+          }
+          lastTap = now;
+
+          isDragging = true;
+          startX = e.touches[0].clientX - posX;
+          startY = e.touches[0].clientY - posY;
+        }
+      }, { passive: true });
+
+      bigImg.addEventListener('touchmove', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (e.touches.length === 2 && startDist > 0) {
+          e.preventDefault();
+          var currentDist = getDistance(e.touches[0], e.touches[1]);
+          // 핀치 감도 완화: 변화율을 55% 수준으로 댐핑하여 부드럽고 묵직하게 확대
+          var ratio = currentDist / startDist;
+          var dampedRatio = 1 + (ratio - 1) * 0.55;
+          var newScale = startScale * dampedRatio;
+          // 최소 1배 ~ 최대 3.5배 제한
+          scale = Math.min(Math.max(newScale, 0.95), 3.5);
+          updateTransform(false);
+        } else if (e.touches.length === 1 && isDragging && scale > 1.05) {
+          e.preventDefault();
+          posX = e.touches[0].clientX - startX;
+          posY = e.touches[0].clientY - startY;
+          updateTransform(false);
+        }
+      }, { passive: false });
+
+      bigImg.addEventListener('touchend', function (e) {
+        if (e.touches.length < 2) {
+          startDist = 0;
+        }
+        if (e.touches.length === 0) {
+          isDragging = false;
+          if (scale < 1.05) {
+            resetTransform();
+          }
+        }
+      }, { passive: true });
+
+      // PC 마우스 휠 줌: 스텝을 0.08로 대폭 완화하여 부드럽게 확대
+      bigImg.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        var delta = e.deltaY > 0 ? -0.08 : 0.08;
+        scale = Math.min(Math.max(scale + delta, 1), 3.5);
+        if (scale === 1) {
+          posX = 0;
+          posY = 0;
+        }
+        updateTransform(true);
+      }, { passive: false });
+
+      bigImg.addEventListener('mousedown', function (e) {
+        if (scale <= 1) return;
+        isDragging = true;
+        startX = e.clientX - posX;
+        startY = e.clientY - posY;
+      });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!isDragging || scale <= 1) return;
+        posX = e.clientX - startX;
+        posY = e.clientY - startY;
+        updateTransform(false);
+      });
+
+      window.addEventListener('mouseup', function () {
+        isDragging = false;
+      });
+    })();
   </script>
   <script defer src="{{ '/assets/js/qna.js' | relative_url }}"></script>
 </body>

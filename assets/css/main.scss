@@ -744,7 +744,15 @@ a {
     line-height: 1.5;
     code { background: transparent; padding: 0; color: inherit; }
   }
-  img { max-width: 100%; border-radius: 10px; }
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+    &:hover {
+      opacity: 0.95;
+    }
+  }
   hr {
     border: none;
     border-top: 1px solid var(--line);
@@ -2150,3 +2158,73 @@ body.is-sidebar-open { overflow: hidden; }
     }
   }
 }
+
+/* ==========================================================================
+   Image Lightbox Modal
+   ========================================================================== */
+.img-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(10, 12, 16, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+
+  touch-action: none;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__img {
+    max-width: 95vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    will-change: transform;
+    transform-origin: center center;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
+    }
+  }
+}
+
