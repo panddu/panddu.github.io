@@ -16,7 +16,9 @@ excerpt: "복직을 한 달 앞둔 개발자 아내가 아기 식단표를 짜�
 
 > 💡 *이 글은 JetBrains로부터 지원을 받아 제작된 영상을 요약하였습니다.*
 
-![아기 식판 채우려고 앱까지 만든 엄마](/assets/img/posts/2026-09-17/1.png)
+<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 24px 0; border-radius: 8px;">
+  <iframe src="https://www.youtube.com/embed/UItGOxVeKC4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+</div>
 
 얼마 전 유튜브 영상에서 말씀드렸듯이, 저는 AI 시대의 가장 큰 매력이 **"내가 필요한 도구를 내가 직접 빠르게 뚝딱 만들어 낼 수 있다는 점"**에 있다고 생각합니다.
 
