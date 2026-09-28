@@ -383,6 +383,20 @@ a {
   font-weight: 600;
 }
 
+// ===== 404 Not Found categories =====
+.notfound-categories {
+  margin-top: 48px;
+}
+@media (min-width: 1340px) {
+  .notfound-categories { display: none; }
+}
+.notfound-series-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0;
+}
+
 // ===== Home curated (PICK) =====
 .home-curated {
   margin-bottom: 48px;
