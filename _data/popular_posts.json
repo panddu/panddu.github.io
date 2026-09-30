@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-09-30T04:47:11+09:00",
+  "generated_at": "2026-10-01T04:50:49+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1438
+      "views": 1433
     },
     {
       "title": "백엔드 개발자와 인프라 직무 전향 고민",
       "url": "/posts/2026/08/backend-and-infra-counsel/",
-      "views": 59
+      "views": 60
     },
     {
       "title": "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?",
       "url": "/posts/2026/08/ai-and-basic-skills/",
-      "views": 43
+      "views": 45
     },
     {
       "title": "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유",
       "url": "/posts/2026/08/why-i-made-github-blog/",
-      "views": 40
+      "views": 42
     },
     {
-      "title": "애드고시 리젝당하다 2편 - 수동 색인도 안 될 때의 또 다른 시도",
-      "url": "/posts/2026/08/adsense-rejection-diary-2/",
-      "views": 34
+      "title": "DBA에게 참교육 당한 애플리케이션 개발자",
+      "url": "/posts/2019/10/app-developer-learned-by-dba/",
+      "views": 32
     }
   ]
 }
