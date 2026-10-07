@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-07T04:58:22+09:00",
+  "generated_at": "2026-10-08T05:24:42+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1484
+      "views": 1465
     },
     {
       "title": "백엔드 개발자와 인프라 직무 전향 고민",
@@ -15,17 +15,17 @@
     {
       "title": "AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?",
       "url": "/posts/2026/08/ai-and-basic-skills/",
-      "views": 41
+      "views": 42
     },
     {
       "title": "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유",
       "url": "/posts/2026/08/why-i-made-github-blog/",
-      "views": 37
+      "views": 39
     },
     {
       "title": "\\\"어차피 AI가 다 짤 텐데 코틀린이 뭔 상관? 님 밥통 5년 컷\\\" 댓글을 보고",
       "url": "/posts/2026/09/ai-coding-language-and-developer-future/",
-      "views": 31
+      "views": 34
     }
   ]
 }
