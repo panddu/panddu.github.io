@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-10-26T03:08:14+09:00",
+  "generated_at": "2026-10-27T05:18:11+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1437
+      "views": 1447
     },
     {
       "title": "\\\"어차피 AI가 다 짤 텐데 코틀린이 뭔 상관? 님 밥통 5년 컷\\\" 댓글을 보고",
       "url": "/posts/2026/09/ai-coding-language-and-developer-future/",
-      "views": 52
-    },
-    {
-      "title": "백엔드 개발자와 인프라 직무 전향 고민",
-      "url": "/posts/2026/08/backend-and-infra-counsel/",
-      "views": 36
+      "views": 53
     },
     {
       "title": "AI 코딩 시대와 IDE의 필요성에 대한 생각",
       "url": "/posts/2026/10/ai-and-ide-necessity/",
-      "views": 35
+      "views": 40
     },
     {
-      "title": "복직 앞두고 Kotlin한테 육아 도우미 시킨 개발자 엄마의 사연 (feat. JetBrains)",
-      "url": "/posts/2026/09/baby-meal-planner-kotlin/",
-      "views": 30
+      "title": "백엔드 개발자와 인프라 직무 전향 고민",
+      "url": "/posts/2026/08/backend-and-infra-counsel/",
+      "views": 33
+    },
+    {
+      "title": "AI 시대에 내가 굳이 깃헙 블로그를 만든 이유",
+      "url": "/posts/2026/08/why-i-made-github-blog/",
+      "views": 28
     }
   ]
 }
