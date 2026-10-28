@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "구독료 없는 AI 녹음기? 서앤오 AI 캡슐"
-date: 2026-10-28 20:00:00 +0900
+date: 2026-10-28 20:00:08 +0900
 category: review
 image: /assets/img/posts/2026-10-28/thumbnail.png
 excerpt: "별도 구독료 없이 자체 GPU 서버로 AI 전사·요약을 제공하고, Claude·ChatGPT 플러그인과 MCP까지 지원하는 국산 AI 녹음기 '서앤오' 사용 후기와 영상 소개입니다."
