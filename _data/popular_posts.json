@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-30T05:03:57+09:00",
+  "generated_at": "2026-10-31T04:50:34+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1390
+      "views": 1343
     },
     {
       "title": "AI 코딩 시대와 IDE의 필요성에 대한 생각",
@@ -18,13 +18,13 @@
       "views": 38
     },
     {
-      "title": "백엔드 개발자와 인프라 직무 전향 고민",
-      "url": "/posts/2026/08/backend-and-infra-counsel/",
-      "views": 27
-    },
-    {
       "title": "애드고시 리젝당하다 1편",
       "url": "/posts/2026/08/adsense-rejection-diary-1/",
+      "views": 22
+    },
+    {
+      "title": "백엔드 개발자와 인프라 직무 전향 고민",
+      "url": "/posts/2026/08/backend-and-infra-counsel/",
       "views": 22
     }
   ]
