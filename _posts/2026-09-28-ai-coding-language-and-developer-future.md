@@ -95,7 +95,7 @@ excerpt: "\"AI 시대에 언어가 무의미하다\", \"자바에 널세이프�
 
 댓글을 보고 피식 웃음이 났습니다.
 
-우선 제 밥통 유효기간을 5년이나 넉넉하게 잡아주셔서 진심으로 감사하다는 말씀부터 드리고 싶습니다. 솔직히 요즘 AI 모델 발전 속도를 보면 5년이면 너무 관대하신 거 아닌가 싶거든요. 전 한 2년 봤는데 말이죠. 5년이면 저희 집 아들 은호 유치원 졸업하고 초등학교 들어갈 때까지는 먹여 살릴 수 있는 시간이라 오히려 안도감이 들 지경입니다.
+우선 제 밥통 유효기간을 5년이나 넉넉하게 잡아주셔서 진심으로 감사하다는 말씀부터 드리고 싶습니다. 솔직히 요즘 AI 모델 발전 속도를 보면 5년이면 너무 관대하신 거 아닌가 싶거든요. 전 한 2년 봤는데 말이죠. 5년이면 저희 집 아들 뚜기 유치원 졸업하고 초등학교 들어갈 때까지는 먹여 살릴 수 있는 시간이라 오히려 안도감이 들 지경입니다.
 
 이 댓글에는 사실 **현재 많은 개발자와 입문자분들이 AI 코딩을 바라보는 3가지 핵심 쟁점**이 모두 압축되어 있습니다.
 
@@ -194,12 +194,12 @@ AI가 발전해서 제 밥통이 2년 뒤에 깨질지, 5년 뒤에 깨질지는
 
 2년이든 5년이든 제 밥통의 수명이 언제까지일지는 모르겠지만, 적어도 그 시간 동안 저는 AI라는 강력한 부사수를 옆에 끼고 예전 같으면 상상도 못 했을 속도로 문제를 해결해 나갈 생각입니다.
 
-아내와 함께 주말에 식단표 앱을 뚝딱 만들고, 레거시 코드를 정리하고, 아낀 시간으로 아들 은호랑 놀이터에서 미끄럼틀 한 번 더 타는 것. 
+아내와 함께 주말에 식단표 앱을 뚝딱 만들고, 레거시 코드를 정리하고, 아낀 시간으로 아들 뚜기랑 놀이터에서 미끄럼틀 한 번 더 타는 것. 
 
 AI 시대에 우리가 취해야 할 태도는 막연한 공포나 시니컬한 방관이 아니라, **"이 기가 막힌 도구로 오늘 내 삶의 어떤 문제를 더 빠르고 재밌게 풀 것인가"**에 집중하는 게 아닐까 싶습니다.
 
 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0 16px; border-radius: 8px;">
-  <iframe src="https://www.youtube.com/embed/UItGOxVeKC4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+  <iframe src="https://www.youtube.com/embed/UItGOxVeKC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
 </div>
 
 <p style="margin: 0 0 28px;">

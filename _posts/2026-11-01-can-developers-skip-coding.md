@@ -173,7 +173,7 @@ excerpt: "데이터 분산과 아키텍처 설계는 시니어급인데, 자바�
 팀원들과 회의실에서 피 터지게(?) 나눈 실제 토론과 재현 영상은 아래 유튜브 채널에서 풀버전으로 시청하실 수 있습니다!
 
 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 24px 0 16px; border-radius: 8px;">
-  <iframe src="https://www.youtube.com/embed/SDbYbAoKoC4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+  <iframe src="https://www.youtube.com/embed/SDbYbAoKoC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
 </div>
 
 <p style="margin: 0 0 28px;">
