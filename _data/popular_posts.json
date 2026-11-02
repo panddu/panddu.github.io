@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-11-02T04:21:50+09:00",
+  "generated_at": "2026-11-03T07:58:57+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1314
+      "views": 1328
     },
     {
       "title": "AI 코딩 시대와 IDE의 필요성에 대한 생각",
       "url": "/posts/2026/10/ai-and-ide-necessity/",
-      "views": 52
+      "views": 50
     },
     {
       "title": "\\\"어차피 AI가 다 짤 텐데 코틀린이 뭔 상관? 님 밥통 5년 컷\\\" 댓글을 보고",
       "url": "/posts/2026/09/ai-coding-language-and-developer-future/",
-      "views": 40
+      "views": 39
     },
     {
       "title": "애드고시 리젝당하다 1편",
@@ -23,9 +23,9 @@
       "views": 22
     },
     {
-      "title": "백엔드 개발자와 인프라 직무 전향 고민",
-      "url": "/posts/2026/08/backend-and-infra-counsel/",
-      "views": 22
+      "title": "Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시",
+      "url": "/posts/2026/08/panddu-ai-workflow/",
+      "views": 21
     }
   ]
 }
