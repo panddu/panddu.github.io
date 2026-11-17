@@ -4,6 +4,35 @@
 
 `main`에 push하면 GitHub Pages가 자동 빌드해서 https://panddu.github.io 에 올림.
 
+## 바로가기 및 최근 포스트 (2026)
+
+- **메인 / 소개**: [홈](https://panddu.github.io/) · [전체 글 목록](https://panddu.github.io/posts/) · [소개](https://panddu.github.io/about/) · [개인정보처리방침](https://panddu.github.io/privacy/)
+- **카테고리**: [테크](https://panddu.github.io/series/tech/) · [에세이](https://panddu.github.io/series/essay/) · [문답](https://panddu.github.io/series/comms/) · [리뷰](https://panddu.github.io/series/review/) · [일상](https://panddu.github.io/series/daily/) · [작업실](https://panddu.github.io/series/workroom/)
+
+### 2026 오리지널 포스트
+- 2026.11.16 — [“저희 프로젝트 규모가 너무 작은가요?” IDE 스크린타임 영상 후 받은 메일 한 통](https://panddu.github.io/posts/2026/11/a-letter-from-junior-about-ide-and-scale/)
+- 2026.11.15 — [“진짜 IDE 안 써요?” 댓글 보고 판교 개발팀 스크린타임 까봤습니다](https://panddu.github.io/posts/2026/11/why-developers-dont-use-ide/)
+- 2026.11.06 — [AI가 내 커밋 1,100개와 에이전트 기록을 털어 연봉을 감정했다](https://panddu.github.io/posts/2026/11/ai-salary-appraisal/)
+- 2026.11.05 — ["코딩 몰라도 된다 vs 기본기 필수" 댓글 91개 까봤습니다 (2:1의 비밀)](https://panddu.github.io/posts/2026/11/coding-debate-comments-stats/)
+- 2026.11.01 — ["개발 지식은 높은데 코딩을 아예 못 한다?" 뽑는다 vs 안 뽑는다](https://panddu.github.io/posts/2026/11/can-developers-skip-coding/)
+- 2026.10.28 — [구독료 없는 AI 녹음기? 서앤오 AI 캡슐](https://panddu.github.io/posts/2026/10/seonoh-ai-recorder/)
+- 2026.10.02 — [AI 코딩 시대와 IDE의 필요성에 대한 생각](https://panddu.github.io/posts/2026/10/ai-and-ide-necessity/)
+- 2026.09.28 — ["어차피 AI가 다 짤 텐데 코틀린이 뭔 상관? 님 밥통 5년 컷" 댓글을 보고](https://panddu.github.io/posts/2026/09/ai-coding-language-and-developer-future/)
+- 2026.09.27 — [복직 앞두고 Kotlin한테 육아 도우미 시킨 개발자 엄마의 사연 (feat. JetBrains)](https://panddu.github.io/posts/2026/09/baby-meal-planner-kotlin/)
+- 2026.08.23 — [애드고시 리젝당하다 2편 - 수동 색인도 안 될 때의 또 다른 시도](https://panddu.github.io/posts/2026/08/adsense-rejection-diary-2/)
+- 2026.08.16 — [백엔드 개발자와 인프라 직무 전향 고민](https://panddu.github.io/posts/2026/08/backend-and-infra-counsel/)
+- 2026.08.12 — [애드고시 리젝당하다 1편](https://panddu.github.io/posts/2026/08/adsense-rejection-diary-1/)
+- 2026.08.09 — [완모 아기 단유 팁과 돌 이후 어린이집 등원 고민](https://panddu.github.io/posts/2026/08/weaning-and-daycare/)
+- 2026.08.08 — [AI 코딩, 외국에선 비관적이라는데 정말 그럴까요?](https://panddu.github.io/posts/2026/08/ai-coding-sentiment/)
+- 2026.08.06 — [AI 시대에 내가 굳이 깃헙 블로그를 만든 이유](https://panddu.github.io/posts/2026/08/why-i-made-github-blog/)
+- 2026.08.05 — [뇌피셜 대신 구글 API로: 유튜브와 블로그 지표의 숨겨진 상관관계 분석](https://panddu.github.io/posts/2026/08/contents-analytics-api-correlation/)
+- 2026.08.04 — [영상 초안 뽑기 자동화, AI한테 대체 어떻게 학습시킨 걸까요?](https://panddu.github.io/posts/2026/08/ai-persona-training/)
+- 2026.08.03 — [AI는 너무 빠른데 기본기는 조급하고.. 무엇을 더 해야 할까요?](https://panddu.github.io/posts/2026/08/ai-and-basic-skills/)
+- 2026.08.02 — [Kotlin으로 LLM 연동부터 Whisper 자막 자동화, QnA 분류까지 나의 AI 활용 예시](https://panddu.github.io/posts/2026/08/panddu-ai-workflow/)
+- 2026.06.25 — [매일 이 계정주 부탁 들어주는 AI인데 현타 온다](https://panddu.github.io/posts/2026/06/ai-analysis-comm-style/)
+- 2026.06.19 — [AI가 내 대화 기록 다 털어서 개발자 평가를 내렸다](https://panddu.github.io/posts/2026/06/developer-profile-analysis/)
+- 2026.05.31 — [뚜기쿤 첫돌 기념 Q&A 🎉](https://panddu.github.io/posts/2026/05/ddugi-first-birthday/)
+
 ## 로컬에서 미리보기
 
 ### 1회 셋업 (이미 설치돼 있으면 스킵)
