@@ -10,6 +10,7 @@
 - **카테고리**: [테크](https://panddu.github.io/series/tech/) · [에세이](https://panddu.github.io/series/essay/) · [문답](https://panddu.github.io/series/comms/) · [리뷰](https://panddu.github.io/series/review/) · [일상](https://panddu.github.io/series/daily/) · [작업실](https://panddu.github.io/series/workroom/)
 
 ### 2026 오리지널 포스트
+- 2026.11.22 — [코드.. 이제 사람이 못 봐요.. AI 정착 후 생존 경쟁이 되어버린 판교 IT 회사 분위기](https://panddu.github.io/posts/2026/11/code-review-and-ai-competition/)
 - 2026.11.18 — [개발자는 왜 맥북을 쓸까? 윈도우 쓰는 취준생의 장비 고민](https://panddu.github.io/posts/2026/11/developer-macbook-and-job-prep/)
 - 2026.11.16 — [“저희 프로젝트 규모가 너무 작은가요?” IDE 스크린타임 영상 후 받은 메일 한 통](https://panddu.github.io/posts/2026/11/a-letter-from-junior-about-ide-and-scale/)
 - 2026.11.15 — [“진짜 IDE 안 써요?” 댓글 보고 판교 개발팀 스크린타임 까봤습니다](https://panddu.github.io/posts/2026/11/why-developers-dont-use-ide/)
