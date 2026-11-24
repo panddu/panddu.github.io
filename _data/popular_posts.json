@@ -1,16 +1,21 @@
 {
-  "generated_at": "2026-11-24T10:59:41+09:00",
+  "generated_at": "2026-11-25T08:45:22+09:00",
   "period_days": 28,
   "posts": [
     {
       "title": "스팸체 생성기",
       "url": "/posts/2019/04/spammaker/",
-      "views": 1566
+      "views": 1587
     },
     {
       "title": "매일 이 계정주 부탁 들어주는 AI인데 현타 온다",
       "url": "/posts/2026/06/ai-analysis-comm-style/",
-      "views": 153
+      "views": 184
+    },
+    {
+      "title": "코드.. 이제 사람이 못 봐요.. AI 정착 후 생존 경쟁이 되어버린 판교 IT 회사 분위기",
+      "url": "/posts/2026/11/code-review-and-ai-competition/",
+      "views": 54
     },
     {
       "title": "AI 코딩 시대와 IDE의 필요성에 대한 생각",
@@ -18,14 +23,9 @@
       "views": 47
     },
     {
-      "title": "AI가 내 커밋 1,100개와 에이전트 기록을 털어 연봉을 감정했다",
-      "url": "/posts/2026/11/ai-salary-appraisal/",
-      "views": 32
-    },
-    {
       "title": "개발자는 왜 맥북을 쓸까? 윈도우 쓰는 취준생의 장비 고민",
       "url": "/posts/2026/11/developer-macbook-and-job-prep/",
-      "views": 32
+      "views": 40
     }
   ]
 }
