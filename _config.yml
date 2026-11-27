@@ -7,9 +7,9 @@ author: 판뚜
 url: "https://panddu.github.io"
 baseurl: ""
 
-# jekyll-seo-tag가 og:locale에 쓰는 값. 미설정 시 en_US로 나가서 한국어 사이트인데
-# 영어 로케일로 잡히는 문제가 있었음. (<html lang="ko">는 BCP47 표기라 형식이 다름)
-lang: ko_KR
+# BCP47 표준 하이픈 표기(ko-KR)를 사용해야 jekyll-feed의 feed.xml(xml:lang, hreflang)이
+# 스펙을 준수하며, jekyll-seo-tag는 내부적으로 .tr("-", "_")를 수행해 og:locale="ko_KR"로 출력함.
+lang: ko-KR
 
 # GitHub Pages 빌드 서버는 시스템 타임존이 UTC라서, 이 설정이 없으면
 # 포스트 날짜(front matter의 +0900)가 배포본에서 UTC로 표시되는 문제가 있었음.
